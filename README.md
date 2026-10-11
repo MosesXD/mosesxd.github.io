@@ -1,20 +1,45 @@
-# Moses' Hub
+# Moses' Hub 
 
-My personal website: a hub for my projects, gaming, gallery, and links. I'm building it while learning web development.
+Hey, welcome to my little corner of the internet.
 
-**Live site:** paste your GitHub Pages link here
+Moses' Hub is my personal website where I bring together my projects, interests, experiments, and random ideas I'm working on. It's also part of my journey into web development.
 
-## Files
-- `index.html`: page structure and content
-- `style.css`: design and layout
-- `script.js`: small interactive features (mobile menu, footer year)
-- `CHANGELOG.md`: log of every version and change
+I'm still learning, so this project is basically my playground. I try things, figure out how they work, fix what breaks, and improve things as I go. Some ideas are finished, some are still in progress, and others are just things I want to experiment with.
 
-## Up next
-- Add a favicon
-- Fill in the Gallery with my own images
-- Add a second payment option to the Support me card
-- Add free visitor analytics
+## What I'm using
+- HTML — building the pages and structure
+- CSS — styling, layouts, and the overall look
+- JavaScript — adding interactive features
+- GitHub — keeping track of my code and changes
+- Netlify / GitHub Pages — experimenting with website hosting and deployment
+
+## What's inside?
+- Home — the main hub
+- About — a little more about me
+- Projects — things I'm building or exploring
+- Links — my other platforms
+- Gallery, Games, Lab and Updates — sections I'm developing and experimenting with
+
+Check the website for the features currently available. Not everything on my roadmap is finished yet.
+
+## What's next?
+- Improve the website's mobile experience
+- Finish and update the gallery
+- Add more projects and individual project pages
+- Experiment with music integrations
+- Keep learning JavaScript and improve the site's functionality
+- Clean up the design and fix bugs as I find them
+
+## Why I'm building this
+I've always found technology and creative projects interesting. I like the idea of having an idea, figuring out how it could work, and slowly turning it into something real.
+
+I'm still learning the ropes, but that's the point of this project. I'm here to improve, experiment, and see how far I can take it.
+
+## Links
+- Website: 
+- GitHub profile: https://github.com/MosesXD
+
+Thanks for checking it out. More experiments coming soon 👀
 
 ## Roadmap
 
@@ -47,5 +72,5 @@ My personal website: a hub for my projects, gaming, gallery, and links. I'm buil
 - [ ] Trading page go-live (check Trinidad and Tobago rules first)
 - [ ] Decide: keep both hosts or only one
 
-## Notes
-Built with plain HTML, CSS, and JavaScript, and hosted on GitHub Pages. This repo is public, so never put passwords, bank details, or private keys in it.
+## Note to self
+This repo is public, so never put passwords, bank details, or private keys in it.
