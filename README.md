@@ -36,7 +36,7 @@ I've always found technology and creative projects interesting. I like the idea 
 I'm still learning the ropes, but that's the point of this project. I'm here to improve, experiment, and see how far I can take it.
 
 ## Links
-- Website: 
+- Website: https://mosesxd.github.io/
 - GitHub profile: https://github.com/MosesXD
 
 Thanks for checking it out. More experiments coming soon 👀
