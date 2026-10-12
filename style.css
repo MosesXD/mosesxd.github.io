@@ -519,6 +519,43 @@ html[data-bg="grid"] body {
 .checklist li { position: relative; padding-left: 1.6rem; color: var(--muted); }
 .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan); }
 /* ==========================================================
+   v3.7 / v3.8 ADS + SERVICES  (paste at the very BOTTOM of style.css)
+   Needs the Partners block (3-partners.css) pasted first, because the
+   labels use .badge from there.
+   ========================================================== */
+
+/* ---- Ad cards (ads.js builds them) ---- */
+.ad-one { max-width: 560px; }
+.ad-card .ad-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.ad-card .button { display: inline-block; margin-top: 1rem; }
+.section[hidden] { display: none; }
+
+/* ---- Services page ---- */
+.currency-toggle { display: flex; gap: .4rem; margin: 0 0 2rem; }
+.currency-toggle button {
+  font: inherit; font-size: .85rem; cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--glass, rgba(255,255,255,.04));
+  color: var(--text);
+  border-radius: 999px; padding: .5rem 1rem;
+}
+.currency-toggle button[aria-pressed="true"] { border-color: var(--cyan); color: var(--cyan); }
+.currency-toggle button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+.price { font-size: 1.5rem; font-weight: 800; letter-spacing: -.03em; margin: .8rem 0 .2rem; color: var(--text); }
+.price-note { color: var(--muted); font-size: .8rem; }
+
+.service-list { list-style: none; display: grid; gap: .45rem; margin-top: .8rem; }
+.service-list li { position: relative; padding-left: 1.2rem; color: var(--muted); font-size: .92rem; }
+.service-list li::before { content: "•"; position: absolute; left: .2rem; color: var(--cyan); }
+/* ==========================================================
    v3.8 SIGNATURE EFFECTS  (paste at the very BOTTOM of style.css,
    after the other blocks). Mouse devices only, never with reduced motion.
    ========================================================== */

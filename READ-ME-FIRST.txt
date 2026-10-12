@@ -1,0 +1,5 @@
+PREVIEW ONLY. This is a test copy of the site with every new feature switched on.
+1. Open index.html from your Files app (it opens in your browser).
+2. Tap through the pages, tap the paint-palette button (bottom right) to try themes, and scroll to see the animations.
+3. Two example ads are switched on in this copy so you can see how they look. In the real ads.js everything is OFF.
+4. Do NOT upload this folder's style.css, script.js or ads.js to GitHub. Use the paste-in files instead.

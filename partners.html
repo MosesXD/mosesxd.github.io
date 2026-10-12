@@ -33,35 +33,13 @@
       <p class="notice">
         <strong>Partner</strong> means a site or business I work with.
         <strong>Featured</strong> means a spotlight I chose to share.
-        Everything here was approved by its owner. Links open in a new tab.
+        Paid or promoted spots are labelled. Everything here was approved by its owner.
+        Links open in a new tab.
       </p>
-
-      <!-- HOW TO SWITCH ON A CARD
-           1. Replace the [square bracket] text with the words the owner approved.
-           2. Delete the grey "Link coming soon" button.
-           3. Paste this in its place, with the real address:
-              <a class="button primary" href="https://THE-REAL-LINK" target="_blank" rel="noopener noreferrer">Visit site ↗</a>
-           For a PAID spot, use rel="sponsored noopener noreferrer" and keep the Featured label.
-           To add another card, copy one whole article and paste it after the last one. -->
-      <div class="cards">
-        <article class="card partner-card">
-          <span class="badge">PARTNER</span>
-          <h3>[Brother's site name]</h3>
-          <p>[One or two sentences about the site, approved by him.]</p>
-          <span class="button secondary is-disabled" aria-disabled="true">Link coming soon</span>
-        </article>
-        <article class="card partner-card">
-          <span class="badge featured">FEATURED</span>
-          <h3>[Friend's business name]</h3>
-          <p>[One or two sentences about the business, approved by the owner.]</p>
-          <span class="button secondary is-disabled" aria-disabled="true">Link coming soon</span>
-        </article>
-        <article class="card partner-card">
-          <span class="badge featured">FEATURED</span>
-          <h3>[Another business name]</h3>
-          <p>[One or two sentences about the business, approved by the owner.]</p>
-          <span class="button secondary is-disabled" aria-disabled="true">Link coming soon</span>
-        </article>
+      <!-- This box is controlled by ads.js. Open ads.js and switch ads on or off there.
+           The line below shows only while nothing is switched on. -->
+      <div class="ad-slot" data-slot="partners">
+        <p class="notice">Partners and featured spots are coming soon.</p>
       </div>
     </section>
 
@@ -77,7 +55,7 @@
     </section>
 
     <section class="section section-tight">
-      <p class="eyebrow">WANT TO BE FEATURED?</p>
+      <p class="eyebrow">WANT A SPOT?</p>
       <h2>Get in touch.</h2>
       <div class="links-list">
         <a href="links.html" class="card link-card"><span>Message me through the Links page</span><span>→</span></a>
@@ -97,6 +75,7 @@
     <p>Version 3.4 · More pages.</p>
   </footer>
 
+  <script src="ads.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

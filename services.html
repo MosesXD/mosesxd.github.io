@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website design and small site builds from Moses' Hub.">
+  <title>Services · Moses' Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Site icon (shows in the browser tab): keep in every page's <head> -->
+  <link rel="icon" href="file_00000000a7ec81f5b90d551fe2397252.png">
+  <!-- Visitor analytics (Umami): keep this in the <head> of every page -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="00a338b9-1a16-401f-b276-070eda343e04"></script>
+</head>
+<body>
+  <!-- HEADER: copy this into every page. Keep the ids menuToggle and navLinks! -->
+  <header class="nav">
+    <a class="logo" href="index.html">MOSES<span>°</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    <nav id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="games.html">Games</a>
+      <a href="updates.html">Updates</a>
+      <a href="about.html">About</a>
+      <a href="links.html">Links</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <p class="eyebrow">SERVICES</p>
+      <h2>Websites for small businesses and creators.</h2>
+      <p class="notice">
+        I'm a self-taught, beginner-friendly web designer based in Trinidad and Tobago.
+        I take small, clearly scoped projects, and I tell you upfront what I can and can't do.
+      </p>
+
+      <!-- PRICES: change the numbers inside data-ttd="..." and data-usd="..." for each package.
+           These are fixed prices you choose. Nothing is converted automatically.
+           The words inside the span are only a backup if JavaScript is off, so keep them the same as data-ttd. -->
+      <div class="currency-toggle" role="group" aria-label="Currency">
+        <button type="button" data-currency="ttd" aria-pressed="true">TTD</button>
+        <button type="button" data-currency="usd" aria-pressed="false">USD</button>
+      </div>
+
+      <div class="cards">
+        <article class="card project-card">
+          <span class="project-number">01</span>
+          <h3>Quick Fix</h3>
+          <p>One small change to an existing static website.</p>
+          <p class="price"><span data-ttd="TTD 100–250" data-usd="US$15–35">TTD 100–250</span></p>
+          <p class="price-note">Starting range. Final quote after I read your brief.</p>
+          <ul class="service-list">
+            <li>Text, a link, spacing, or basic styling</li>
+            <li>One agreed revision</li>
+          </ul>
+        </article>
+        <article class="card project-card">
+          <span class="project-number">02</span>
+          <h3>Design Concept</h3>
+          <p>A page layout and visual direction to start from.</p>
+          <p class="price"><span data-ttd="TTD 100–250" data-usd="US$15–35">TTD 100–250</span></p>
+          <p class="price-note">Starting range. Final quote after I read your brief.</p>
+          <ul class="service-list">
+            <li>Delivered as a design, not a working site (I'll say which in writing)</li>
+            <li>One agreed revision</li>
+          </ul>
+        </article>
+        <article class="card project-card">
+          <span class="project-number">03</span>
+          <h3>One-Page Website</h3>
+          <p>A responsive static page with the sections we agree on.</p>
+          <p class="price"><span data-ttd="TTD 1,500–2,500" data-usd="US$220–370">TTD 1,500–2,500</span></p>
+          <p class="price-note">Starting range. Final quote after I read your brief.</p>
+          <ul class="service-list">
+            <li>Works on phones and computers</li>
+            <li>Deployment included if access allows</li>
+            <li>Agreed revisions</li>
+          </ul>
+        </article>
+        <article class="card project-card">
+          <span class="project-number">04</span>
+          <h3>Multi-Page Website</h3>
+          <p>A small static site with several pages.</p>
+          <p class="price"><span data-ttd="TTD 2,500–5,000" data-usd="US$370–730">TTD 2,500–5,000</span></p>
+          <p class="price-note">Starting range. Final quote after I read your brief.</p>
+          <ul class="service-list">
+            <li>About 3 to 5 pages</li>
+            <li>Shared menu and footer</li>
+            <li>Agreed revisions</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <p class="eyebrow">COMING SOON</p>
+      <h2>Bigger builds.</h2>
+      <p class="notice">I'll take these on after I've built more of my own, so I don't promise what I haven't delivered.</p>
+      <div class="cards">
+        <article class="card project-card"><h3>Apps</h3><p>Small web apps with working inputs and logic.</p><span class="tag">COMING SOON</span></article>
+        <article class="card project-card"><h3>Games</h3><p>Simple browser games.</p><span class="tag">COMING SOON</span></article>
+        <article class="card project-card"><h3>Desktop software</h3><p>Small tools for computers.</p><span class="tag">COMING SOON</span></article>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <p class="eyebrow">PRICING</p>
+      <h2>What changes the price.</h2>
+      <ul class="service-list">
+        <li>More pages, or more sections on a page</li>
+        <li>Custom design or animations</li>
+        <li>Extra revisions beyond the ones agreed</li>
+        <li>Tight deadlines (a rush fee applies)</li>
+        <li>Ongoing updates and maintenance after delivery</li>
+        <li>Hosting and a domain name, which the client pays for</li>
+      </ul>
+    </section>
+
+    <section class="section section-tight">
+      <p class="eyebrow">HOW IT WORKS</p>
+      <h2>From first message to launch.</h2>
+      <div class="cards">
+        <article class="card project-card"><span class="project-number">01</span><h3>Brief</h3><p>You tell me what you need. I write it down.</p></article>
+        <article class="card project-card"><span class="project-number">02</span><h3>Quote</h3><p>I send a fixed price, a deadline, and what's included.</p></article>
+        <article class="card project-card"><span class="project-number">03</span><h3>Deposit</h3><p>A deposit starts the work.</p></article>
+        <article class="card project-card"><span class="project-number">04</span><h3>Build</h3><p>I build it and share a preview.</p></article>
+        <article class="card project-card"><span class="project-number">05</span><h3>Revisions</h3><p>We make the agreed changes.</p></article>
+        <article class="card project-card"><span class="project-number">06</span><h3>Delivery</h3><p>Final payment, then I hand it over.</p></article>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <p class="eyebrow">PAYMENT</p>
+      <h2>Deposits and deadlines.</h2>
+      <!-- EDIT: these are common starting rules. Change the percentages if you want. -->
+      <ul class="service-list">
+        <li>A deposit of 30 to 50% starts the work. The rest is due on delivery.</li>
+        <li>Rush jobs can add 25 to 50%.</li>
+        <li>Payment details are sent privately after we agree on the scope.</li>
+        <li>Everything is agreed in a short written agreement before I start.</li>
+      </ul>
+    </section>
+
+    <section class="section section-tight">
+      <p class="eyebrow">NOT YET</p>
+      <h2>What I don't offer yet.</h2>
+      <ul class="service-list">
+        <li>Online stores or anything that handles real payments</li>
+        <li>Logins, accounts, or security systems</li>
+        <li>Custom databases or complex integrations</li>
+        <li>Urgent fixes for live business systems</li>
+      </ul>
+    </section>
+
+    <section class="section section-tight">
+      <p class="eyebrow">FAQ</p>
+      <h2>Questions.</h2>
+      <div class="faq">
+        <details><summary>Do you work with clients outside Trinidad and Tobago?</summary><p>Yes, for small projects. Prices for foreign clients are listed in USD.</p></details>
+        <details><summary>How many revisions are included?</summary><p>Each package says how many. Extra changes are quoted separately.</p></details>
+        <details><summary>Who owns the website?</summary><p>As agreed in writing, it's yours once the final payment clears.</p></details>
+        <details><summary>Do you build apps or games?</summary><p>Not for clients yet. They're marked Coming soon.</p></details>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <p class="eyebrow">CONTACT</p>
+      <h2>Tell me about your project.</h2>
+      <div class="links-list">
+        <a href="https://discord.com/users/386143127976673293" target="_blank" rel="noopener" class="card link-card"><span>Message me on Discord</span><span>↗</span></a>
+        <a href="https://www.instagram.com/_for.gotten" target="_blank" rel="noopener" class="card link-card"><span>Message me on Instagram</span><span>↗</span></a>
+        <!-- WHEN READY: copy a line above, paste it here, and use mailto:YOUR-EMAIL or https://wa.me/YOUR-NUMBER.
+             Don't put these on the page until you've set up an email or number you're happy to share publicly. -->
+        <div class="card link-card is-disabled" aria-disabled="true"><span>Email</span><span>COMING SOON</span></div>
+        <div class="card link-card is-disabled" aria-disabled="true"><span>WhatsApp</span><span>COMING SOON</span></div>
+      </div>
+    </section>
+
+    <!-- RECOMMENDED: shows an ad from ads.js with slot "services". Hides itself if none is switched on. -->
+    <section class="section section-tight">
+      <p class="eyebrow">RECOMMENDED</p>
+      <div class="ad-slot" data-slot="services" data-hide-empty></div>
+    </section>
+  </main>
+
+  <!-- FOOTER: copy this into every page. Keep the id year! -->
+  <footer>
+    <p>Built by Moses · <span id="year"></span></p>
+    <div class="footer-links">
+      <a href="lab.html">Lab</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="support.html">Support</a>
+      <a href="trading.html">Trading</a>
+    </div>
+    <p>Version 3.4 · More pages.</p>
+  </footer>
+
+  <script src="ads.js"></script>
+  <script src="services.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
