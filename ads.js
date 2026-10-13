@@ -51,7 +51,7 @@ window.MH_ADS = [
     label: "Featured",
     title: "Work shopping",
     text: "Thinking brain storming.",
-    url: "https//mosesxd.github.io/oops",
+    url: "https://mosesxd.github.io/oops",
     cta: "Visit",
     // image: "images/ads/friend-business-1.jpg",   // optional. Remove the // to use. Wide 16:9 picture.
     // alt: "Describe the picture",
