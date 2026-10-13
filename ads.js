@@ -41,9 +41,10 @@ window.MH_ADS = [
     label: "Partner",
     title: "TriniSkills",
     text: "Connects skilled people in Trinidad and Tobago with customers who need their services.",
-    url: "https://triniskills.onhercules.app/", paid: true
+    url: "https://triniskills.onhercules.app/", 
+    paid: true,
     cta: "Visit site",
-  end: "2026-10-13"
+  end: "2026-10-13",
     active: true                 // switch to true once the owner is happy with the wording
   },
   {
@@ -51,10 +52,10 @@ window.MH_ADS = [
     slot: "partners",
     label: "Featured",
     title: "kills",
-    text: "Connects skilled people in Trinidad and Tobago with customers who need their services.",
-    url: "mosesxd.github.io,
+    text: "Connects skilled people in Trinidad and Tobago who need their services.",
+    url: "https://mosesxd.github.io/,
     cta: "Visit site",
-  start: "2026-10-13"
+  start: "2026-10-13",
     active: true
   },
   {
