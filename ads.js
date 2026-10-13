@@ -46,11 +46,11 @@ window.MH_ADS = [
     active: true                 // switch to true once your brother says the wording is OK
   },
   {
-    id: "Gabrielle clothing",
+    id: "gabrielle clothing",
     slot: "partners",
     label: "Featured",
     title: "[Work shopping]",
-    text: "[Thinking braim storming in.]",
+    text: "[Thinking brain storming.]",
     url: "https//mosesxd.github.io/oops",
     cta: "Visit",
     // image: "images/ads/friend-business-1.jpg",   // optional. Remove the // to use. Wide 16:9 picture.
