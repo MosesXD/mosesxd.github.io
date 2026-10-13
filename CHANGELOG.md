@@ -1,36 +1,54 @@
 # Changelog
-## v3.4
+
+How the numbers work:
+- First number (1.0.0): a big redesign or restructure of the whole site
+- Middle number (1.1.0): something new visitors can see or use, like a page or a feature
+- Last number (1.0.1): fixes, polish, and behind-the-scenes changes
+
+## Unreleased (built, but not switched on yet)
+- Last.fm "now playing" code is in script.js and about.html. It starts working once the Netlify function is set up.
+- Partner and ad entries in ads.js are all switched off until each owner approves their wording.
+
+## v2.5.1
+- Finished the Services and Partners footer links on every page
+- Fixed a broken tag in the footer
+- Pointed share previews and the 404 page at the short address
+- Brought back the smooth page fade
+- Added a hero spotlight and card tilt for mouse users
+
+## v2.5.0
+- Added a Partners page with a switchable ad system
+- Added a Services page with TTD and USD prices
+- Added a Featured spot on Home
+- Added Services and Partners to the footer links
+
+## v2.4.0
+- Added scroll reveals, hover effects, and a header shadow
+- Added Dark, Light, Pink, and Auto themes, an accent color picker, and four backgrounds
+
+## v2.3.0
 - Added a custom 404 page
 - Added share previews for links shared on Discord and Instagram
 
-## v3.3
+## v2.2.0
 - Added Games, Updates, Lab, Gallery, and Support pages
 - Reorganized the menu
 - Added a stats dashboard layout (not linked yet)
 
-## v3.2
-- Added visitor analytics (Umami)
-- Added a site icon (shows in the browser tab)
+## v2.1.2
+- Added visitor analytics
+- Added a site icon for the browser tab
 
-## v3.1
+## v2.1.1
 - Added a smooth fade between pages
-- Added the Last.fm "now playing" code (switches on once the Netlify function is set up)
 
-## v3.0
-- Added a Trading page (`trading.html`) as a "Coming soon" preview
-- Added Trading to the menu on every page
-- Added Learn, Trade With Me, and Managed Accounts cards, a three-step "how it works" section, layout-only preview boxes, and an FAQ
-- Added a "Preview only" notice
-- No forms, payment links, or logins on the Trading page
+## v2.1.0
+- Added a Trading page as a Coming soon preview
+- No forms, payment links, or logins on that page
 
-## v2.0
-- Split the one-page site into four pages: Home, Projects, About, Links
-- Home now introduces Moses' Hub, with quick links to the other pages
-- Moved the owner info, currently playing/listening, and games to the About page
-- Menu now links to pages instead of sections, and highlights the page you're on
-- Footer now stays at the bottom of short pages
-- Renamed the "Future Project" card to "First Game"
-- Left the Gallery out for now (no images yet)
+## v2.0.0 
+- Split the one-page site into pages
+- Home now introduces the hub; About holds the owner info
 
 ## v1.0.1
 - Added real Discord, GitHub, and Instagram links
@@ -40,5 +58,5 @@
 - Put the site live on GitHub Pages
 - Added README roadmap and this changelog
 
-## v1.0
+## v1.0.0
 - First version: Home, About, Projects, Gaming, Gallery, Links
