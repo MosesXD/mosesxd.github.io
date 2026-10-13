@@ -59,15 +59,17 @@ window.MH_ADS = [
     active: false
   },
   {
-    id: "trinis",
-    slot: "partners",
-    label: "Featured",
-    title: "Kills",
-    text: "Connects skilled people in Trinidad and Tobago.",
-    url: "https://mosesxd.github.io",
-    cta: "Visit site",
-    paid: true,
-    active: true
+id: "kevan-law-photography",
+slot: "partners",
+label: "Featured",
+title: "Kevan Law Photography",
+text: "Professional photography in Trinidad and Tobago.",
+url: "https://instagram.com/kevan_law_photography",
+cta: "Visit",
+image: "images/ads/_sunset(WEBP).webp",
+alt: "Sunset photography by Kevan Law",
+paid: true,
+active: true
   }
 ];
 
