@@ -44,7 +44,6 @@ window.MH_ADS = [
     url: "https://triniskills.onhercules.app/", 
     paid: true,
     cta: "Visit site",
-  end: "2026-10-13"
     active: true                 // switch to true once the owner is happy with the wording
   },
   {
