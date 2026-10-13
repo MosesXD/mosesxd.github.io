@@ -31,9 +31,9 @@ window.MH_ADS = [
     label: "Services",            // Partner, Featured, Services or Ad
     title: "Websites for small businesses and creators",
     text: "Simple, mobile-friendly sites built to a clear brief. See what I offer and what it costs.",
-    url: "services.html",
+    url: "https://mosesxd.github.io/services.html",
     cta: "See services",
-    active: false                 // switch to true when your prices are final
+    active: true                 // switch to true when your prices are final
   },
   {
     id: "triniskills",            // your brother's site
@@ -46,13 +46,13 @@ window.MH_ADS = [
     active: true                 // switch to true once your brother says the wording is OK
   },
   {
-    id: "gabrielle clothing",
+    id: "gabbys'-clothing",
     slot: "partners",
     label: "Featured",
     title: "Work shopping",
-    text: "Thinking brain storming.",
+    text: "Brain storming.",
     url: "https://mosesxd.github.io/oops",
-    cta: "Visit",
+    cta: "Error",
     // image: "images/ads/friend-business-1.jpg",   // optional. Remove the // to use. Wide 16:9 picture.
     // alt: "Describe the picture",
     // paid: true,                                  // for a paid spot
@@ -65,11 +65,21 @@ window.MH_ADS = [
     title: "Kevan Law Photography",
     text: "Professional photography in Trinidad and Tobago.",
     url: "https://instagram.com/kevan_law_photography",
-    cta: "Visit",
-    image: "/images/ads/sunset.webp",
-    alt: "Sunset photography by Kevan Law",
+    cta: "Hire",
+    image: "images/ads/sunset.webp",
+    alt: "Sunset photograph by Kevan Law",
     paid: true,
     active: true
+  },
+  {
+    id: "",            // your brother's site
+    slot: "partners",
+    label: "Partner",
+    title: "",
+    text: "",
+    url: "",
+    cta: "Visit site",
+    active: false                 // switch to true once your brother says the wording is OK
   }
 ];
 
