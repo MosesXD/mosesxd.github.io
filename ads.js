@@ -43,7 +43,7 @@ window.MH_ADS = [
     text: "Connects skilled people in Trinidad and Tobago with customers who need their services.",
     url: "https://triniskills.onhercules.app/",
     cta: "Visit site",
-    active: false                 // switch to true once your brother says the wording is OK
+    active: true                 // switch to true once your brother says the wording is OK
   },
   {
     id: "friend-business-1",
@@ -59,14 +59,15 @@ window.MH_ADS = [
     active: false
   },
   {
-    id: "friend-business-2",
+    id: "trinis",
     slot: "partners",
     label: "Featured",
-    title: "[Another business name]",
-    text: "[One sentence the owner approved.]",
-    url: "https://REPLACE-ME.example",
-    cta: "Visit",
-    active: false
+    title: "Kills",
+    text: "Connects skilled people in Trinidad and Tobago.",
+    url: "https://mosesxd.github.io",
+    cta: "Visit site",
+    paid: true,
+    active: true
   }
 ];
 
