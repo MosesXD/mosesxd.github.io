@@ -33,28 +33,17 @@ window.MH_ADS = [
     text: "Simple, mobile-friendly sites built to a clear brief. See what I offer and what it costs.",
     url: "services.html",
     cta: "See services",
-    active: true                 // switch to true when your prices are final
+    active: false                 // switch to true when your prices are final
   },
   {
-    id: "triniskills",
+    id: "triniskills",            // your brother's site
     slot: "partners",
     label: "Partner",
     title: "TriniSkills",
     text: "Connects skilled people in Trinidad and Tobago with customers who need their services.",
-    url: "https://mosesxd.github.io/",
-    cta: "Visit site",
-    active: true                 // switch to true once the owner is happy with the wording
-  },
-  {
-    id: "trinis",
-    slot: "partners",
-    label: "Featured",
-    title: "Kills",
-    text: "Connects skilled people in Trinidad and Tobago.",
     url: "https://triniskills.onhercules.app/",
     cta: "Visit site",
-    paid: true,
-    active: true
+    active: false                 // switch to true once your brother says the wording is OK
   },
   {
     id: "friend-business-1",
