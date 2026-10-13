@@ -66,7 +66,7 @@ window.MH_ADS = [
     text: "Professional photography in Trinidad and Tobago.",
     url: "https://instagram.com/kevan_law_photography",
     cta: "Visit",
-    image: "/images/ads/_sunset(WEBP).webp",
+    image: "/images/ads/sunset.webp",
     alt: "Sunset photography by Kevan Law",
     paid: true,
     active: true
