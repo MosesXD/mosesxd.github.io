@@ -49,8 +49,8 @@ window.MH_ADS = [
     id: "gabrielle clothing",
     slot: "partners",
     label: "Featured",
-    title: "[Work shopping]",
-    text: "[Thinking brain storming.]",
+    title: "Work shopping",
+    text: "Thinking brain storming.",
     url: "https//mosesxd.github.io/oops",
     cta: "Visit",
     // image: "images/ads/friend-business-1.jpg",   // optional. Remove the // to use. Wide 16:9 picture.
@@ -66,7 +66,7 @@ window.MH_ADS = [
     text: "Professional photography in Trinidad and Tobago.",
     url: "https://instagram.com/kevan_law_photography",
     cta: "Visit",
-    image: "public/images/ads/_sunset(WEBP).webp",
+    image: "/images/ads/_sunset(WEBP).webp",
     alt: "Sunset photography by Kevan Law",
     paid: true,
     active: true
