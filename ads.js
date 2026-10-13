@@ -46,30 +46,30 @@ window.MH_ADS = [
     active: true                 // switch to true once your brother says the wording is OK
   },
   {
-    id: "friend-business-1",
+    id: "Gabrielle clothing",
     slot: "partners",
     label: "Featured",
-    title: "[Business name]",
-    text: "[One sentence the owner approved.]",
-    url: "https://REPLACE-ME.example",
+    title: "[Work shopping]",
+    text: "[Thinking braim storming in.]",
+    url: "https//mosesxd.github.io/oops",
     cta: "Visit",
     // image: "images/ads/friend-business-1.jpg",   // optional. Remove the // to use. Wide 16:9 picture.
     // alt: "Describe the picture",
     // paid: true,                                  // for a paid spot
-    active: false
+    active: true
   },
   {
-id: "kevan-law-photography",
-slot: "partners",
-label: "Featured",
-title: "Kevan Law Photography",
-text: "Professional photography in Trinidad and Tobago.",
-url: "https://instagram.com/kevan_law_photography",
-cta: "Visit",
-image: "images/ads/_sunset(WEBP).webp",
-alt: "Sunset photography by Kevan Law",
-paid: true,
-active: true
+    id: "kevan-law-photography",
+    slot: "home",
+    label: "Ad",
+    title: "Kevan Law Photography",
+    text: "Professional photography in Trinidad and Tobago.",
+    url: "https://instagram.com/kevan_law_photography",
+    cta: "Visit",
+    image: "images/ads/_sunset(WEBP).webp",
+    alt: "Sunset photography by Kevan Law",
+    paid: true,
+    active: true
   }
 ];
 
