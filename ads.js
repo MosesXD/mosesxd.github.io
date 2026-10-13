@@ -22,7 +22,7 @@
 
 // "one" = show a single ad (a different one each visit if several are on)
 // "all" = show every ad that is on
-window.MH_ADS_SETTINGS = { home: "one", partners: "all", services: "one" };
+window.MH_ADS_SETTINGS = { home: "all", partners: "all", services: "one" };
 
 window.MH_ADS = [
   {
