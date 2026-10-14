@@ -56,7 +56,7 @@ window.MH_ADS = [
     // image: "images/ads/friend-business-1.jpg",   // optional. Remove the // to use. Wide 16:9 picture.
     // alt: "Describe the picture",
     // paid: true,                                  // for a paid spot
-    active: true
+    active: false 
   },
   {
     id: "kevan-law-photography",
