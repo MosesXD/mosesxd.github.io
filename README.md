@@ -1,76 +1,105 @@
-# Moses' Hub 
+# Moses' Hub
 
-Hey, welcome to my little corner of the internet.
+My personal website and learning project: a hub for my projects, experiments, links, and updates. I'm learning web development by building, testing, and improving it over time.
 
-Moses' Hub is my personal website where I bring together my projects, interests, experiments, and random ideas I'm working on. It's also part of my journey into web development.
+**Live site:** https://mosesxd.github.io/
 
-I'm still learning, so this project is basically my playground. I try things, figure out how they work, fix what breaks, and improve things as I go. Some ideas are finished, some are still in progress, and others are just things I want to experiment with.
+## Status
 
-## What I'm using
-- HTML — building the pages and structure
-- CSS — styling, layouts, and the overall look
-- JavaScript — adding interactive features
-- GitHub — keeping track of my code and changes
-- Netlify / GitHub Pages — experimenting with website hosting and deployment
+Active learning project. Everything listed under "What's inside" exists. Items marked *preview* or *prepared* are not fully switched on, and I say so below.
 
-## What's inside?
-- Home — the main hub
-- About — a little more about me
-- Projects — things I'm building or exploring
-- Links — my other platforms
-- Gallery, Games, Lab and Updates — sections I'm developing and experimenting with
+## What's inside
 
-Check the website for the features currently available. Not everything on my roadmap is finished yet.
+| Page | What it is |
+|---|---|
+| Home | What the hub is, plus quick links |
+| Projects | Things I'm building, with honest status labels |
+| Games | Game plans and progress |
+| Updates | The dev log (newest first) |
+| About | About the owner |
+| Links | Discord, GitHub, Instagram, an email contact, services, and partners |
+| Services | Starter website packages with TTD and USD prices |
+| Partners | Partner and featured spots, controlled from one file |
+| Lab | Experiments and things I'm learning |
+| Trading | **Preview only.** No forms, payments, or offers |
+| Support | PayPal link. A local option is planned |
+| Gallery | Placeholder page |
+| Dashboard | **Layout preview only.** Not linked from the menu, no real numbers |
+| 404 | Custom page for broken links |
 
-## What's next?
-- Improve the website's mobile experience
-- Finish and update the gallery
-- Add more projects and individual project pages
-- Experiment with music integrations
-- Keep learning JavaScript and improve the site's functionality
-- Clean up the design and fix bugs as I find them
+## Projects
 
-## Why I'm building this
-I've always found technology and creative projects interesting. I like the idea of having an idea, figuring out how it could work, and slowly turning it into something real.
+| Project | Status |
+|---|---|
+| Moses' Hub (this site) | Live |
+| Island Ledger: a TTD income and expense tracker that saves entries in the browser | In progress |
+| Island Life: a concept and design document for a Caribbean life-sim game | Concept (not playable) |
+| Everyday Toolkit: small tools for everyday tasks | Planned |
 
-I'm still learning the ropes, but that's the point of this project. I'm here to improve, experiment, and see how far I can take it.
+## Features
 
-## Links
-- Website: https://mosesxd.github.io/
-- GitHub profile: https://github.com/MosesXD
+- Responsive layout for phones and desktop
+- Dark, Light, Pink, and Auto themes, an accent color picker, and four background styles (saved on the visitor's own device)
+- Scroll reveals, hover effects, and a page fade, all switched off for visitors who prefer reduced motion
+- A partner and ad system controlled from one file (`ads.js`). Every ad is labelled, links open safely, and nothing is shown until it is switched on
+- TTD and USD price switch on the Services page (`services.js`)
+- Share previews for links posted on Discord and Instagram
+- Cookie-free visit counts with Umami
 
-Thanks for checking it out. More experiments coming soon 👀
+## Prepared but not switched on
+
+- **Last.fm "now playing"**: the front-end code is in `script.js` and `about.html`. It needs a server function and a host that supports it, so it is not active.
+
+## Built with
+
+- HTML for structure
+- CSS for layout, themes, and animation
+- JavaScript for the menu, themes, motion, ads, and the price switch
+- GitHub and GitHub Pages for version control and hosting
+
+No frameworks, no build step, and no server code. The site is fully static.
+
+## Files
+
+- `index.html` and the other `.html` files: page structure and content
+- `style.css`: colors, layout, themes, and motion
+- `script.js`: menu, themes, and motion
+- `ads.js`: partner and ad entries (switch each on or off with `active`)
+- `services.js`: the TTD and USD price switch
+- `CHANGELOG.md`: version history
+
+## Run locally
+
+1. Download or clone this repository.
+2. Open `index.html` in a browser.
+3. Edit the files, then test on a phone-sized screen and a desktop screen before publishing.
+
+## Security and privacy
+
+- No passwords, API keys, or bank details are stored in this repository, and none belong here.
+- Payments are not handled by this site. The Support page links out to a payment provider.
+- Visitor analytics use no cookies.
 
 ## Roadmap
 
-### Done
-- [x] v1.0 One-page site
-- [x] Real Discord, GitHub, Instagram links
-- [x] Sticky header and gradient text fixes
-- [x] Live on GitHub Pages
-- [x] v2.0 Multi-page hub (Home, Projects, About, Links)
-- [x] v3.0 Trading page (Coming soon preview)
-- [x] Support me card (PayPal)
-- [x] Smooth page fade
-- [x] Visitor analytics (Umami)
-- [x] Site icon
+- [x] Multi-page structure
+- [x] Themes, motion, and a custom 404 page
+- [x] Partners page and ad system
+- [x] Services page
+- [x] Share previews and visit counts
+- [x] Projects page with honest status labels
+- [ ] Full test pass on phone and desktop, including keyboard navigation
+- [ ] Real screenshots of each page
+- [ ] Link my other projects once they are live
+- [ ] Case study for this project
 
-### Next
-- [ ] Confirm icon and analytics work on the live site
-- [ ] Gallery (waiting on images)
-- [ ] Games page and first game (idle tycoon, Phase 1)
-- [ ] Updates page (dev log)
-- [ ] Lab page
-- [ ] Support page (add WiPay once verified)
-- [ ] Loading screen (redo)
-- [ ] Logo image
-- [ ] Individual project pages
+## Links
 
-### Paused / needs a decision
-- [ ] Last.fm now-playing (code ready, needs a Netlify function)
-- [ ] Earnings dashboard (needs a backend)
-- [ ] Trading page go-live (check Trinidad and Tobago rules first)
-- [ ] Decide: keep both hosts or only one
+- GitHub profile: https://github.com/MosesXD
+- Repository: https://github.com/MosesXD/mosesxd.github.io
 
-## Note to self
-This repo is public, so never put passwords, bank details, or private keys in it.
+## Why I'm building this
+
+I like turning an idea into something real, and I'm learning more with every version. I document what works, what's in progress, and what I learn.
+
+No license has been chosen yet.
