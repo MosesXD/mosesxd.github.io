@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mosesxd.github.io/sitemap.xml
