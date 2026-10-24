@@ -46,6 +46,18 @@ window.MH_ADS = [
     active: true                 // switch to true once your brother says the wording is OK
   },
   {
+    id: "gabbys'-clothing",
+    slot: "partners",
+    label: "Featured",
+    title: "Work shopping",
+    text: "Brain storming.",
+    url: "https://mosesxd.github.io/oops",
+    cta: "Error",
+    // image: "images/ads/friend-business-1.jpg",   // optional. Remove the // to use. Wide 16:9 picture.
+    // alt: "Describe the picture",
+    // paid: true,                                  // for a paid spot
+    active: false 
+  },
     id: "kevan-law-photography",
     slot: "home",
     label: "Ad",
