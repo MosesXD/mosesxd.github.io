@@ -46,19 +46,6 @@ window.MH_ADS = [
     active: true                 // switch to true once your brother says the wording is OK
   },
   {
-    id: "gabbys'-clothing",
-    slot: "partners",
-    label: "Featured",
-    title: "Work shopping",
-    text: "Brain storming.",
-    url: "https://mosesxd.github.io/oops",
-    cta: "Error",
-    // image: "images/ads/friend-business-1.jpg",   // optional. Remove the // to use. Wide 16:9 picture.
-    // alt: "Describe the picture",
-    // paid: true,                                  // for a paid spot
-    active: false 
-  },
-  {
     id: "kevan-law-photography",
     slot: "home",
     label: "Ad",
@@ -70,16 +57,6 @@ window.MH_ADS = [
     alt: "Sunset photograph by Kevan Law",
     paid: true,
     active: true
-  },
-  {
-    id: "",            // your brother's site
-    slot: "partners",
-    label: "Partner",
-    title: "",
-    text: "",
-    url: "",
-    cta: "Visit site",
-    active: false                 // switch to true once your brother says the wording is OK
   }
 ];
 
