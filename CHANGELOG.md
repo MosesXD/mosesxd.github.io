@@ -9,14 +9,25 @@ How the numbers work:
 ## Unreleased (built, but not switched on yet)
 
 - Last.fm "now playing" code is in script.js and about.html. It starts working once the Netlify function is set up.
-- Partner and ad entries in ads.js are all switched off until each owner approves their wording.
+- Ads in ads.js only go live after the owner approves their wording.
+
+## v2.5.3
+
+- Added a labelled ad for Kevan Law Photography on Home
+- Linked the Island Ledger concept from the Projects page
+- Turned on the email contact on the Services page
+- Added a sitemap, robots.txt, and an all-rights-reserved license
+- Restored the smooth page fade
+- Fixed the Home page share preview and added one to the Partners page
+- Made the tab icon smaller so pages load faster
+- Cleaned old test entries out of ads.js and repaired the Last.fm function file
 
 ## v2.5.2
 
 - Updated the Projects page with four project cards and honest status labels
 - Added a Contact link on the Links page
 - Fixed the Lab page so Color themes shows as done
-- Added share previews to the Services and Partners pages
+- Added share previews to the Services page
 - Replaced the README with an up-to-date version
 
 ## v2.5.1
