@@ -70,16 +70,6 @@ window.MH_ADS = [
     alt: "Sunset photograph by Kevan Law",
     paid: true,
     active: true
-  },
-  {
-    id: "",            // your brother's site
-    slot: "partners",
-    label: "Partner",
-    title: "",
-    text: "",
-    url: "",
-    cta: "Visit site",
-    active: false                 // switch to true once your brother says the wording is OK
   }
 ];
 
