@@ -58,6 +58,7 @@ window.MH_ADS = [
     // paid: true,                                  // for a paid spot
     active: false 
   },
+  {
     id: "kevan-law-photography",
     slot: "home",
     label: "Ad",
