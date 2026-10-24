@@ -32,9 +32,11 @@ Active learning project. Everything listed under "What's inside" exists. Items m
 | Project | Status |
 |---|---|
 | Moses' Hub (this site) | Live |
-| Island Ledger: a TTD income and expense tracker that saves entries in the browser | In progress |
+| First Game: a beginner-friendly game I want to build after the website | In progress |
 | Island Life: a concept and design document for a Caribbean life-sim game | Concept (not playable) |
-| Everyday Toolkit: small tools for everyday tasks | Planned |
+| Island Ledger: a TTD income and expense tracker that saves entries in the browser | In progress (a concept version is linked from the Projects page) |
+| Everyday Toolkit: small tools for everyday tasks | Concept |
+| Future API: this site's own API and database | Later |
 
 ## Features
 
@@ -66,6 +68,10 @@ No frameworks, no build step, and no server code. The site is fully static.
 - `script.js`: menu, themes, and motion
 - `ads.js`: partner and ad entries (switch each on or off with `active`)
 - `services.js`: the TTD and USD price switch
+- `images/ads/`: pictures used by ads
+- `sitemap.xml` and `robots.txt`: help search engines find the pages
+- `netlify/functions/now-playing.js`: the prepared Last.fm function (not active)
+- `LICENSE`: all rights reserved
 - `CHANGELOG.md`: version history
 
 ## Run locally
@@ -102,4 +108,4 @@ No frameworks, no build step, and no server code. The site is fully static.
 
 I like turning an idea into something real, and I'm learning more with every version. I document what works, what's in progress, and what I learn.
 
-No license has been chosen yet.
+All rights reserved. See the LICENSE file.
