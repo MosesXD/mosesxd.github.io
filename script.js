@@ -13,24 +13,44 @@ document.querySelectorAll("#navLinks a").forEach(link => {
 });
 
 // ---------- Now playing (Last.fm) ----------
-// Asks our Netlify Function what you're listening to. The function holds the
-// secret key, so no key ever appears in this file.
+// The API key stays on the hosting provider's server. Netlify and Vercel each
+// have their own compatible endpoint; this front end never contains credentials.
 const nowPlayingEl = document.getElementById("nowPlaying");
 const nowPlayingLabel = document.getElementById("nowPlayingLabel");
 
-// Only runs on pages that have the "nowPlaying" element (the About page)
 if (nowPlayingEl && nowPlayingLabel) {
-  fetch("/.netlify/functions/now-playing")
-    .then(response => (response.ok ? response.json() : Promise.reject()))
-    .then(data => {
-      if (!data.track) return; // nothing to show, so keep the default text
-      nowPlayingLabel.textContent = data.playing ? "Listening now" : "Last played";
-      // textContent (not innerHTML) keeps odd characters in song names safe
-      nowPlayingEl.textContent = data.track + " – " + data.artist;
-    })
-    .catch(() => {
-      // If anything goes wrong, the page just keeps the text written in the HTML
-    });
+  const netlifyEndpoint = "/.netlify/functions/now-playing";
+  const vercelEndpoint = "/api/now-playing";
+
+  // Prefer the endpoint matching the standard hosting domain. On custom
+  // domains, try Vercel first and fall back to Netlify if that route is absent.
+  const hostname = window.location.hostname;
+  const endpoints = hostname.endsWith(".netlify.app")
+    ? [netlifyEndpoint, vercelEndpoint]
+    : [vercelEndpoint, netlifyEndpoint];
+
+  (async function loadNowPlaying() {
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, {
+          headers: { Accept: "application/json" }
+        });
+
+        if (!response.ok) continue;
+
+        const data = await response.json();
+        if (data.error) continue;
+        if (!data.track) return; // Keep the existing fallback text if nothing is scrobbled.
+
+        nowPlayingLabel.textContent = data.playing ? "Listening now" : "Last played";
+        // textContent keeps unusual song and artist names safe.
+        nowPlayingEl.textContent = data.track + " – " + data.artist;
+        return;
+      } catch (error) {
+        // Try the other provider. If both fail, the page keeps its default text.
+      }
+    }
+  })();
 }
 
 // ---------- v3.5 Motion (paste at the very BOTTOM of script.js) ----------
