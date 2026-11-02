@@ -34,8 +34,8 @@ Active learning project. Everything listed under "What's inside" exists. Items m
 | Moses' Hub (this site) | Live |
 | First Game: a beginner-friendly game I want to build after the website | In progress |
 | Island Life: a concept and design document for a Caribbean life-sim game | Concept (not playable) |
-| Island Ledger: a TTD income and expense tracker that saves entries in the browser | In progress (a concept version is linked from the Projects page) |
-| Everyday Toolkit: small tools for everyday tasks | Concept |
+| Island Ledger: a TTD income and expense tracker that saves entries in the browser | In progress ([main repository](https://github.com/MosesXD/Islandledger)) |
+| Everyday Toolkit: small tools for everyday tasks | In progress ([main repository](https://github.com/MosesXD/Daymark-toolkit)) |
 | Future API: this site's own API and database | Later |
 
 ## Features
