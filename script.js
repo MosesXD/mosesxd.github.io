@@ -13,46 +13,69 @@ document.querySelectorAll("#navLinks a").forEach(link => {
 });
 
 // ---------- Now playing (Last.fm) ----------
-// The API key stays on the hosting provider's server. Netlify and Vercel each
-// have their own compatible endpoint; this front end never contains credentials.
 const nowPlayingEl = document.getElementById("nowPlaying");
 const nowPlayingLabel = document.getElementById("nowPlayingLabel");
+const nowPlayingAlbum = document.getElementById("nowPlayingAlbum");
+const nowPlayingArtwork = document.getElementById("nowPlayingArtwork");
+const nowPlayingCard = document.getElementById("nowPlayingCard");
+const spotifyDialog = document.getElementById("spotifyConfirm");
+const spotifyOpenButton = document.getElementById("spotifyConfirmOpen");
+const spotifyProfile = "https://open.spotify.com/user/fj0z9hiarbcs5539xym3l35f5";
+
+if (nowPlayingCard && spotifyDialog && spotifyOpenButton) {
+  nowPlayingCard.addEventListener("click", () => spotifyDialog.showModal());
+  spotifyOpenButton.addEventListener("click", event => {
+    event.preventDefault();
+    spotifyDialog.close();
+    window.open(spotifyProfile, "_blank", "noopener,noreferrer");
+  });
+}
 
 if (nowPlayingEl && nowPlayingLabel) {
   const netlifyEndpoint = "/.netlify/functions/now-playing";
   const vercelEndpoint = "/api/now-playing";
-
-  // Prefer the endpoint matching the standard hosting domain. On custom
-  // domains, try Vercel first and fall back to Netlify if that route is absent.
   const hostname = window.location.hostname;
   const endpoints = hostname.endsWith(".netlify.app")
     ? [netlifyEndpoint, vercelEndpoint]
     : [vercelEndpoint, netlifyEndpoint];
 
-  (async function loadNowPlaying() {
+  async function loadNowPlaying() {
     for (const endpoint of endpoints) {
       try {
         const response = await fetch(endpoint, {
-          headers: { Accept: "application/json" }
+          headers: { Accept: "application/json" },
+          cache: "no-store"
         });
-
         if (!response.ok) continue;
-
         const data = await response.json();
         if (data.error) continue;
-        if (!data.track) return; // Keep the existing fallback text if nothing is scrobbled.
+        if (!data.track) return;
 
         nowPlayingLabel.textContent = data.playing ? "Listening now" : "Last played";
-        // textContent keeps unusual song and artist names safe.
-        nowPlayingEl.textContent = data.track + " – " + data.artist;
+        nowPlayingEl.textContent = data.track + (data.artist ? " – " + data.artist : "");
+        if (nowPlayingAlbum) nowPlayingAlbum.textContent = data.album ? "Album · " + data.album : "";
+        if (nowPlayingArtwork && data.artwork) {
+          nowPlayingArtwork.src = data.artwork;
+          nowPlayingArtwork.hidden = false;
+        } else if (nowPlayingArtwork) {
+          nowPlayingArtwork.hidden = true;
+          nowPlayingArtwork.removeAttribute("src");
+        }
         return;
       } catch (error) {
-        // Try the other provider. If both fail, the page keeps its default text.
+        // Try the other hosting provider; retain the fallback content if both fail.
       }
     }
-  })();
-}
+  }
 
+  loadNowPlaying();
+  let nowPlayingTimer = window.setInterval(() => {
+    if (!document.hidden) loadNowPlaying();
+  }, 30000);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) loadNowPlaying();
+  });
+}
 // ---------- v3.5 Motion (paste at the very BOTTOM of script.js) ----------
 // Wrapped in try/catch so a mistake here can never break your menu above.
 (function () {
