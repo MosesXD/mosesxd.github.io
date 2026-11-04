@@ -41,19 +41,27 @@ exports.handler = async () => {
     return reply(200, {
       playing: Boolean(track["@attr"] && track["@attr"].nowplaying === "true"),
       track: track.name,
-      artist: track.artist["#text"],
+      artist: track.artist && track.artist["#text"] ? track.artist["#text"] : "",
+      album: track.album && track.album["#text"] ? track.album["#text"] : "",
+      artwork: getArtwork(track.image),
     });
   } catch (error) {
     return reply(502, { error: "Could not reach Last.fm" });
   }
 };
 
+function getArtwork(images) {
+  if (!Array.isArray(images)) return "";
+  const preferred = images.slice().reverse().find(image => image && image["#text"]);
+  return preferred ? preferred["#text"] : "";
+}
+
 function reply(statusCode, body) {
   return {
     statusCode,
     headers: {
       "Content-Type": "application/json",
-      "Cache-Control": "public, max-age=30", // reuse the answer for 30 seconds
+      "Cache-Control": "public, max-age=0, must-revalidate", // reuse the answer for 30 seconds
     },
     body: JSON.stringify(body),
   };
