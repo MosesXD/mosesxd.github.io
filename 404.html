@@ -4,63 +4,235 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#070910">
   <title>Page not found · Moses' Hub</title>
   <link rel="icon" href="https://mosesxd.github.io/file_00000000a7ec81f5b90d551fe2397252.png">
-  <!-- This page stands alone on purpose. GitHub shows it for broken links, even deep ones
-       like /oops/oops, where a normal style.css link would break.
-       So the styles are written right here and the links use full addresses. -->
+  <!-- Standalone on purpose: GitHub Pages can show this for broken deep links. -->
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-  --bg: #070910;
-  --surface: #0d111c;
-  --surface-2: #111827;
-  --text: #f4f7ff;
-  --muted: #9aa5bb;
-  --cyan: #78e8ff;
-  --purple: #b59cff;
-  --border: rgba(255,255,255,.09);
-}
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
     body {
+      --lost-bg: #070910;
+      --lost-panel: rgba(13,17,28,.78);
+      --lost-text: #f4f7ff;
+      --lost-muted: #9aa5bb;
+      --lost-cyan: #78e8ff;
+      --lost-purple: #b59cff;
+      --lost-border: rgba(255,255,255,.12);
+      --lost-glow: rgba(120,232,255,.12);
       min-height: 100vh;
+      margin: 0;
+      padding: 28px;
       display: grid;
       place-items: center;
-      text-align: center;
-      padding: 2rem;
+      overflow-x: hidden;
+      position: relative;
+      isolation: isolate;
+      color: var(--lost-text);
       background:
-        radial-gradient(circle at 80% 10%, rgba(120,232,255,.08), transparent 28rem),
-        radial-gradient(circle at 10% 40%, rgba(181,156,255,.07), transparent 25rem),
-        var(--bg);
-      color: var(--text);
+        radial-gradient(ellipse at 50% 42%, var(--lost-glow), transparent 34rem),
+        radial-gradient(circle at 8% 12%, rgba(181,156,255,.10), transparent 25rem),
+        var(--lost-bg);
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
+      transition: background .7s ease, color .5s ease;
     }
-    .eyebrow { color: var(--cyan); letter-spacing: .2em; font-size: .8rem; font-weight: 700; margin-bottom: 1rem; }
-    h1 { font-size: clamp(2.6rem, 9vw, 5rem); line-height: 1; letter-spacing: -.05em; margin-bottom: 1rem; }
-    h1 span {
-      background: linear-gradient(90deg, var(--cyan), var(--purple));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    body[data-lost-theme="day"] {
+      --lost-bg: #eaf4fa;
+      --lost-panel: rgba(255,255,255,.76);
+      --lost-text: #142338;
+      --lost-muted: #52677e;
+      --lost-cyan: #087d9a;
+      --lost-purple: #6f59c8;
+      --lost-border: rgba(24,54,80,.16);
+      --lost-glow: rgba(64,173,204,.19);
+      background:
+        radial-gradient(ellipse at 50% 42%, var(--lost-glow), transparent 34rem),
+        radial-gradient(circle at 8% 12%, rgba(160,142,230,.17), transparent 25rem),
+        linear-gradient(145deg,#f8fcff,#e7f1fa);
     }
-    p { color: var(--muted); max-width: 32rem; margin: 0 auto 2rem; }
-    .buttons { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; }
-    a { text-decoration: none; padding: .8rem 1.1rem; border-radius: 999px; border: 1px solid var(--border); font-weight: 700; font-size: .9rem; color: var(--text); }
-    a.primary { background: var(--text); color: var(--bg); }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .25;
+      background-image: radial-gradient(currentColor .7px, transparent .7px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
+    }
+    .lost-page { width: min(100%, 760px); text-align: center; position: relative; z-index: 1; }
+    .lost-topline { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:0 auto 1.2rem; max-width:620px; }
+    .lost-brand { color:var(--lost-muted); font-size:.72rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+    .lost-theme-toggle {
+      display:inline-flex; align-items:center; gap:.55rem; padding:.55rem .85rem;
+      border:1px solid var(--lost-border); border-radius:999px; background:var(--lost-panel);
+      color:var(--lost-text); font:inherit; font-size:.78rem; font-weight:750; cursor:pointer;
+      backdrop-filter:blur(14px); transition:transform .2s,border-color .2s,background .5s;
+    }
+    .lost-theme-toggle:hover { transform:translateY(-2px); border-color:var(--lost-cyan); }
+    .lost-theme-toggle:focus-visible,.lost-face:focus-visible,.lost-link:focus-visible { outline:3px solid var(--lost-cyan); outline-offset:4px; }
+    .lost-scene { width:min(100%,410px); aspect-ratio:1; margin:0 auto 1rem; position:relative; display:grid; place-items:center; }
+    .lost-radar {
+      position:absolute; width:88%; aspect-ratio:1; border:1px solid var(--lost-border); border-radius:50%;
+      background:repeating-radial-gradient(circle, transparent 0 39px, var(--lost-border) 40px 41px, transparent 42px 78px);
+      box-shadow:0 0 70px var(--lost-glow), inset 0 0 45px var(--lost-glow);
+    }
+    .lost-radar::before {
+      content:""; position:absolute; inset:0; border-radius:50%;
+      background:conic-gradient(from 0deg, transparent 0 72%, var(--lost-glow) 88%, transparent 100%);
+      animation:lost-scan 8s linear infinite;
+    }
+    .lost-radar::after { content:""; position:absolute; width:7px; height:7px; border-radius:50%; background:var(--lost-cyan); top:22%; right:25%; box-shadow:0 0 14px var(--lost-cyan); }
+    .lost-orbit { position:absolute; width:100%; height:100%; border:1px dashed var(--lost-border); border-radius:50%; animation:lost-orbit 34s linear infinite; }
+    .lost-orbit::before,.lost-orbit::after { content:""; position:absolute; width:7px; height:7px; border-radius:50%; background:var(--lost-purple); box-shadow:0 0 16px var(--lost-purple); }
+    .lost-orbit::before { top:13%; left:24%; }
+    .lost-orbit::after { bottom:17%; right:19%; width:5px; height:5px; background:var(--lost-cyan); }
+    .lost-face {
+      position:relative; z-index:2; width:58%; aspect-ratio:1; display:grid; place-items:center;
+      padding:0; border:1px solid var(--lost-border); border-radius:38% 42% 40% 44%;
+      color:var(--lost-text); background:linear-gradient(145deg,var(--lost-panel),rgba(120,232,255,.08));
+      box-shadow:0 24px 80px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.18);
+      backdrop-filter:blur(12px); cursor:pointer; transition:transform .3s,border-radius .4s,border-color .3s;
+      animation:lost-float 5s ease-in-out infinite;
+    }
+    .lost-face:hover { transform:translateY(-5px) rotate(-2deg); border-color:var(--lost-cyan); }
+    .lost-face svg { width:82%; height:82%; overflow:visible; }
+    .lost-eye { transform-box:fill-box; transform-origin:center; animation:lost-blink 5.5s infinite; }
+    .lost-pupil { transition:transform .25s ease; }
+    .lost-mouth { transition:d .25s ease; }
+    .lost-face.is-curious { border-radius:44% 36% 45% 35%; }
+    .lost-face.is-curious .lost-pupil { transform:translate(5px,-2px); }
+    .lost-face.is-curious .lost-mouth { d:path("M 75 126 Q 100 111 125 126"); }
+    .lost-spark { position:absolute; color:var(--lost-cyan); font-size:1rem; animation:lost-twinkle 3s ease-in-out infinite; }
+    .lost-spark.one { top:19%; left:13%; }
+    .lost-spark.two { right:12%; top:32%; animation-delay:1s; color:var(--lost-purple); }
+    .lost-spark.three { bottom:18%; left:19%; animation-delay:1.8s; }
+    .lost-code { color:var(--lost-cyan); font-size:clamp(3.4rem,12vw,6.8rem); font-weight:950; letter-spacing:-.09em; line-height:.9; margin:.1rem 0 .7rem; text-shadow:0 0 35px var(--lost-glow); }
+    .lost-title { margin:0; font-size:clamp(1.55rem,5vw,2.35rem); letter-spacing:-.045em; }
+    .lost-copy { max-width: thirty; max-width:32rem; margin:.8rem auto 1.2rem; color:var(--lost-muted); }
+    .lost-message { min-height:1.5em; margin:0 auto 1.7rem; color:var(--lost-purple); font-size:.88rem; font-weight:700; }
+    .lost-links { display:flex; flex-wrap:wrap; justify-content:center; gap:.7rem; }
+    .lost-link { min-width:112px; padding:.78rem 1.15rem; border:1px solid var(--lost-border); border-radius:999px; color:var(--lost-text); background:var(--lost-panel); text-decoration:none; font-size:.88rem; font-weight:800; backdrop-filter:blur(12px); transition:transform .2s,border-color .2s,background .5s; }
+    .lost-link:hover { transform:translateY(-3px); border-color:var(--lost-cyan); }
+    .lost-link.primary { color:#07111b; border-color:transparent; background:linear-gradient(100deg,var(--lost-cyan),var(--lost-purple)); }
+    .lost-hint { margin:1.5rem 0 0; color:var(--lost-muted); font-size:.72rem; }
+    .lost-stars { position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden; }
+    .lost-stars i { position:absolute; width:3px; height:3px; border-radius:50%; background:var(--lost-cyan); opacity:.55; box-shadow:0 0 10px var(--lost-cyan); animation:lost-drift var(--duration,12s) ease-in-out infinite alternate; }
+    .lost-stars i:nth-child(1){left:12%;top:22%;--duration:11s}.lost-stars i:nth-child(2){left:84%;top:18%;--duration:15s}.lost-stars i:nth-child(3){left:77%;top:76%;--duration:13s}.lost-stars i:nth-child(4){left:19%;top:81%;--duration:17s}.lost-stars i:nth-child(5){left:52%;top:9%;--duration:10s}.lost-stars i:nth-child(6){left:91%;top:54%;--duration:19s}.lost-stars i:nth-child(7){left:6%;top:57%;--duration:14s}.lost-stars i:nth-child(8){left:64%;top:91%;--duration:16s}
+    body[data-lost-theme="day"] .lost-stars i { background:#7b9eb6; box-shadow:0 0 9px #7b9eb6; opacity:.65; }
+    @keyframes lost-scan { to { transform:rotate(360deg); } }
+    @keyframes lost-orbit { to { transform:rotate(360deg); } }
+    @keyframes lost-float { 0%,100%{translate:0 0} 50%{translate:0 -9px} }
+    @keyframes lost-blink { 0%,44%,48%,100%{transform:scaleY(1)} 46%{transform:scaleY(.08)} }
+    @keyframes lost-twinkle { 0%,100%{opacity:.3;transform:scale(.8)} 50%{opacity:1;transform:scale(1.2)} }
+    @keyframes lost-drift { from{transform:translateY(-8px);opacity:.2} to{transform:translateY(10px);opacity:.8} }
+    @media (max-width:520px) {
+      body { padding:18px; }
+      .lost-topline { margin-bottom:.3rem; }
+      .lost-brand { font-size:.62rem; }
+      .lost-theme-toggle { padding:.48rem .68rem; font-size:.72rem; }
+      .lost-scene { width:min(100%,330px); margin-bottom:.2rem; }
+      .lost-links { gap:.55rem; }
+      .lost-link { flex:1 1 28%; min-width:0; padding:.75rem .55rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:.01ms !important; }
+    }
   </style>
   <!-- Visitor analytics (Umami): lets you see if people hit broken links -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="00a338b9-1a16-401f-b276-070eda343e04"></script>
 </head>
-<body>
-  <main>
-    <p class="eyebrow">404</p>
-    <h1>Page <span>not found.</span></h1>
-    <p>That page doesn't exist, or it moved. Try one of these instead:</p>
-    <div class="buttons">
-      <a class="primary" href="https://mosesxd.github.io/">Home</a>
-      <a href="https://mosesxd.github.io/projects.html">Projects</a>
-      <a href="https://mosesxd.github.io/links.html">Links</a>
+<body data-lost-theme="night">
+  <div class="lost-stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <main class="lost-page">
+    <div class="lost-topline">
+      <span class="lost-brand">Moses' Hub · Lost signal</span>
+      <button class="lost-theme-toggle" id="lostThemeToggle" type="button" aria-pressed="false" aria-label="Switch to day theme">
+        <span id="lostThemeIcon" aria-hidden="true">☀</span><span id="lostThemeLabel">Day mode</span>
+      </button>
     </div>
+
+    <div class="lost-scene" aria-label="Animated lost signal illustration">
+      <div class="lost-radar" aria-hidden="true"></div>
+      <div class="lost-orbit" aria-hidden="true"></div>
+      <span class="lost-spark one" aria-hidden="true">✦</span>
+      <span class="lost-spark two" aria-hidden="true">✧</span>
+      <span class="lost-spark three" aria-hidden="true">·</span>
+      <button class="lost-face" id="lostFace" type="button" aria-label="Make the lost signal face react">
+        <svg viewBox="0 0 200 180" role="img" aria-labelledby="faceTitle">
+          <title id="faceTitle">A curious little lost signal face</title>
+          <defs>
+            <linearGradient id="faceGlow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#78e8ff"/><stop offset="1" stop-color="#b59cff"/>
+            </linearGradient>
+          </defs>
+          <path d="M100 18 C145 18 174 48 174 91 C174 137 145 162 100 162 C55 162 26 137 26 91 C26 48 55 18 100 18Z" fill="none" stroke="url(#faceGlow)" stroke-width="3" opacity=".85"/>
+          <path d="M49 76 Q61 62 76 72" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <path d="M124 72 Q139 62 151 76" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <g class="lost-eye"><ellipse cx="66" cy="94" rx="12" ry="15" fill="currentColor"/><circle class="lost-pupil" cx="69" cy="96" r="4" fill="#78e8ff"/></g>
+          <g class="lost-eye"><ellipse cx="134" cy="94" rx="12" ry="15" fill="currentColor"/><circle class="lost-pupil" cx="137" cy="96" r="4" fill="#78e8ff"/></g>
+          <path d="M94 111 Q100 116 106 111" fill="none" stroke="url(#faceGlow)" stroke-width="3" stroke-linecap="round"/>
+          <path class="lost-mouth" d="M77 132 Q100 145 123 132" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <p class="lost-code">404</p>
+    <h1 class="lost-title">Well, this is awkward.</h1>
+    <p class="lost-copy">Looks like this page wandered off the map. The signal is still here, though — let's get you back on track.</p>
+    <p class="lost-message" id="lostMessage" aria-live="polite">Scanning the area for your page…</p>
+    <nav class="lost-links" aria-label="Helpful links">
+      <a class="lost-link primary" href="https://mosesxd.github.io/">Home</a>
+      <a class="lost-link" href="https://mosesxd.github.io/projects.html">Projects</a>
+      <a class="lost-link" href="https://mosesxd.github.io/links.html">Links</a>
+    </nav>
+    <p class="lost-hint">Tip: tap the little face if you need a distraction.</p>
   </main>
+
+  <script>
+    (function () {
+      var body = document.body;
+      var themeButton = document.getElementById("lostThemeToggle");
+      var themeLabel = document.getElementById("lostThemeLabel");
+      var themeIcon = document.getElementById("lostThemeIcon");
+      var face = document.getElementById("lostFace");
+      var message = document.getElementById("lostMessage");
+      if (!body || !themeButton || !face || !message) return;
+
+      var day = false;
+      themeButton.addEventListener("click", function () {
+        day = !day;
+        body.setAttribute("data-lost-theme", day ? "day" : "night");
+        themeButton.setAttribute("aria-pressed", day ? "true" : "false");
+        themeButton.setAttribute("aria-label", day ? "Switch to night theme" : "Switch to day theme");
+        themeLabel.textContent = day ? "Night mode" : "Day mode";
+        themeIcon.textContent = day ? "☾" : "☀";
+      });
+
+      var reactions = [
+        "Scanning the area for your page…",
+        "No signal. Just vibes.",
+        "This page must be on a side quest.",
+        "Have you tried the Home button?",
+        "The little face says: wrong turn!"
+      ];
+      var reactionIndex = 0;
+      face.addEventListener("click", function () {
+        face.classList.toggle("is-curious");
+        message.textContent = face.classList.contains("is-curious")
+          ? "Oh! You found me. Still looking for that page, though."
+          : "Back to scanning. Good luck out there!";
+      });
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        window.setInterval(function () {
+          reactionIndex = (reactionIndex + 1) % reactions.length;
+          message.textContent = reactions[reactionIndex];
+        }, 6500);
+      }
+    })();
+  </script>
 </body>
 </html>
