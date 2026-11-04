@@ -2,9 +2,15 @@
 // Configure LASTFM_API_KEY and LASTFM_USER in Vercel Project Settings.
 // Never expose the API key to browser JavaScript or commit it to the repository.
 
+function getArtwork(images) {
+  if (!Array.isArray(images)) return "";
+  const preferred = images.slice().reverse().find(image => image && image["#text"]);
+  return preferred ? preferred["#text"] : "";
+}
+
 module.exports = async function nowPlaying(req, res) {
   res.setHeader("Content-Type", "application/json; charset=utf-8");
-  res.setHeader("Cache-Control", "s-maxage=30, stale-while-revalidate=60");
+  res.setHeader("Cache-Control", "s-maxage=0, must-revalidate");
 
   if (req.method !== "GET") {
     res.setHeader("Allow", "GET");
@@ -65,7 +71,9 @@ module.exports = async function nowPlaying(req, res) {
     return res.status(200).json({
       playing: Boolean(track["@attr"] && track["@attr"].nowplaying === "true"),
       track: track.name || "",
-      artist
+      artist,
+      album: track.album && track.album["#text"] ? track.album["#text"] : "",
+      artwork: getArtwork(track.image)
     });
   } catch (error) {
     return res.status(502).json({ error: "Could not reach Last.fm" });
