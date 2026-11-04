@@ -886,3 +886,6 @@ html[data-bg="grid"] body {
   .game-shelf-heading { align-items:flex-start; }
   .shelf-note { text-align:right; }
 }
+
+/* Keep the two About status cards balanced on wider screens. */
+@media (min-width: 761px) { .about-currently { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
