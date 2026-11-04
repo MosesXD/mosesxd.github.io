@@ -35,13 +35,18 @@ module.exports = async function nowPlaying(req, res) {
       }
     );
 
-    if (!response.ok) {
-      return res.status(502).json({ error: "Last.fm problem" });
-    }
+    const data = await response.json().catch(() => null);
 
-    const data = await response.json();
-    if (data.error || !data.recenttracks) {
-      return res.status(502).json({ error: "Last.fm problem" });
+    // Last.fm commonly returns API errors inside a JSON response.
+    // Expose only its numeric error code and public message, never credentials.
+    if (!response.ok || !data || data.error || !data.recenttracks) {
+      return res.status(502).json({
+        error: "Last.fm problem",
+        lastfmCode: data && Number.isInteger(data.error) ? data.error : null,
+        detail: data && typeof data.message === "string"
+          ? data.message.slice(0, 180)
+          : "Last.fm returned an unexpected response"
+      });
     }
 
     const tracks = data.recenttracks.track;
