@@ -114,6 +114,7 @@ No frameworks, no build step, and no server code. The site is fully static.
 - [ ] Write a case study for Moses' Hub
 - [ ] Verify the GitHub profile README and project READMEs
 - [ ] Add a public project roadmap with completed, in-progress, planned, and paused statuses
+- [ ] Explore a live gaming activity status integration (where a game platform exposes a reliable presence API); keep manual currently-playing status as the fallback
 
 ## Links
 
