@@ -13,26 +13,69 @@ document.querySelectorAll("#navLinks a").forEach(link => {
 });
 
 // ---------- Now playing (Last.fm) ----------
-// Asks our Netlify Function what you're listening to. The function holds the
-// secret key, so no key ever appears in this file.
 const nowPlayingEl = document.getElementById("nowPlaying");
 const nowPlayingLabel = document.getElementById("nowPlayingLabel");
+const nowPlayingAlbum = document.getElementById("nowPlayingAlbum");
+const nowPlayingArtwork = document.getElementById("nowPlayingArtwork");
+const nowPlayingCard = document.getElementById("nowPlayingCard");
+const spotifyDialog = document.getElementById("spotifyConfirm");
+const spotifyOpenButton = document.getElementById("spotifyConfirmOpen");
+const spotifyProfile = "https://open.spotify.com/user/fj0z9hiarbcs5539xym3l35f5";
 
-// Only runs on pages that have the "nowPlaying" element (the About page)
-if (nowPlayingEl && nowPlayingLabel) {
-  fetch("/.netlify/functions/now-playing")
-    .then(response => (response.ok ? response.json() : Promise.reject()))
-    .then(data => {
-      if (!data.track) return; // nothing to show, so keep the default text
-      nowPlayingLabel.textContent = data.playing ? "Listening now" : "Last played";
-      // textContent (not innerHTML) keeps odd characters in song names safe
-      nowPlayingEl.textContent = data.track + " – " + data.artist;
-    })
-    .catch(() => {
-      // If anything goes wrong, the page just keeps the text written in the HTML
-    });
+if (nowPlayingCard && spotifyDialog && spotifyOpenButton) {
+  nowPlayingCard.addEventListener("click", () => spotifyDialog.showModal());
+  spotifyOpenButton.addEventListener("click", event => {
+    event.preventDefault();
+    spotifyDialog.close();
+    window.open(spotifyProfile, "_blank", "noopener,noreferrer");
+  });
 }
 
+if (nowPlayingEl && nowPlayingLabel) {
+  const netlifyEndpoint = "/.netlify/functions/now-playing";
+  const vercelEndpoint = "/api/now-playing";
+  const hostname = window.location.hostname;
+  const endpoints = hostname.endsWith(".netlify.app")
+    ? [netlifyEndpoint, vercelEndpoint]
+    : [vercelEndpoint, netlifyEndpoint];
+
+  async function loadNowPlaying() {
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, {
+          headers: { Accept: "application/json" },
+          cache: "no-store"
+        });
+        if (!response.ok) continue;
+        const data = await response.json();
+        if (data.error) continue;
+        if (!data.track) return;
+
+        nowPlayingLabel.textContent = data.playing ? "Listening now" : "Last played";
+        nowPlayingEl.textContent = data.track + (data.artist ? " – " + data.artist : "");
+        if (nowPlayingAlbum) nowPlayingAlbum.textContent = data.album ? "Album · " + data.album : "";
+        if (nowPlayingArtwork && data.artwork) {
+          nowPlayingArtwork.src = data.artwork;
+          nowPlayingArtwork.hidden = false;
+        } else if (nowPlayingArtwork) {
+          nowPlayingArtwork.hidden = true;
+          nowPlayingArtwork.removeAttribute("src");
+        }
+        return;
+      } catch (error) {
+        // Try the other hosting provider; retain the fallback content if both fail.
+      }
+    }
+  }
+
+  loadNowPlaying();
+  let nowPlayingTimer = window.setInterval(() => {
+    if (!document.hidden) loadNowPlaying();
+  }, 30000);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) loadNowPlaying();
+  });
+}
 // ---------- v3.5 Motion (paste at the very BOTTOM of script.js) ----------
 // Wrapped in try/catch so a mistake here can never break your menu above.
 (function () {

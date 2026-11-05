@@ -48,15 +48,25 @@ Active learning project. Everything listed under "What's inside" exists. Items m
 - Share previews for links posted on Discord and Instagram
 - Cookie-free visit counts with Umami
 
-## Prepared but not switched on
+## Last.fm "Now Playing"
 
-- **Last.fm "now playing"**: the front-end code is in `script.js` and `about.html`. It needs a server function and a host that supports it, so it is not active.
+The About page can show the track currently playing (or the most recently played track) from Last.fm.
+
+- Netlify endpoint: `/.netlify/functions/now-playing`
+- Vercel endpoint: `/api/now-playing`
+- Both providers use the same private environment variables: `LASTFM_API_KEY` and `LASTFM_USER`.
+- Add both variables in each provider's project settings, then redeploy.
+- The API key stays on the server and is never included in browser JavaScript.
+- The front end tries the matching provider endpoint and falls back to the other one.
+
+GitHub Pages is static and cannot run either function itself. If GitHub Pages remains the production host, the feature will need to call a separately hosted backend with an explicitly configured endpoint and appropriate access controls.
 
 ## Built with
 
 - HTML for structure
 - CSS for layout, themes, and animation
 - JavaScript for the menu, themes, motion, ads, and the price switch
+- Serverless functions for the optional Last.fm integration on Netlify and Vercel
 - GitHub and GitHub Pages for version control and hosting
 
 No frameworks, no build step, and no server code. The site is fully static.
@@ -70,7 +80,8 @@ No frameworks, no build step, and no server code. The site is fully static.
 - `services.js`: the TTD and USD price switch
 - `images/ads/`: pictures used by ads
 - `sitemap.xml` and `robots.txt`: help search engines find the pages
-- `netlify/functions/now-playing.js`: the prepared Last.fm function (not active)
+- `netlify/functions/now-playing.js`: Netlify Last.fm function
+- `api/now-playing.js`: Vercel Last.fm function
 - `LICENSE`: all rights reserved
 - `CHANGELOG.md`: version history
 

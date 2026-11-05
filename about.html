@@ -57,21 +57,84 @@
         </article>
       </div>
       <div class="currently about-currently">
-        <div><strong>🎮</strong><span><small>Currently playing</small> Roblox</span></div>
-        <div><strong>🎧</strong><span><small id="nowPlayingLabel">Currently listening</small><span id="nowPlaying">R&amp;B / Juice WRLD</span></span></div>
+        <div class="currently-game"><strong aria-hidden="true">🎮</strong><span><small>Featured game</small> Roblox</span></div>
+        <button class="now-playing-card" id="nowPlayingCard" type="button" aria-haspopup="dialog" aria-controls="spotifyConfirm">
+          <img id="nowPlayingArtwork" class="now-playing-artwork" src="" alt="" hidden>
+          <strong aria-hidden="true">🎧</strong>
+          <span class="now-playing-copy"><small id="nowPlayingLabel">Currently listening</small><span id="nowPlaying">R&amp;B / Juice WRLD</span><small id="nowPlayingAlbum" class="now-playing-album"></small></span>
+          <span class="now-playing-open" aria-hidden="true">↗</span>
+        </button>
       </div>
     </section>
 
-    <section class="section section-tight">
+    <section class="section section-tight gaming-library">
       <p class="eyebrow">GAMING</p>
-      <h2>Games I'm into.</h2>
-      <div class="cards">
-        <article class="card game-card"><span>🎮</span><h3>Minecraft</h3><p>Currently exploring.</p></article>
-        <article class="card game-card"><span>🤖</span><h3>Mech Arena</h3><p>One of my multiplayer favorites.</p></article>
-        <article class="card game-card"><span>🔫</span><h3>Call of Duty Mobile</h3><p>Mobile gaming sessions.</p></article>
-        <article class="card game-card"><span>🌌</span><h3>Don't Starve Together</h3><p>Exploring and learning the game.</p></article>
-      </div>
+      <h2>My gaming library.</h2>
+      <p class="gaming-intro">A collection of mobile games I'm playing, have played, and want to try.</p>
+
+      <section class="game-shelf" aria-labelledby="playingGamesHeading">
+        <div class="game-shelf-heading"><div><p class="eyebrow">01 / NOW</p><h3 id="playingGamesHeading">Currently playing</h3></div><span class="shelf-note">Roblox featured</span></div>
+        <div class="game-grid">
+          <article class="game-tile game-featured"><div class="game-art art-roblox" role="img" aria-label="Roblox artwork"><span>R</span></div><div class="game-tile-copy"><h4>Roblox</h4><p>Main game</p></div><details class="game-details"><summary>Details</summary><p>My featured game right now.</p></details></article>
+          <article class="game-tile"><div class="game-art art-rio" role="img" aria-label="Rio Rise artwork"><span>RR</span></div><div class="game-tile-copy"><h4>Rio Rise</h4><p>Mobile game</p></div></article>
+          <article class="game-tile"><div class="game-art art-cod" role="img" aria-label="Call of Duty Mobile artwork"><span>COD</span></div><div class="game-tile-copy"><h4>Call of Duty: Mobile</h4><p>Mobile game</p></div></article>
+          <article class="game-tile"><div class="game-art art-minecraft" role="img" aria-label="Minecraft artwork"><span>M</span></div><div class="game-tile-copy"><h4>Minecraft</h4><p>Build and explore</p></div></article>
+          <article class="game-tile"><div class="game-art art-ml" role="img" aria-label="Mobile Legends artwork"><span>ML</span></div><div class="game-tile-copy"><h4>Mobile Legends: Bang Bang</h4><p>Mobile game</p></div></article>
+          <article class="game-tile"><div class="game-art art-mech" role="img" aria-label="Mech Arena artwork"><span>MA</span></div><div class="game-tile-copy"><h4>Mech Arena</h4><p>Mobile game</p></div></article>
+          <article class="game-tile"><div class="game-art art-pvz" role="img" aria-label="Plants vs Zombies 2 artwork"><span>PVZ</span></div><div class="game-tile-copy"><h4>Plants vs. Zombies 2</h4><p>Mobile game</p></div></article>
+        </div>
+      </section>
+
+      <section class="game-shelf" aria-labelledby="playedGamesHeading">
+        <div class="game-shelf-heading"><div><p class="eyebrow">02 / LIBRARY</p><h3 id="playedGamesHeading">Previously played</h3></div></div>
+        <div class="game-grid">
+          <article class="game-tile"><div class="game-art art-brawl" role="img" aria-label="Brawl Stars artwork"><span>BS</span></div><div class="game-tile-copy"><h4>Brawl Stars</h4></div></article>
+          <article class="game-tile"><div class="game-art art-among" role="img" aria-label="Among Us artwork"><span>AU</span></div><div class="game-tile-copy"><h4>Among Us</h4></div></article>
+          <article class="game-tile"><div class="game-art art-plato" role="img" aria-label="Plato artwork"><span>P</span></div><div class="game-tile-copy"><h4>Plato: Fun Multiplayer Games</h4></div></article>
+          <article class="game-tile"><div class="game-art art-monopoly" role="img" aria-label="MONOPOLY GO artwork"><span>MG</span></div><div class="game-tile-copy"><h4>MONOPOLY GO!</h4></div></article>
+          <article class="game-tile"><div class="game-art art-clash" role="img" aria-label="Clash Royale artwork"><span>CR</span></div><div class="game-tile-copy"><h4>Clash Royale</h4></div></article>
+          <article class="game-tile"><div class="game-art art-darkrise" role="img" aria-label="Darkrise artwork"><span>D</span></div><div class="game-tile-copy"><h4>Darkrise – Pixel Action RPG</h4></div></article>
+          <article class="game-tile"><div class="game-art art-mob" role="img" aria-label="Mob Control artwork"><span>MC</span></div><div class="game-tile-copy"><h4>Mob Control</h4></div></article>
+          <article class="game-tile"><div class="game-art art-word" role="img" aria-label="Word Connect artwork"><span>WC</span></div><div class="game-tile-copy"><h4>Word Connect Association</h4></div></article>
+        </div>
+      </section>
+
+      <section class="game-shelf" aria-labelledby="wantGamesHeading">
+        <div class="game-shelf-heading"><div><p class="eyebrow">03 / NEXT UP</p><h3 id="wantGamesHeading">Want to play</h3></div></div>
+        <div class="game-grid">
+          <article class="game-tile"><div class="game-art art-battlebay" role="img" aria-label="Battle Bay artwork"><span>BB</span></div><div class="game-tile-copy"><h4>Battle Bay</h4></div></article>
+          <article class="game-tile"><div class="game-art art-stickhero" role="img" aria-label="Stick Hero Tower Defense artwork"><span>SH</span></div><div class="game-tile-copy"><h4>Stick Hero: Tower Defense</h4></div></article>
+          <article class="game-tile"><div class="game-art art-idlecat" role="img" aria-label="Idle Cat Gunner artwork"><span>IC</span></div><div class="game-tile-copy"><h4>Idle Cat Gunner</h4></div></article>
+          <article class="game-tile"><div class="game-art art-bling" role="img" aria-label="Bling Sort artwork"><span>BS</span></div><div class="game-tile-copy"><h4>Bling Sort: Gem Art Puzzle</h4></div></article>
+          <article class="game-tile"><div class="game-art art-dislyte" role="img" aria-label="Dislyte artwork"><span>D</span></div><div class="game-tile-copy"><h4>Dislyte</h4></div></article>
+          <article class="game-tile"><div class="game-art art-snacky" role="img" aria-label="Snacky Dash artwork"><span>SD</span></div><div class="game-tile-copy"><h4>Snacky Dash</h4></div></article>
+          <article class="game-tile"><div class="game-art art-coin" role="img" aria-label="Coin Collector artwork"><span>CC</span></div><div class="game-tile-copy"><h4>Coin Collector</h4></div></article>
+          <article class="game-tile"><div class="game-art art-foodie" role="img" aria-label="Foodie Pop artwork"><span>FP</span></div><div class="game-tile-copy"><h4>Foodie Pop!</h4></div></article>
+          <article class="game-tile"><div class="game-art art-alchemy" role="img" aria-label="Alchemy Craft and Merge artwork"><span>AC</span></div><div class="game-tile-copy"><h4>Alchemy Craft &amp; Merge</h4></div></article>
+        </div>
+      </section>
+
+      <section class="game-shelf emulator-shelf" aria-labelledby="emulatorsHeading">
+        <div class="game-shelf-heading"><div><p class="eyebrow">04 / TECH</p><h3 id="emulatorsHeading">Emulation Hub</h3></div><span class="shelf-note">Emulators &amp; tools</span></div>
+        <div class="emulator-grid">
+          <div class="emulator-chip"><span class="emulator-mark">P</span><span><strong>PPSSPP</strong><small>PSP emulator</small></span></div>
+          <div class="emulator-chip"><span class="emulator-mark">E</span><span><strong>Eden Nightly</strong><small>Emulator</small></span></div>
+          <div class="emulator-chip"><span class="emulator-mark">A</span><span><strong>Azahar</strong><small>3DS emulator</small></span></div>
+          <div class="emulator-chip"><span class="emulator-mark">D</span><span><strong>Dolphin</strong><small>GameCube / Wii emulator</small></span></div>
+          <div class="emulator-chip"><span class="emulator-mark">E</span><span><strong>EBA</strong><small>Emulator</small></span></div>
+          <div class="emulator-chip"><span class="emulator-mark">N</span><span><strong>NetherSX2</strong><small>PS2 emulator</small></span></div>
+        </div>
+      </section>
     </section>
+
+    <dialog class="spotify-confirm" id="spotifyConfirm" aria-labelledby="spotifyConfirmTitle">
+      <form method="dialog">
+        <p class="eyebrow">NOW PLAYING</p>
+        <h3 id="spotifyConfirmTitle">Open Spotify?</h3>
+        <p>You'll be taken to the Spotify profile. Continue?</p>
+        <div class="spotify-actions"><button class="button secondary" value="cancel">Cancel</button><button class="button primary" id="spotifyConfirmOpen" value="confirm">Open profile</button></div>
+      </form>
+    </dialog>
   </main>
 
   <!-- FOOTER: copy this into every page. Keep the id year! -->
