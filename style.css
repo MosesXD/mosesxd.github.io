@@ -889,3 +889,12 @@ html[data-bg="grid"] body {
 
 /* Keep the two About status cards balanced on wider screens. */
 @media (min-width: 761px) { .about-currently { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Gaming library artwork treatment */
+.game-art{position:relative;isolation:isolate;background-image:radial-gradient(circle at 25% 18%,rgba(255,255,255,.25),transparent 45%),linear-gradient(145deg,#344b69,#182336)}
+.game-art span{font-size:clamp(2.5rem,6vw,4rem);line-height:1;filter:drop-shadow(0 7px 12px rgba(0,0,0,.28));text-shadow:none}
+.game-tile-copy p{min-height:2.2em;line-height:1.45}
+.game-tile{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.game-tile:hover{transform:translateY(-3px);border-color:var(--accent-line);box-shadow:0 12px 30px rgba(0,0,0,.16)}
+.game-featured .game-art span{font-size:4rem}
+@media(prefers-reduced-motion:reduce){.game-tile{transition:none}.game-tile:hover{transform:none}}
