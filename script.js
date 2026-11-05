@@ -85,7 +85,7 @@ if (nowPlayingEl && nowPlayingLabel) {
           // Try the next configured host.
         }
       }
-      if (nowPlayingLabel.textContent === "Currently listening") {
+      if (nowPlayingLabel.textContent === "Loading recent track…") {
         nowPlayingLabel.textContent = "Listening status unavailable";
         nowPlayingEl.textContent = "Check back in a moment";
       }
