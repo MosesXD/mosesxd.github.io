@@ -32,44 +32,70 @@ if (nowPlayingCard && spotifyDialog && spotifyOpenButton) {
 }
 
 if (nowPlayingEl && nowPlayingLabel) {
+  const githubPagesHost = window.location.hostname === "mosesxd.github.io";
+  const vercelApi = "https://mosesxdgithubio.vercel.app/api/now-playing";
   const netlifyEndpoint = "/.netlify/functions/now-playing";
   const vercelEndpoint = "/api/now-playing";
-  const hostname = window.location.hostname;
-  const endpoints = hostname.endsWith(".netlify.app")
-    ? [netlifyEndpoint, vercelEndpoint]
-    : [vercelEndpoint, netlifyEndpoint];
+  const endpoints = githubPagesHost
+    ? [vercelApi]
+    : window.location.hostname.endsWith(".netlify.app")
+      ? [netlifyEndpoint, vercelEndpoint]
+      : [vercelEndpoint, netlifyEndpoint];
+  let requestInFlight = false;
+  let latestRequest = 0;
 
   async function loadNowPlaying() {
-    for (const endpoint of endpoints) {
-      try {
-        const response = await fetch(endpoint, {
-          headers: { Accept: "application/json" },
-          cache: "no-store"
-        });
-        if (!response.ok) continue;
-        const data = await response.json();
-        if (data.error) continue;
-        if (!data.track) return;
-
-        nowPlayingLabel.textContent = data.playing ? "Listening now" : "Last played";
-        nowPlayingEl.textContent = data.track + (data.artist ? " – " + data.artist : "");
-        if (nowPlayingAlbum) nowPlayingAlbum.textContent = data.album ? "Album · " + data.album : "";
-        if (nowPlayingArtwork && data.artwork) {
-          nowPlayingArtwork.src = data.artwork;
-          nowPlayingArtwork.hidden = false;
-        } else if (nowPlayingArtwork) {
-          nowPlayingArtwork.hidden = true;
-          nowPlayingArtwork.removeAttribute("src");
+    if (requestInFlight) return;
+    requestInFlight = true;
+    const requestId = ++latestRequest;
+    try {
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {
+            headers: { Accept: "application/json" },
+            cache: "no-store"
+          });
+          if (!response.ok) continue;
+          const data = await response.json();
+          if (requestId !== latestRequest || data.error) continue;
+          if (!data.track) {
+            nowPlayingLabel.textContent = "Listening status unavailable";
+            nowPlayingEl.textContent = "No recent track found";
+            if (nowPlayingAlbum) nowPlayingAlbum.textContent = "";
+            if (nowPlayingArtwork) {
+              nowPlayingArtwork.hidden = true;
+              nowPlayingArtwork.removeAttribute("src");
+            }
+            return;
+          }
+          nowPlayingLabel.textContent = data.playing ? "Listening now" : "Last played";
+          nowPlayingEl.textContent = data.track + (data.artist ? " – " + data.artist : "");
+          if (nowPlayingAlbum) nowPlayingAlbum.textContent = data.album ? "Album · " + data.album : "";
+          if (nowPlayingArtwork) {
+            if (data.artwork) {
+              nowPlayingArtwork.src = data.artwork;
+              nowPlayingArtwork.hidden = false;
+            } else {
+              nowPlayingArtwork.hidden = true;
+              nowPlayingArtwork.removeAttribute("src");
+            }
+          }
+          return;
+        } catch (error) {
+          // Try the next configured host.
         }
-        return;
-      } catch (error) {
-        // Try the other hosting provider; retain the fallback content if both fail.
       }
+      if (nowPlayingLabel.textContent === "Currently listening") {
+        nowPlayingLabel.textContent = "Listening status unavailable";
+        nowPlayingEl.textContent = "Check back in a moment";
+      }
+    } finally {
+      requestInFlight = false;
     }
   }
 
   loadNowPlaying();
-  let nowPlayingTimer = window.setInterval(() => {
+  window.setInterval(() => {
     if (!document.hidden) loadNowPlaying();
   }, 30000);
   document.addEventListener("visibilitychange", () => {
