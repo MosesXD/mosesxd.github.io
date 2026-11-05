@@ -4,6 +4,8 @@ My personal website and learning project: a hub for my projects, experiments, li
 
 **Live site:** https://mosesxd.github.io/
 
+**Current documented release:** v2.5.4 (documentation-only correction)
+
 ## Status
 
 Active learning project. Everything listed under "What's inside" exists. Items marked *preview* or *prepared* are not fully switched on, and I say so below.
@@ -99,16 +101,19 @@ No frameworks, no build step, and no server code. The site is fully static.
 
 ## Roadmap
 
-- [x] Multi-page structure
-- [x] Themes, motion, and a custom 404 page
-- [x] Partners page and ad system
-- [x] Services page
-- [x] Share previews and visit counts
-- [x] Projects page with honest status labels
-- [ ] Full test pass on phone and desktop, including keyboard navigation
-- [ ] Real screenshots of each page
-- [ ] Link my other projects once they are live
-- [ ] Case study for this project
+- [x] Multi-page structure, navigation, themes, motion, and a custom 404 page
+- [x] Partners page, ad system, and Services page
+- [x] Share previews, sitemap, robots.txt, and license
+- [x] Projects page with honest project status labels
+- [x] README, CHANGELOG, and Updates page maintained as project documentation
+- [ ] Reconcile and review main, dev, and Features before deciding what should merge
+- [ ] Complete accessibility fixes from the audit (menu state, focus visibility, large text, and small-screen theme panel)
+- [ ] Repeat a full phone and desktop test, including keyboard navigation, after the next approved merge
+- [ ] Add real screenshots of the actual pages and projects
+- [ ] Add demo and repository links to relevant project cards
+- [ ] Write a case study for Moses' Hub
+- [ ] Verify the GitHub profile README and project READMEs
+- [ ] Add a public project roadmap with completed, in-progress, planned, and paused statuses
 
 ## Links
 

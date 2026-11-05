@@ -1,12 +1,33 @@
 # Changelog
 
+How the numbers work (Semantic Versioning: MAJOR.MINOR.PATCH):
+
+- MAJOR (3.0.0): a major redesign, restructure, or breaking change
+- MINOR (2.6.0): a new feature that keeps existing functionality working
+- PATCH (2.5.4): fixes, polish, documentation corrections, and maintenance
+
+Only create a release entry for changes that have actually been merged and published. Work in branches and previews belongs under Unreleased until it ships.
+
 How the numbers work:
 
 - First number (1.0.0): a big redesign or restructure of the whole site
 - Middle number (1.1.0): something new visitors can see or use, like a page or a feature
 - Last number (1.0.1): fixes, polish, and behind-the-scenes changes
 
-## Unreleased (built, but not switched on yet)
+## Unreleased
+
+- Last.fm Now Playing still requires provider configuration and production verification.
+- Accessibility improvements from the audit are awaiting implementation and retesting.
+- Branch reconciliation and the next full mobile/desktop test pass are still outstanding.
+
+## v2.5.4
+
+- Corrected the historical v2.5.2 Updates entry so it matches the changelog.
+- Updated the README roadmap to reflect current completed work and remaining tasks.
+- Clarified versioning and release-note rules.
+- Documentation-only patch; no new site functionality is claimed.
+
+## Earlier unreleased notes (not a public release)
 
 - Last.fm "now playing" code is in script.js and about.html. It starts working once the Netlify function is set up.
 - Ads in ads.js only go live after the owner approves their wording.
