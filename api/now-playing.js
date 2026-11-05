@@ -9,8 +9,22 @@ function getArtwork(images) {
 }
 
 module.exports = async function nowPlaying(req, res) {
+  const allowedOrigin = "https://mosesxd.github.io";
+  const origin = req.headers.origin || "";
+  res.setHeader("Vary", "Origin");
   res.setHeader("Content-Type", "application/json; charset=utf-8");
-  res.setHeader("Cache-Control", "s-maxage=0, must-revalidate");
+  res.setHeader("Cache-Control", "no-store, s-maxage=0");
+  if (origin === allowedOrigin) {
+    res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+    res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Accept");
+    res.setHeader("Access-Control-Max-Age", "86400");
+  }
+
+  if (req.method === "OPTIONS") {
+    if (origin !== allowedOrigin) return res.status(403).end();
+    return res.status(204).end();
+  }
 
   if (req.method !== "GET") {
     res.setHeader("Allow", "GET");
