@@ -4,7 +4,7 @@ My personal website and learning project: a hub for my projects, experiments, li
 
 **Live site:** https://mosesxd.github.io/
 
-**Current documented release:** v2.5.4 (documentation-only correction)
+**Current documented release:** v2.7.0
 
 ## Status
 
@@ -24,7 +24,7 @@ Active learning project. Everything listed under "What's inside" exists. Items m
 | Partners | Partner and featured spots, controlled from one file |
 | Lab | Experiments and things I'm learning |
 | Trading | **Preview only.** No forms, payments, or offers |
-| Support | PayPal link. A local option is planned |
+| Support | PayPal and WiPay QR support, including download and device sharing |
 | Gallery | Placeholder page |
 | Dashboard | **Layout preview only.** Not linked from the menu, no real numbers |
 | 404 | Custom page for broken links |
@@ -106,14 +106,14 @@ No frameworks, no build step, and no server code. The site is fully static.
 - [x] Share previews, sitemap, robots.txt, and license
 - [x] Projects page with honest project status labels
 - [x] README, CHANGELOG, and Updates page maintained as project documentation
-- [ ] Reconcile and review main, dev, and Features before deciding what should merge
+- [x] Compare main, dev, and Features; both older branches are behind main with no unique commits to merge
 - [ ] Complete accessibility fixes from the audit (menu state, focus visibility, large text, and small-screen theme panel)
 - [ ] Repeat a full phone and desktop test, including keyboard navigation, after the next approved merge
 - [ ] Add real screenshots of the actual pages and projects
 - [ ] Add demo and repository links to relevant project cards
 - [ ] Write a case study for Moses' Hub
-- [ ] Verify the GitHub profile README and project READMEs
-- [ ] Add a public project roadmap with completed, in-progress, planned, and paused statuses
+- [x] Verify the GitHub profile README exists on the public `MosesXD/MosesXD` repository\n- [ ] Review README files in the other project repositories
+- [ ] Publish a visitor-facing roadmap page on Moses' Hub\n- [x] Maintain the detailed project checklist in [ROADMAP.md](ROADMAP.md)
 
 ## Links
 
