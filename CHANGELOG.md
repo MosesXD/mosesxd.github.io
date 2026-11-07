@@ -4,7 +4,7 @@ How the numbers work (Semantic Versioning: MAJOR.MINOR.PATCH):
 
 - MAJOR (3.0.0): a major redesign, restructure, or breaking change
 - MINOR (2.6.0): a new feature that keeps existing functionality working
-- PATCH (2.5.4): fixes, polish, documentation corrections, and maintenance
+- PATCH (2.6.1): fixes, polish, documentation corrections, and maintenance
 
 Only create a release entry for changes that have actually been merged and published. Work in branches and previews belongs under Unreleased until it ships.
 
@@ -14,7 +14,7 @@ Only create a release entry for changes that have actually been merged and publi
 - Complete the remaining accessibility fixes from the audit and repeat keyboard, phone, and desktop testing.
 - Review the remaining differences on the `dev` and `Features` branches against `main` before deciding whether any additional work should be merged.
 
-## v2.6.0
+## v2.7.0\n\n- Redesigned the Services “How it works” section using the established game-tile visual style while preserving the six process steps.\n- Added a “Need to play again” shelf to the About gaming library without moving Dislyte out of Want to play.\n- Added WiPay QR support to the Support page, with download and native device sharing options.\n\n## v2.6.0
 
 - Added a gaming library to the About page, with currently playing, previously played, and planned games.
 - Added the Last.fm Now Playing card and serverless endpoints for Vercel and Netlify, including artwork and album details.
