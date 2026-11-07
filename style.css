@@ -889,3 +889,53 @@ html[data-bg="grid"] body {
 
 /* Keep the two About status cards balanced on wider screens. */
 @media (min-width: 761px) { .about-currently { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+
+/* ---------- Services: How it works / game-library style ---------- */
+.service-process-intro { color:var(--muted); max-width:620px; margin:-1rem 0 2rem; }
+.service-process-shelf { margin:2.2rem 0 0; }
+.service-process-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+.service-step { transition:transform .2s,border-color .2s,box-shadow .25s; }
+.service-step-art {
+  aspect-ratio:1.55 / 1;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding:1rem 1.1rem;
+  position:relative;
+  isolation:isolate;
+}
+.service-step-art::after {
+  content:"";
+  position:absolute;
+  width:118px;height:118px;
+  right:-22px;bottom:-35px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:50%;
+  box-shadow:0 0 0 16px rgba(255,255,255,.035),0 0 0 34px rgba(255,255,255,.025);
+  z-index:-1;
+}
+.service-step-art span { font-size:clamp(2.4rem,5vw,3.6rem); line-height:1; letter-spacing:-.08em; }
+.service-step-art small { font-size:.62rem; font-weight:800; letter-spacing:.16em; opacity:.82; }
+.service-step .game-tile-copy { padding:1rem 1rem 1.1rem; }
+.service-step h4 { font-size:1rem; margin-bottom:.35rem; }
+.service-step .game-tile-copy p { font-size:.82rem; line-height:1.55; }
+.service-step-brief .service-step-art { background:linear-gradient(135deg,#287f83,#193d55); }
+.service-step-quote .service-step-art { background:linear-gradient(135deg,#5b65a8,#302d63); }
+.service-step-deposit .service-step-art { background:linear-gradient(135deg,#9a7041,#533d35); }
+.service-step-build .service-step-art { background:linear-gradient(135deg,#347d62,#214c49); }
+.service-step-revisions .service-step-art { background:linear-gradient(135deg,#a45d79,#553b69); }
+.service-step-delivery .service-step-art { background:linear-gradient(135deg,#477b9e,#293e65); }
+@media(max-width:760px) {
+  .service-process-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+  .service-step-art { aspect-ratio:1.35 / 1; padding:.85rem; }
+  .service-step .game-tile-copy { padding:.8rem .85rem 1rem; }
+}
+@media(max-width:420px) {
+  .service-process-grid { grid-template-columns:1fr 1fr; }
+  .service-step-art span { font-size:2.5rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .service-step { transition:none; }
+}
