@@ -51,8 +51,13 @@
       <p class="eyebrow">SUPPORT</p>
       <h3 id="wipayTitle">Support with WiPay</h3>
       <p>Scan this QR code with your phone to send support. Enter the amount you’d like to give in WiPay.</p>
-      <img class="wipay-qr" src="assets/wipay-qr.svg" alt="WiPay payment QR code">
-      <div class="spotify-actions"><button class="button secondary" value="close">Close</button></div>
+      <img class="wipay-qr" id="wipayQrImage" src="assets/wipay-qr.svg" alt="WiPay payment QR code">
+      <p class="wipay-help">Using this device? Save the QR image or share it to another app. If WiPay supports receiving shared images on your device, it may appear in the share options.</p>
+      <div class="spotify-actions wipay-actions">
+        <button class="button" id="wipayDownload" type="button">Download QR</button>
+        <button class="button secondary" id="wipayShare" type="button">Share QR</button>
+        <button class="button secondary" value="close">Close</button>
+      </div>
     </form>
   </dialog>
   </main>
