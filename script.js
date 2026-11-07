@@ -354,3 +354,14 @@ if (nowPlayingEl && nowPlayingLabel) {
     console.warn("Signature block skipped:", error);
   }
 })();
+
+
+// ---------- WiPay support QR prompt ----------
+const wipayOpen = document.getElementById("wipayOpen");
+const wipayDialog = document.getElementById("wipayDialog");
+if (wipayOpen && wipayDialog) {
+  wipayOpen.addEventListener("click", () => wipayDialog.showModal());
+  wipayDialog.addEventListener("click", event => {
+    if (event.target === wipayDialog) wipayDialog.close();
+  });
+}
