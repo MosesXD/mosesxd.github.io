@@ -360,8 +360,68 @@ if (nowPlayingEl && nowPlayingLabel) {
 const wipayOpen = document.getElementById("wipayOpen");
 const wipayDialog = document.getElementById("wipayDialog");
 if (wipayOpen && wipayDialog) {
+  const wipayQrImage = document.getElementById("wipayQrImage");
+  const wipayDownload = document.getElementById("wipayDownload");
+  const wipayShare = document.getElementById("wipayShare");
+
   wipayOpen.addEventListener("click", () => wipayDialog.showModal());
   wipayDialog.addEventListener("click", event => {
     if (event.target === wipayDialog) wipayDialog.close();
   });
+
+  // Export the displayed QR as a PNG so it works better with phone photo apps and sharing.
+  const makeWipayPng = () => new Promise((resolve, reject) => {
+    if (!wipayQrImage || !wipayQrImage.complete || !wipayQrImage.naturalWidth) {
+      reject(new Error("The WiPay QR image is not ready yet."));
+      return;
+    }
+    const canvas = document.createElement("canvas");
+    canvas.width = wipayQrImage.naturalWidth;
+    canvas.height = wipayQrImage.naturalHeight;
+    const context = canvas.getContext("2d");
+    context.drawImage(wipayQrImage, 0, 0);
+    canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("Could not prepare the QR image.")), "image/png");
+  });
+
+  if (wipayDownload) {
+    wipayDownload.addEventListener("click", async () => {
+      try {
+        const blob = await makeWipayPng();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "wipay-qr.png";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      } catch (error) {
+        alert("The QR image could not be downloaded. Please try again.");
+      }
+    });
+  }
+
+  if (wipayShare) {
+    wipayShare.addEventListener("click", async () => {
+      try {
+        const blob = await makeWipayPng();
+        const file = new File([blob], "wipay-qr.png", { type: "image/png" });
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file], title: "WiPay QR code" });
+        } else {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "wipay-qr.png";
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+          alert("Sharing images isn't supported here, so the QR code was downloaded instead.");
+        }
+      } catch (error) {
+        if (error.name !== "AbortError") alert("The QR code couldn't be shared. Please use Download QR instead.");
+      }
+    });
+  }
 }
