@@ -3,8 +3,8 @@
 How the numbers work (Semantic Versioning: MAJOR.MINOR.PATCH):
 
 - MAJOR (3.0.0): a major redesign, restructure, or breaking change
-- MINOR (2.6.0): a new feature that keeps existing functionality working
-- PATCH (2.5.4): fixes, polish, documentation corrections, and maintenance
+- MINOR (2.7.0): a new feature that keeps existing functionality working
+- PATCH (2.7.1): fixes, polish, documentation corrections, and maintenance
 
 Only create a release entry for changes that have actually been merged and published. Work in branches and previews belongs under Unreleased until it ships.
 
@@ -13,6 +13,12 @@ Only create a release entry for changes that have actually been merged and publi
 - Confirm the Last.fm provider settings and verify a live Now Playing response from the published site before calling the integration fully operational.
 - Complete the remaining accessibility fixes from the audit and repeat keyboard, phone, and desktop testing.
 - Review the remaining differences on the `dev` and `Features` branches against `main` before deciding whether any additional work should be merged.
+
+## v2.7.0
+
+- Redesigned the Services “How it works” section using the established game-tile visual style while preserving the six process steps.
+- Added a “Need to play again” shelf to the About gaming library without moving Dislyte out of Want to play.
+- Added WiPay QR support to the Support page, with download and native device sharing options.
 
 ## v2.6.0
 
