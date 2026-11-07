@@ -3,8 +3,8 @@
 How the numbers work (Semantic Versioning: MAJOR.MINOR.PATCH):
 
 - MAJOR (3.0.0): a major redesign, restructure, or breaking change
-- MINOR (2.6.0): a new feature that keeps existing functionality working
-- PATCH (2.6.1): fixes, polish, documentation corrections, and maintenance
+- MINOR (2.7.0): a new feature that keeps existing functionality working
+- PATCH (2.7.1): fixes, polish, documentation corrections, and maintenance
 
 Only create a release entry for changes that have actually been merged and published. Work in branches and previews belongs under Unreleased until it ships.
 
