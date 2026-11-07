@@ -949,3 +949,12 @@ html[data-bg="grid"] body {
 .art-clashofclans { background:linear-gradient(145deg,#4b9a62,#285b43); }
 .art-ark { background:linear-gradient(145deg,#9a744b,#394c3e); }
 .art-skullgirls { background:linear-gradient(145deg,#a85e77,#50304e); }
+
+
+/* ---------- Support page: WiPay QR prompt ---------- */
+.wipay-dialog { max-height: min(90vh, 760px); overflow-y: auto; }
+.wipay-dialog form { display: grid; gap: .7rem; }
+.wipay-dialog .eyebrow { margin: 0; }
+.wipay-dialog h3 { margin: 0; }
+.wipay-dialog form > p:not(.eyebrow) { color: var(--muted); }
+.wipay-qr { display: block; width: min(100%, 320px); height: auto; margin: .35rem auto; border-radius: 12px; background: #fff; }
