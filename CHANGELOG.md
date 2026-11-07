@@ -8,17 +8,20 @@ How the numbers work (Semantic Versioning: MAJOR.MINOR.PATCH):
 
 Only create a release entry for changes that have actually been merged and published. Work in branches and previews belongs under Unreleased until it ships.
 
-How the numbers work:
-
-- First number (1.0.0): a big redesign or restructure of the whole site
-- Middle number (1.1.0): something new visitors can see or use, like a page or a feature
-- Last number (1.0.1): fixes, polish, and behind-the-scenes changes
-
 ## Unreleased
 
-- Last.fm Now Playing still requires provider configuration and production verification.
-- Accessibility improvements from the audit are awaiting implementation and retesting.
-- Branch reconciliation and the next full mobile/desktop test pass are still outstanding.
+- Confirm the Last.fm provider settings and verify a live Now Playing response from the published site before calling the integration fully operational.
+- Complete the remaining accessibility fixes from the audit and repeat keyboard, phone, and desktop testing.
+- Review the remaining differences on the `dev` and `Features` branches against `main` before deciding whether any additional work should be merged.
+
+## v2.6.0
+
+- Added a gaming library to the About page, with currently playing, previously played, and planned games.
+- Added the Last.fm Now Playing card and serverless endpoints for Vercel and Netlify, including artwork and album details.
+- Updated the GitHub Pages site to request Now Playing data from the Vercel endpoint and improved the loading and unavailable messages. Provider credentials and a successful live response still need confirmation.
+- Reworked the 404 page into a responsive day-and-night sky experience with an interactive face, changing messages, and a saved theme choice.
+- Restored and clarified the concept-only project links for Island Ledger and Everyday Toolkit so the portfolio does not present the Concept builds as the Official products.
+- Added short descriptions to the gaming library and clarified the current game label.
 
 ## v2.5.4
 
@@ -26,11 +29,6 @@ How the numbers work:
 - Updated the README roadmap to reflect current completed work and remaining tasks.
 - Clarified versioning and release-note rules.
 - Documentation-only patch; no new site functionality is claimed.
-
-## Earlier unreleased notes (not a public release)
-
-- Last.fm "now playing" code is in script.js and about.html. It starts working once the Netlify function is set up.
-- Ads in ads.js only go live after the owner approves their wording.
 
 ## v2.5.3
 
