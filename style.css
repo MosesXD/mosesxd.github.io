@@ -169,7 +169,7 @@ h1 span {
 .gallery-placeholder p { color: var(--text); font-size: 1.2rem; margin-bottom: .4rem; }
 
 .links-list { display: grid; gap: .8rem; max-width: 700px; }
-.link-card { display: flex; justify-content: space-between; }
+.link-card { display: flex; justify-content: space-between; width: 100%; font: inherit; text-align: left; cursor: pointer; }
 
 footer {
   border-top: 1px solid var(--border);
