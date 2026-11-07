@@ -43,11 +43,18 @@
       </p>
       <div class="links-list">
         <a href="https://www.paypal.me/SleepyNeevah" class="card link-card" target="_blank" rel="noopener"><span>💛 PayPal</span><span>↗</span></a>
-        <!-- WiPay is switched off. When it's ready, copy the PayPal line above, paste it here,
-             and change the address and the word. Then delete this disabled card. -->
-        <div class="card link-card is-disabled" aria-disabled="true"><span>WiPay</span><span>COMING SOON</span></div>
+        <button class="card link-card" id="wipayOpen" type="button" aria-haspopup="dialog" aria-controls="wipayDialog"><span>WiPay</span><span>↗</span></button>
       </div>
     </section>
+  <dialog class="spotify-confirm wipay-dialog" id="wipayDialog" aria-labelledby="wipayTitle">
+    <form method="dialog">
+      <p class="eyebrow">SUPPORT</p>
+      <h3 id="wipayTitle">Support with WiPay</h3>
+      <p>Scan this QR code with your phone to send support. Enter the amount you’d like to give in WiPay.</p>
+      <img class="wipay-qr" src="assets/wipay-qr.svg" alt="WiPay payment QR code">
+      <div class="spotify-actions"><button class="button secondary" value="close">Close</button></div>
+    </form>
+  </dialog>
   </main>
 
   <!-- FOOTER: copy this into every page. Keep the id year! -->
