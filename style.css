@@ -939,3 +939,13 @@ html[data-bg="grid"] body {
 @media(prefers-reduced-motion:reduce) {
   .service-step { transition:none; }
 }
+
+ 
+/* ---------- Gaming library: Need to play again artwork ---------- */
+.art-genshin { background:linear-gradient(145deg,#4f9c8a,#274d68); }
+.art-starrail { background:linear-gradient(145deg,#5866a6,#282f55); }
+.art-solo { background:linear-gradient(145deg,#4b547d,#171d32); }
+.art-seven { background:linear-gradient(145deg,#bd8a4e,#69434b); }
+.art-clashofclans { background:linear-gradient(145deg,#4b9a62,#285b43); }
+.art-ark { background:linear-gradient(145deg,#9a744b,#394c3e); }
+.art-skullgirls { background:linear-gradient(145deg,#a85e77,#50304e); }
