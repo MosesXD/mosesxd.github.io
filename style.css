@@ -939,3 +939,60 @@ html[data-bg="grid"] body {
 @media(prefers-reduced-motion:reduce) {
   .service-step { transition:none; }
 }
+
+
+/* ---------- Gaming library: Need to play again shelf ---------- */
+.comeback-intro { color:var(--muted); max-width:680px; margin:-.35rem 0 1.25rem; font-size:.9rem; line-height:1.65; }
+.comeback-grid { align-items:stretch; }
+.comeback-tile { overflow:hidden; }
+.comeback-art {
+  aspect-ratio:1.62 / 1;
+  min-height:130px;
+  padding:1rem 1.1rem;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-direction:column;
+  position:relative;
+  isolation:isolate;
+}
+.comeback-art::after {
+  content:"";
+  position:absolute;
+  width:145px;height:145px;
+  right:-28px;bottom:-54px;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:50%;
+  box-shadow:0 0 0 17px rgba(255,255,255,.055),0 0 0 36px rgba(255,255,255,.035);
+  z-index:-1;
+}
+.comeback-art span { font-size:clamp(2.2rem,4vw,3.1rem); line-height:1; font-weight:850; letter-spacing:-.08em; text-shadow:0 2px 16px rgba(0,0,0,.2); }
+.comeback-art small { font-size:.58rem; font-weight:800; letter-spacing:.16em; color:rgba(255,255,255,.85); }
+.comeback-genshin { background:linear-gradient(135deg,#4f9c8a,#274d68); }
+.comeback-starrail { background:linear-gradient(135deg,#5866a6,#282f55); }
+.comeback-solo { background:linear-gradient(135deg,#4b547d,#171d32); }
+.comeback-seven { background:linear-gradient(135deg,#bd8a4e,#69434b); }
+.comeback-dislyte { background:linear-gradient(135deg,#a05e9b,#423a76); }
+.comeback-clash { background:linear-gradient(135deg,#4b9a62,#285b43); }
+.comeback-ark { background:linear-gradient(135deg,#9a744b,#394c3e); }
+.comeback-skullgirls { background:linear-gradient(135deg,#a85e77,#50304e); }
+.comeback-title-row { display:flex; align-items:flex-start; justify-content:space-between; gap:.55rem; }
+.comeback-title-row h4 { min-width:0; }
+.game-size {
+  flex:none;
+  display:inline-flex;
+  align-items:center;
+  padding:.25rem .5rem;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--muted);
+  font-size:.68rem;
+  font-weight:750;
+  line-height:1.2;
+  white-space:nowrap;
+}
+.game-publisher { display:inline-block; margin-top:.5rem; color:var(--muted); font-size:.68rem; letter-spacing:.04em; }
+@media(max-width:760px) {
+  .comeback-art { min-height:112px; padding:.8rem; }
+  .comeback-title-row { flex-wrap:wrap; }
+}
