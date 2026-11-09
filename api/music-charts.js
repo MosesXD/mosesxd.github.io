@@ -127,9 +127,11 @@ module.exports = async function musicCharts(req, res) {
   if (!apiKey || !user) return reply(res, 503, { error: "Music charts are not configured yet" });
 
   const now = Math.floor(Date.now() / 1000);
+  const monthAgo = new Date();
+  monthAgo.setMonth(monthAgo.getMonth() - 1);
   const windows = {
     weekly: { from: now - 7 * 24 * 60 * 60, to: now },
-    monthly: { from: now - 30 * 24 * 60 * 60, to: now }
+    monthly: { from: Math.floor(monthAgo.getTime() / 1000), to: now }
   };
 
   try {
