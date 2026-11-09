@@ -144,7 +144,7 @@ module.exports = async function musicCharts(req, res) {
       generatedAt: new Date().toISOString(),
       periods: {
         weekly: { label: "Last 7 days", ...weekly },
-        monthly: { label: "Last 30 days", ...monthly }
+        monthly: { label: "Last month", ...monthly }
       }
     };
     cachedAt = Date.now();
