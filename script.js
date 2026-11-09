@@ -4,12 +4,18 @@ year.textContent = new Date().getFullYear();
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
+function setMenuOpen(open) {
+  navLinks.classList.toggle("open", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+
 menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("open");
+  setMenuOpen(!navLinks.classList.contains("open"));
 });
 
 document.querySelectorAll("#navLinks a").forEach(link => {
-  link.addEventListener("click", () => navLinks.classList.remove("open"));
+  link.addEventListener("click", () => setMenuOpen(false));
 });
 
 // ---------- Now playing (Last.fm) ----------
