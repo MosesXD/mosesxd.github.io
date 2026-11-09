@@ -1,0 +1,44 @@
+name: Validate Last.fm charts
+
+on:
+  pull_request:
+    paths:
+      - "about.html"
+      - "api/music-charts.js"
+      - "netlify/functions/music-charts.js"
+      - "music-charts.js"
+      - "music-charts.css"
+      - ".github/workflows/validate-music-charts.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "about.html"
+      - "api/music-charts.js"
+      - "netlify/functions/music-charts.js"
+      - "music-charts.js"
+      - "music-charts.css"
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check serverless endpoint syntax
+        run: |
+          node --check api/music-charts.js
+          node --check netlify/functions/music-charts.js
+      - name: Check browser script syntax
+        run: node --check music-charts.js
+      - name: Check feature files are connected
+        run: |
+          grep -q 'music-charts.css' about.html
+          grep -q 'music-charts.js' about.html
+          test -s api/music-charts.js
+          test -s netlify/functions/music-charts.js
