@@ -87,10 +87,12 @@ exports.handler = async event => {
   const apiKey = process.env.LASTFM_API_KEY, user = process.env.LASTFM_USER;
   if (!apiKey || !user) return response(503, { error: "Music charts are not configured yet" });
   const now = Math.floor(Date.now() / 1000);
+  const monthAgo = new Date();
+  monthAgo.setMonth(monthAgo.getMonth() - 1);
   try {
     const [weekly, monthly] = await Promise.all([
       fetchWindow(apiKey, user, now - 7 * 86400, now),
-      fetchWindow(apiKey, user, now - 30 * 86400, now)
+      fetchWindow(apiKey, user, Math.floor(monthAgo.getTime() / 1000), now)
     ]);
     cached = {
       generatedAt: new Date().toISOString(),
