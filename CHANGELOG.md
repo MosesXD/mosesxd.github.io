@@ -1,113 +1,80 @@
 # Changelog
 
-How the numbers work (Semantic Versioning: MAJOR.MINOR.PATCH):
+Version numbers follow Semantic Versioning: MAJOR for major redesigns or breaking changes, MINOR for new functionality, and PATCH for fixes, polish, and maintenance.
 
-- MAJOR (3.0.0): a major redesign, restructure, or breaking change
-- MINOR (2.6.0): a new feature that keeps existing functionality working
-- PATCH (2.5.4): fixes, polish, documentation corrections, and maintenance
-
-Only create a release entry for changes that have actually been merged and published. Work in branches and previews belongs under Unreleased until it ships.
+Release entries are added after changes are merged and published. Work that is not ready or still needs verification stays under Unreleased.
 
 ## Unreleased
+- Complete remaining accessibility improvements and repeat keyboard, phone, and desktop testing.
+- Verify Last.fm provider settings and a successful live Now Playing response.
+- Decide whether and when to capture real project screenshots or record a demo video.
+- Revisit the Swarm Studio cursor effect after the separate experiment is stable enough to publish; it is not currently integrated into Moses' Hub.
 
-- Confirm the Last.fm provider settings and verify a live Now Playing response from the published site before calling the integration fully operational.
-- Complete the remaining accessibility fixes from the audit and repeat keyboard, phone, and desktop testing.
-- Review the remaining differences on the `dev` and `Features` branches against `main` before deciding whether any additional work should be merged.
+## v2.8.0
+- Refreshed the Projects page with clearer descriptions, status labels, and separate official-repository and concept-preview links.
+- Added a public roadmap page and linked it from the main navigation, footer, and Updates page.
+- Added a Moses' Hub case study as both a website page and a standalone Markdown document.
+- Updated the repository README and GitHub profile README to reflect current projects and development direction.
+- Improved the Updates page so release notes read as a visitor-friendly development timeline.
+
+## v2.7.0
+- Redesigned the Services “How it works” section while preserving the six process steps.
+- Added a “Need to play again” shelf to the About gaming library without moving Dislyte out of Want to play.
+- Added WiPay QR support to the Support page, with download and native device sharing options.
 
 ## v2.6.0
-
-- Added a gaming library to the About page, with currently playing, previously played, and planned games.
-- Added the Last.fm Now Playing card and serverless endpoints for Vercel and Netlify, including artwork and album details.
-- Updated the GitHub Pages site to request Now Playing data from the Vercel endpoint and improved the loading and unavailable messages. Provider credentials and a successful live response still need confirmation.
-- Reworked the 404 page into a responsive day-and-night sky experience with an interactive face, changing messages, and a saved theme choice.
-- Restored and clarified the concept-only project links for Island Ledger and Everyday Toolkit so the portfolio does not present the Concept builds as the Official products.
-- Added short descriptions to the gaming library and clarified the current game label.
+- Added the gaming library to the About page.
+- Added the Last.fm Now Playing card and serverless endpoints for Vercel and Netlify; live provider verification remains pending.
+- Reworked the 404 page with a day-and-night sky theme and interactive elements.
+- Clarified the concept-only Island Ledger and Everyday Toolkit links.
+- Added gaming descriptions and clarified the current game label.
 
 ## v2.5.4
-
-- Corrected the historical v2.5.2 Updates entry so it matches the changelog.
-- Updated the README roadmap to reflect current completed work and remaining tasks.
+- Corrected the historical v2.5.2 Updates entry.
+- Updated the README roadmap and release information.
 - Clarified versioning and release-note rules.
-- Documentation-only patch; no new site functionality is claimed.
 
 ## v2.5.3
-
-- Added a labelled ad for Kevan Law Photography on Home
-- Linked the Island Ledger concept from the Projects page
-- Turned on the email contact on the Services page
-- Added a sitemap, robots.txt, and an all-rights-reserved license
-- Restored the smooth page fade
-- Fixed the Home page share preview and added one to the Partners page
-- Made the tab icon smaller so pages load faster
-- Cleaned old test entries out of ads.js and repaired the Last.fm function file
+- Added a labelled ad, project links, an email contact, sitemap, robots.txt, and license.
+- Restored the page fade and fixed share previews.
+- Cleaned old test entries and repaired the Last.fm function file.
 
 ## v2.5.2
-
-- Updated the Projects page with four project cards and honest status labels
-- Added a Contact link on the Links page
-- Fixed the Lab page so Color themes shows as done
-- Added share previews to the Services page
-- Replaced the README with an up-to-date version
+- Updated the Projects page with four project cards and honest status labels.
+- Added a Contact link, fixed Lab statuses, and added Services share previews.
+- Replaced the README.
 
 ## v2.5.1
-
-- Finished the Services and Partners footer links on every page
-- Fixed a broken tag in the footer
-- Pointed share previews and the 404 page at the short address
-- Brought back the smooth page fade
-- Added a hero spotlight and card tilt for mouse users
+- Finished Services and Partners footer links and fixed a broken footer tag.
+- Restored the page fade and added a hero spotlight and card tilt.
 
 ## v2.5.0
-
-- Added a Partners page with a switchable ad system
-- Added a Services page with TTD and USD prices
-- Added a Featured spot on Home
-- Added Services and Partners to the footer links
+- Added Partners, the switchable ad system, Services, TTD/USD prices, and a Featured spot on Home.
 
 ## v2.4.0
-
-- Added scroll reveals, hover effects, and a header shadow
-- Added Dark, Light, Pink, and Auto themes, an accent color picker, and four backgrounds
+- Added scroll reveals, hover effects, Dark/Light/Pink/Auto themes, an accent picker, and background styles.
 
 ## v2.3.0
-
-- Added a custom 404 page
-- Added share previews for links shared on Discord and Instagram
+- Added a custom 404 page and share previews.
 
 ## v2.2.0
-
-- Added Games, Updates, Lab, Gallery, and Support pages
-- Reorganized the menu
-- Added a stats dashboard layout (not linked yet)
+- Added Games, Updates, Lab, Gallery, and Support pages.
+- Reorganized the menu and added a dashboard layout preview.
 
 ## v2.1.2
-
-- Added visitor analytics
-- Added a site icon for the browser tab
+- Added visitor analytics and a site icon.
 
 ## v2.1.1
-
-- Added a smooth fade between pages
+- Added a smooth page fade.
 
 ## v2.1.0
-
-- Added a Trading page as a Coming soon preview
-- No forms, payment links, or logins on that page
+- Added a Trading preview page without forms, payment links, or logins.
 
 ## v2.0.0
-
-- Split the one-page site into pages
-- Home now introduces the hub; About holds the owner info
+- Split the one-page site into multiple pages.
 
 ## v1.0.1
-
-- Added real Discord, GitHub, and Instagram links
-- Fixed sticky header covering section titles
-- Added standard background-clip for the gradient text
-- Added PayPal link to the Support me card
-- Put the site live on GitHub Pages
-- Added README roadmap and this changelog
+- Added social links, PayPal support, GitHub Pages hosting, README, and changelog.
 
 ## v1.0.0
-
-- First version: Home, About, Projects, Gaming, Gallery, Links
+- First version: Home, About, Projects, Gaming, Gallery, and Links.
