@@ -958,3 +958,34 @@ html[data-bg="grid"] body {
 .wipay-dialog h3 { margin: 0; }
 .wipay-dialog form > p:not(.eyebrow) { color: var(--muted); }
 .wipay-qr { display: block; width: min(100%, 320px); height: auto; margin: .35rem auto; border-radius: 12px; background: #fff; }
+
+/* ---------- Portfolio, case study, and roadmap (v2.8.0) ---------- */
+.section-lead{max-width:760px;color:var(--muted);font-size:1.05rem;margin-top:-1rem;line-height:1.8}
+.project-status-key{display:flex;flex-wrap:wrap;gap:.65rem 1.2rem;margin-top:1.8rem;color:var(--muted);font-size:.78rem}
+.project-status-key span{display:inline-flex;align-items:center;gap:.45rem}
+.status-dot{display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:var(--muted)}
+.status-dot.status-live{background:#65d6a1}.status-dot.status-progress{background:var(--cyan)}.status-dot.status-concept{background:#b59cff}.status-dot.status-planned{background:#e5b86c}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.project-card{display:flex;flex-direction:column;min-height:290px}
+.project-card-top,.roadmap-heading{display:flex;justify-content:space-between;align-items:center;gap:.8rem}
+.project-status{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:999px;padding:.3rem .6rem;font-size:.62rem;font-weight:800;letter-spacing:.09em;white-space:nowrap}
+.project-status.status-live{color:#65d6a1}.project-status.status-progress{color:var(--cyan)}.project-status.status-concept{color:#b59cff}.project-status.status-planned{color:#e5b86c}
+.project-card h3{margin:1.1rem 0 .5rem;font-size:1.45rem}
+.project-card p,.project-note p,.roadmap-footer-note p{color:var(--muted)}
+.project-tech{color:var(--muted);font-size:.72rem;letter-spacing:.04em;margin-top:1rem}
+.project-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem .8rem;margin-top:auto;padding-top:1.4rem}
+.project-actions .button{font-size:.76rem;padding:.65rem .85rem}
+.project-text-link{color:var(--cyan);font-size:.82rem;font-weight:700}.project-text-link:hover{text-decoration:underline;text-underline-offset:4px}
+.project-note{max-width:800px}.project-note h3{margin-bottom:.5rem}.project-note .project-text-link{display:inline-block;margin-top:1rem}
+.roadmap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.roadmap-column h3{margin:1rem 0 .8rem}.roadmap-column ul,.case-study-section ul{padding-left:1.2rem;color:var(--muted)}
+.roadmap-column li,.case-study-section li{margin:.55rem 0}.roadmap-index{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:.12em}
+.roadmap-note{max-width:780px;margin-top:1.4rem;color:var(--muted);font-size:.85rem}
+.roadmap-footer-note{max-width:800px;margin-top:1rem}.roadmap-footer-note h3{margin-bottom:.5rem}.roadmap-footer-note .project-text-link{display:inline-block;margin-top:1rem}
+.case-study{max-width:1000px}.case-study-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:2rem 0 3rem}
+.case-study-meta div{display:grid;gap:.3rem}.case-study-meta span{color:var(--muted);font-size:.62rem;font-weight:800;letter-spacing:.12em}.case-study-meta strong{font-size:.9rem}
+.case-study-section{max-width:780px;margin:2.5rem 0}.case-study-section h3{margin-bottom:.8rem;font-size:1.35rem}.case-study-section p{color:var(--muted);margin:.75rem 0;line-height:1.85}
+.case-study-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1rem;margin-top:3rem}.case-study-actions .button{font-size:.8rem}
+@media(max-width:760px){.project-grid,.roadmap-grid{grid-template-columns:1fr}.case-study-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.project-card{min-height:0}.project-actions{padding-top:1rem}}
+@media(max-width:420px){.case-study-meta{grid-template-columns:1fr}.project-card-top{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
