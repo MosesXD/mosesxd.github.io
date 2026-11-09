@@ -431,3 +431,52 @@ if (wipayOpen && wipayDialog) {
     });
   }
 }
+
+
+// ---------- Shared modal behaviour: lock the page behind every native dialog ----------
+(function () {
+  const body = document.body;
+  const root = document.documentElement;
+  let locked = false;
+  let savedScrollY = 0;
+  let originalStyles = null;
+
+  function syncModalScroll() {
+    const modalOpen = Boolean(document.querySelector("dialog[open]"));
+    if (modalOpen && !locked) {
+      savedScrollY = window.scrollY;
+      originalStyles = {
+        position: body.style.position,
+        top: body.style.top,
+        left: body.style.left,
+        right: body.style.right,
+        width: body.style.width,
+        overflow: body.style.overflow
+      };
+      body.style.position = "fixed";
+      body.style.top = "-" + savedScrollY + "px";
+      body.style.left = "0";
+      body.style.right = "0";
+      body.style.width = "100%";
+      body.style.overflow = "hidden";
+      body.classList.add("modal-scroll-locked");
+      locked = true;
+    } else if (!modalOpen && locked) {
+      body.classList.remove("modal-scroll-locked");
+      Object.keys(originalStyles).forEach(property => {
+        body.style[property] = originalStyles[property];
+      });
+      locked = false;
+      window.scrollTo(0, savedScrollY);
+    }
+  }
+
+  const observer = new MutationObserver(syncModalScroll);
+  observer.observe(root, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ["open"]
+  });
+  document.addEventListener("close", syncModalScroll, true);
+})();
