@@ -38,7 +38,7 @@ The site is built with HTML, CSS, and JavaScript and is hosted as a static websi
 | Island Ledger | In development | [Official repository](https://github.com/MosesXD/Islandledger) |
 | Daymark — Everyday Toolkit | In development | [Official repository](https://github.com/MosesXD/Daymark-toolkit) |
 | Island Life | Concept; not playable | [Concept repository](https://github.com/MosesXD/island-life-concept) |
-| First Game | Planned learning project | Details will be added as development progresses |
+| First Game | In progress learning project | Details will be added as development progresses |
 | Future API | Exploring | A possible future API and database for the site |
 
 Island Ledger and Daymark concept previews are separate from their official repositories. The Projects page labels those links separately so a prototype is not mistaken for the official product.
