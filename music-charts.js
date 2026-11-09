@@ -50,7 +50,8 @@
     list.replaceChildren();
     if (!period || !Array.isArray(period.tracks) || period.tracks.length === 0) {
       status.hidden = false;
-      status.textContent = "No listening history found for this period yet.";
+      status.textContent = "No scrobbles were returned from your Last.fm history for this date range.";
+      if (data && data.generatedAt) status.textContent += " Last checked: " + new Date(data.generatedAt).toLocaleString() + ".";
       return;
     }
     status.hidden = false;
@@ -103,7 +104,9 @@
       const response = await fetch(endpoint, { headers: { Accept: "application/json" }, cache: "no-store" });
       const result = await response.json().catch(() => null);
       if (!response.ok || !result || !result.periods) {
-        throw new Error(result && result.error ? result.error : "Charts are temporarily unavailable.");
+        const message = result && result.error ? result.error : "Charts are temporarily unavailable.";
+        const detail = result && result.detail ? " — " + result.detail : "";
+        throw new Error(message + detail);
       }
       data = result;
       lastLoaded = Date.now();
