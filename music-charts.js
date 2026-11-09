@@ -45,7 +45,7 @@
     const period = data && data.periods && data.periods[selected];
     periodLabel.textContent = selected === "weekly"
       ? "Top 10 tracks · Rolling last 7 days"
-      : "Top 10 tracks · Rolling last 30 days";
+      : "Top 10 tracks · Rolling last month";
     tabs.forEach(tab => tab.setAttribute("aria-pressed", String(tab.dataset.period === selected)));
     list.replaceChildren();
     if (!period || !Array.isArray(period.tracks) || period.tracks.length === 0) {
