@@ -1,127 +1,101 @@
 # Moses' Hub
 
-My personal website and learning project: a hub for my projects, experiments, links, and updates. I'm learning web development by building, testing, and improving it over time.
+My personal website, portfolio, and development playground. I use it to share projects, experiments, interests, and development updates while learning through practical work.
 
-**Live site:** https://mosesxd.github.io/
+**Live website:** https://mosesxd.github.io/  
+**GitHub profile:** https://github.com/MosesXD  
+**Current documented release:** v2.8.0
 
-**Current documented release:** v2.5.4 (documentation-only correction)
+## About
+Moses' Hub began as a personal website and grew into a multi-page project. It brings together my portfolio, gaming library, updates, personal information, services, links, and experiments.
 
-## Status
-
-Active learning project. Everything listed under "What's inside" exists. Items marked *preview* or *prepared* are not fully switched on, and I say so below.
+The site is built with HTML, CSS, and JavaScript and is hosted as a static website on GitHub Pages. Some optional integrations use separate serverless endpoints.
 
 ## What's inside
-
-| Page | What it is |
+| Page | Purpose |
 |---|---|
-| Home | What the hub is, plus quick links |
-| Projects | Things I'm building, with honest status labels |
-| Games | Game plans and progress |
-| Updates | The dev log (newest first) |
-| About | About the owner |
-| Links | Discord, GitHub, Instagram, an email contact, services, and partners |
-| Services | Starter website packages with TTD and USD prices |
-| Partners | Partner and featured spots, controlled from one file |
-| Lab | Experiments and things I'm learning |
-| Trading | **Preview only.** No forms, payments, or offers |
-| Support | PayPal link. A local option is planned |
+| Home | Introduction and shortcuts |
+| Projects | Current projects, concepts, and experiments |
+| Case study | The story behind building Moses' Hub |
+| Roadmap | Completed work, current improvements, and future ideas |
+| Games | Game development ideas and progress |
+| Updates | Visitor-friendly development log |
+| About | Personal introduction, gaming library, and Now Playing card |
+| Links | Online profiles and contact links |
+| Services | Website service information and pricing |
+| Partners | Partner and featured content |
+| Lab | Experiments and learning progress |
+| Support | PayPal and WiPay QR support options |
+| Trading | Preview only; no forms, payments, or offers |
 | Gallery | Placeholder page |
-| Dashboard | **Layout preview only.** Not linked from the menu, no real numbers |
+| Dashboard | Layout preview only; not a live data dashboard |
 | 404 | Custom page for broken links |
 
-## Projects
+## Featured projects
+| Project | Status | Main link |
+|---|---|---|
+| Moses' Hub | Live | [Website](https://mosesxd.github.io/) |
+| Island Ledger | In development | [Official repository](https://github.com/MosesXD/Islandledger) |
+| Daymark — Everyday Toolkit | In development | [Official repository](https://github.com/MosesXD/Daymark-toolkit) |
+| Island Life | Concept; not playable | [Concept repository](https://github.com/MosesXD/island-life-concept) |
+| First Game | Planned learning project | Details will be added as development progresses |
+| Future API | Exploring | A possible future API and database for the site |
 
-| Project | Status |
-|---|---|
-| Moses' Hub (this site) | Live |
-| First Game: a beginner-friendly game I want to build after the website | In progress |
-| Island Life: a concept and design document for a Caribbean life-sim game | Concept (not playable) |
-| Island Ledger: a TTD income and expense tracker that saves entries in the browser | In progress ([main repository](https://github.com/MosesXD/Islandledger)) |
-| Everyday Toolkit: small tools for everyday tasks | In progress ([main repository](https://github.com/MosesXD/Daymark-toolkit)) |
-| Future API: this site's own API and database | Later |
+Island Ledger and Daymark concept previews are separate from their official repositories. The Projects page labels those links separately so a prototype is not mistaken for the official product.
+
+Swarm Studio is a separate experiment. Its cursor effect is not integrated into Moses' Hub yet; that will be considered after the experiment is stable and ready to publish.
 
 ## Features
+- Multi-page layout with shared navigation and footer patterns.
+- Responsive layouts for phones and desktop screens.
+- Dark, Light, Pink, and Auto themes, accent colour selection, and background styles saved on the visitor's device.
+- Motion and scroll effects that respect reduced-motion preferences.
+- Project cards with clear statuses and separate official/concept links.
+- Gaming library with currently playing, previously played, comeback, and want-to-play sections.
+- Services page with TTD and USD price display.
+- Partner and labelled-ad configuration.
+- Support page with PayPal and WiPay QR options.
+- Share previews, sitemap, and cookie-free visitor analytics through Umami.
 
-- Responsive layout for phones and desktop
-- Dark, Light, Pink, and Auto themes, an accent color picker, and four background styles (saved on the visitor's own device)
-- Scroll reveals, hover effects, and a page fade, all switched off for visitors who prefer reduced motion
-- A partner and ad system controlled from one file (`ads.js`). Every ad is labelled, links open safely, and nothing is shown until it is switched on
-- TTD and USD price switch on the Services page (`services.js`)
-- Share previews for links posted on Discord and Instagram
-- Cookie-free visit counts with Umami
+Some features still need live-provider or real-device verification. The public roadmap distinguishes implemented work from items that still need testing.
 
-## Last.fm "Now Playing"
+## Last.fm Now Playing
+The About page includes a Now Playing interface backed by optional serverless endpoints. Netlify uses /.netlify/functions/now-playing; Vercel uses /api/now-playing. Both require the private LASTFM_API_KEY and LASTFM_USER environment variables.
 
-The About page can show the track currently playing (or the most recently played track) from Last.fm.
-
-- Netlify endpoint: `/.netlify/functions/now-playing`
-- Vercel endpoint: `/api/now-playing`
-- Both providers use the same private environment variables: `LASTFM_API_KEY` and `LASTFM_USER`.
-- Add both variables in each provider's project settings, then redeploy.
-- The API key stays on the server and is never included in browser JavaScript.
-- The front end tries the matching provider endpoint and falls back to the other one.
-
-GitHub Pages is static and cannot run either function itself. If GitHub Pages remains the production host, the feature will need to call a separately hosted backend with an explicitly configured endpoint and appropriate access controls.
+GitHub Pages is static and cannot run serverless functions. The live integration depends on a separately hosted endpoint and correctly configured provider variables. A successful production response still needs to be verified. Credentials must never be committed or exposed in browser JavaScript.
 
 ## Built with
+HTML, CSS, JavaScript, Git, GitHub, GitHub Pages, and optional Vercel/Netlify serverless endpoints. The main site has no framework or build step.
 
-- HTML for structure
-- CSS for layout, themes, and animation
-- JavaScript for the menu, themes, motion, ads, and the price switch
-- Serverless functions for the optional Last.fm integration on Netlify and Vercel
-- GitHub and GitHub Pages for version control and hosting
-
-No frameworks, no build step, and no server code. The site is fully static.
-
-## Files
-
-- `index.html` and the other `.html` files: page structure and content
-- `style.css`: colors, layout, themes, and motion
-- `script.js`: menu, themes, and motion
-- `ads.js`: partner and ad entries (switch each on or off with `active`)
-- `services.js`: the TTD and USD price switch
-- `images/ads/`: pictures used by ads
-- `sitemap.xml` and `robots.txt`: help search engines find the pages
-- `netlify/functions/now-playing.js`: Netlify Last.fm function
-- `api/now-playing.js`: Vercel Last.fm function
-- `LICENSE`: all rights reserved
-- `CHANGELOG.md`: version history
+## Important files
+- HTML files — individual pages.
+- projects.html — project showcase.
+- case-study.html and case-study-moses-hub.md — case study in web and Markdown formats.
+- roadmap.html — public roadmap.
+- style.css — shared layout, themes, and visual styling.
+- script.js — shared navigation, theme, and motion behaviour.
+- ads.js and services.js — partner/ad configuration and Services currency display.
+- api/ and netlify/functions/ — optional serverless endpoints.
+- CHANGELOG.md — version history.
+- ROADMAP.md — detailed development checklist.
+- sitemap.xml — public page index for search engines.
 
 ## Run locally
-
-1. Download or clone this repository.
-2. Open `index.html` in a browser.
-3. Edit the files, then test on a phone-sized screen and a desktop screen before publishing.
+1. Clone or download this repository.
+2. Open index.html in a browser, or serve the folder with a local static server.
+3. Test changes at desktop and mobile sizes.
+4. Check navigation, keyboard access, links, and interactive features before publishing.
 
 ## Security and privacy
+- Do not commit passwords, API keys, private tokens, or bank details.
+- Keep integration credentials in the relevant hosting provider's environment settings.
+- The website does not process payments itself; support links lead to payment providers.
+- Visitor analytics are configured without cookies.
 
-- No passwords, API keys, or bank details are stored in this repository, and none belong here.
-- Payments are not handled by this site. The Support page links out to a payment provider.
-- Visitor analytics use no cookies.
+## Development status
+Moses' Hub is an active learning project. Features may be refined, replaced, or removed as the site evolves. The [public roadmap](https://mosesxd.github.io/roadmap.html) shows what is complete, what still needs verification, and what may come next.
 
-## Roadmap
+The [Updates page](https://mosesxd.github.io/updates.html) explains shipped changes in a visitor-friendly format. The [Changelog](CHANGELOG.md) records release history.
 
-- [x] Multi-page structure, navigation, themes, motion, and a custom 404 page
-- [x] Partners page, ad system, and Services page
-- [x] Share previews, sitemap, robots.txt, and license
-- [x] Projects page with honest project status labels
-- [x] README, CHANGELOG, and Updates page maintained as project documentation
-- [ ] Reconcile and review main, dev, and Features before deciding what should merge
-- [ ] Complete accessibility fixes from the audit (menu state, focus visibility, large text, and small-screen theme panel)
-- [ ] Repeat a full phone and desktop test, including keyboard navigation, after the next approved merge
-- [ ] Add real screenshots of the actual pages and projects
-- [ ] Add demo and repository links to relevant project cards
-- [ ] Write a case study for Moses' Hub
-- [ ] Verify the GitHub profile README and project READMEs
-- [ ] Add a public project roadmap with completed, in-progress, planned, and paused statuses
-
-## Links
-
-- GitHub profile: https://github.com/MosesXD
-- Repository: https://github.com/MosesXD/mosesxd.github.io
-
-## Why I'm building this
-
-I like turning an idea into something real, and I'm learning more with every version. I document what works, what's in progress, and what I learn.
-
+## License
 All rights reserved. See the LICENSE file.
