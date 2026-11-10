@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore my anime list, watch progress and ratings on MyAnimeList.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Moses' Hub">
+  <meta property="og:title" content="My Anime Journey · Moses' Hub">
+  <meta property="og:description" content="Anime list, watch progress and ratings.">
+  <meta property="og:url" content="https://mosesxd.github.io/anime.html">
+  <title>My Anime Journey · Moses' Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="anime.css">
+  <link rel="icon" href="file_00000000a7ec81f5b90d551fe2397252.png">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="00a338b9-1a16-401f-b276-070eda343e04"></script>
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="index.html">MOSES<span>°</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+    <nav id="navLinks">
+      <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="roadmap.html">Roadmap</a>
+      <a href="games.html">Games</a><a href="updates.html">Updates</a><a href="about.html">About</a><a href="links.html">Links</a>
+    </nav>
+  </header>
+  <main class="mal-dashboard">
+    <p class="eyebrow">MY ANIME JOURNEY</p>
+    <div class="mal-heading">
+      <div><h1>Anime, tracked.</h1><p class="mal-muted">A live look at my public MyAnimeList collection.</p></div>
+      <a class="mal-profile-link" href="https://myanimelist.net/profile/Mosess" target="_blank" rel="noopener noreferrer">Open MyAnimeList ↗</a>
+    </div>
+    <div class="mal-stats" aria-label="Statistics for entries loaded">
+      <div class="mal-stat"><small>Loaded entries</small><strong id="malTotal">—</strong></div>
+      <div class="mal-stat"><small>Completed</small><strong id="malCompleted">—</strong></div>
+      <div class="mal-stat"><small>Watching</small><strong id="malWatching">—</strong></div>
+      <div class="mal-stat"><small>Mean list score</small><strong id="malScore">—</strong></div>
+    </div>
+    <p class="mal-muted" id="malStatsNote">Statistics are calculated from entries currently loaded, not your entire lifetime profile.</p>
+    <div class="mal-toolbar">
+      <div class="mal-tabs" role="group" aria-label="Filter anime list">
+        <button type="button" data-status="" aria-pressed="true">All</button>
+        <button type="button" data-status="watching" aria-pressed="false">Watching</button>
+        <button type="button" data-status="completed" aria-pressed="false">Completed</button>
+        <button type="button" data-status="on_hold" aria-pressed="false">On Hold</button>
+        <button type="button" data-status="dropped" aria-pressed="false">Dropped</button>
+        <button type="button" data-status="plan_to_watch" aria-pressed="false">Plan to Watch</button>
+      </div>
+      <input class="mal-search" id="malSearch" type="search" placeholder="Search your anime…" aria-label="Search anime">
+      <select class="mal-select" id="malSort" aria-label="Sort anime">
+        <option value="list_updated_at">Recently updated</option>
+        <option value="list_score">Highest score</option>
+        <option value="anime_title">Title</option>
+        <option value="anime_start_date">Release date</option>
+      </select>
+    </div>
+    <p class="mal-status" id="malStatus" role="status" aria-live="polite">Loading your anime list…</p>
+    <div class="mal-list" id="malList"></div>
+    <button class="mal-load-more" id="malLoadMore" type="button" hidden>Load more anime</button>
+    <p class="mal-muted" style="margin-top:2rem;font-size:.8rem">Data is provided by MyAnimeList and may be cached briefly. Scores and watch progress reflect the public list.</p>
+  </main>
+  <footer>
+    <p>Built by Moses · <span id="year"></span></p>
+    <div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms of Use</a><a href="links.html">Contact</a></div>
+    <p>Always building. · More pages.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="anime.js"></script>
+</body>
+</html>
