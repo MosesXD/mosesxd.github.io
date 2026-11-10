@@ -15,6 +15,7 @@
   <title>About · Moses' Hub</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="music-charts.css">
+  <link rel="stylesheet" href="anime.css">
   <!-- Site icon (shows in the browser tab): keep in every page's <head> -->
   <link rel="icon" href="file_00000000a7ec81f5b90d551fe2397252.png">
   <!-- Visitor analytics (Umami): keep this in the <head> of every page -->
@@ -58,6 +59,11 @@
           <p>Learning web development and figuring out what I can build from scratch.</p>
         </article>
       </div>
+      <section class="mal-preview" aria-labelledby="malPreviewTitle">
+        <div class="mal-preview-head"><div><p class="eyebrow">MY ANIME JOURNEY</p><h3 id="malPreviewTitle">What I'm watching.</h3><p class="mal-muted">A snapshot of my public MyAnimeList activity.</p></div><span class="mal-muted">MAL · Mosess</span></div>
+        <div class="mal-preview-list" id="malPreviewList"><p class="mal-muted">Loading recent anime…</p></div>
+        <div class="mal-actions"><a class="mal-link" href="anime.html">Explore my anime dashboard ↗</a><a class="mal-profile-link" href="https://myanimelist.net/profile/Mosess" target="_blank" rel="noopener noreferrer">MyAnimeList profile ↗</a></div>
+      </section>
       <div class="currently about-currently">
         <div class="currently-game"><strong aria-hidden="true">🎮</strong><span><small>Currently playing</small> Roblox</span></div>
         <button class="now-playing-card" id="nowPlayingCard" type="button" aria-haspopup="dialog" aria-controls="spotifyConfirm">
@@ -168,5 +174,6 @@
 
   <script src="script.js"></script>
   <script src="music-charts.js"></script>
+  <script src="anime-preview.js"></script>
 </body>
 </html>
