@@ -77,7 +77,12 @@ window.MH_ADS = [
 (function () {
   try {
     var LABELS = ["Partner", "Featured", "Services", "Ad"];
-    var today = new Date().toISOString().slice(0, 10);
+    // Use the visitor's local date so scheduled promotions do not switch
+    // early or late around UTC midnight.
+    var now = new Date();
+    var today = now.getFullYear() + "-" +
+      String(now.getMonth() + 1).padStart(2, "0") + "-" +
+      String(now.getDate()).padStart(2, "0");
     var settings = window.MH_ADS_SETTINGS || {};
     var ads = window.MH_ADS || [];
 
@@ -127,6 +132,10 @@ window.MH_ADS = [
         img.setAttribute("src", picture);
         img.setAttribute("alt", ad.alt || ad.title);
         img.setAttribute("loading", "lazy");
+        img.addEventListener("error", function () {
+          // Keep the text and link visible if an optional image is unavailable.
+          img.hidden = true;
+        }, { once: true });
         card.appendChild(img);
       }
 
@@ -147,6 +156,7 @@ window.MH_ADS = [
     }
 
     Array.prototype.forEach.call(document.querySelectorAll("[data-slot]"), function (slot) {
+      try {
       var name = slot.getAttribute("data-slot");
       var list = ads.filter(function (ad) { return eligible(ad, name); });
 
@@ -167,6 +177,9 @@ window.MH_ADS = [
       var wrap = make("div", list.length > 1 ? "cards" : "ad-one");
       list.forEach(function (ad) { wrap.appendChild(buildCard(ad)); });
       slot.appendChild(wrap);
+      } catch (slotError) {
+        console.warn("Moses Hub: this promotion slot could not be rendered.", slotError);
+      }
     });
   } catch (error) {
     console.warn("Ads block skipped:", error);
