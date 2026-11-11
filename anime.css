@@ -48,3 +48,33 @@
  .mal-search,.mal-select { width:100%; }
 }
 @media(prefers-reduced-motion:reduce) { .mal-link { transition:none; } }
+
+/* MyAnimeList dashboard polish */
+.mal-genre-panel {
+  margin: 1.25rem 0 2rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--glass-2);
+}
+.mal-genre-heading h2 { margin: 0; font-size: 1rem; }
+.mal-genre-heading p { margin: .25rem 0 0; font-size: .82rem; }
+.mal-genre-list { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .9rem; }
+.mal-genre-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .45rem .7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: .78rem;
+}
+.mal-genre-chip small { color: var(--muted); font-size: .7rem; }
+.mal-entry-art { width: 88px; min-height: 124px; border-radius: 12px; background: var(--surface-2); }
+.mal-progress[role="progressbar"] { position: relative; }
+.mal-load-more:disabled { opacity: .65; cursor: wait; }
+@media (max-width: 760px) {
+  .mal-genre-panel { padding: 1rem; }
+  .mal-genre-chip { max-width: 100%; }
+}
