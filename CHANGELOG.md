@@ -5,6 +5,7 @@ Version numbers follow Semantic Versioning: MAJOR for major redesigns or breakin
 Release entries are added after changes are merged and published. Work that is not ready or still needs verification stays under Unreleased.
 
 ## Unreleased
+- Improved MyAnimeList dashboard request handling, pagination recovery, search feedback, and loaded-entry genre breakdown.
 - Complete remaining accessibility improvements and repeat keyboard, phone, and desktop testing.
 - Verify Last.fm provider settings and a successful live Now Playing response.
 - Decide whether and when to capture real project screenshots or record a demo video.
