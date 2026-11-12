@@ -1,22 +1,64 @@
 const year = document.getElementById("year");
-year.textContent = new Date().getFullYear();
+if (year) year.textContent = new Date().getFullYear();
+
+// Add a skip link before the shared header so it is first in keyboard order.
+const mainContent = document.querySelector("main");
+if (mainContent && !mainContent.id) mainContent.id = "main-content";
+if (mainContent && !document.querySelector(".skip-link")) {
+  const skipLink = document.createElement("a");
+  skipLink.className = "skip-link";
+  skipLink.href = "#main-content";
+  skipLink.textContent = "Skip to content";
+  document.body.insertBefore(skipLink, document.body.firstChild);
+}
 
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
-
-function setMenuOpen(open) {
-  navLinks.classList.toggle("open", open);
-  menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+const siteHeader = menuToggle && menuToggle.closest(".nav");
+if (navLinks && !navLinks.hasAttribute("aria-label")) {
+  navLinks.setAttribute("aria-label", "Primary navigation");
 }
 
-menuToggle.addEventListener("click", () => {
-  setMenuOpen(!navLinks.classList.contains("open"));
-});
+// Accessible shared navigation: supports touch, keyboard, outside clicks and resize.
+if (menuToggle && navLinks) {
+  function setMenuOpen(open, options = {}) {
+    navLinks.classList.toggle("open", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (!open && options.returnFocus) menuToggle.focus();
+  }
 
-document.querySelectorAll("#navLinks a").forEach(link => {
-  link.addEventListener("click", () => setMenuOpen(false));
-});
+  menuToggle.addEventListener("click", () => {
+    setMenuOpen(!navLinks.classList.contains("open"));
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && navLinks.classList.contains("open")) {
+      setMenuOpen(false, { returnFocus: true });
+    }
+  });
+
+  document.addEventListener("pointerdown", event => {
+    if (navLinks.classList.contains("open") &&
+        siteHeader && !siteHeader.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  const desktopNavigation = window.matchMedia("(min-width: 761px)");
+  const resetForDesktop = event => {
+    if (event.matches) setMenuOpen(false);
+  };
+  if (desktopNavigation.addEventListener) {
+    desktopNavigation.addEventListener("change", resetForDesktop);
+  } else if (desktopNavigation.addListener) {
+    desktopNavigation.addListener(resetForDesktop);
+  }
+}
 
 // ---------- Now playing (Last.fm) ----------
 const nowPlayingEl = document.getElementById("nowPlaying");
