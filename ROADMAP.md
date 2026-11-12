@@ -20,7 +20,7 @@ This is the detailed development checklist. The public-facing summary is at http
 - [x] Compared main, dev, and Features; older branches had no unique commits ahead of main at the time of review.
 
 ## Needs testing or verification
-- [ ] Complete accessibility improvements: menu state, focus visibility, larger text, and the theme panel on small screens.
+- [ ] Complete accessibility verification: test menu state, focus visibility, larger text, and the theme panel on small screens. Shared navigation now supports Escape and outside-click closing; keyboard skip navigation and focus styling have been added.
 - [ ] Test every page and internal link on a real phone and desktop.
 - [ ] Test keyboard navigation and visible focus states.
 - [ ] Test landscape layout, larger text settings, theme panel, and mobile menu on a real device.
