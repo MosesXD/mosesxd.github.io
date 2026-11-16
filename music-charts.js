@@ -32,6 +32,85 @@
     </div>`;
   document.body.appendChild(dialog);
 
+  const recentDetails = document.getElementById("recentListening");
+  const recentStatus = document.getElementById("recentListeningStatus");
+  const recentList = document.getElementById("recentListeningList");
+  let recentLoaded = false;
+
+  async function loadRecentListening() {
+    if (!recentDetails || !recentStatus || !recentList || recentLoaded) return;
+    recentStatus.textContent = "Loading your recent songs…";
+    try {
+      const endpoint = window.location.hostname === "mosesxd.github.io"
+        ? "https://mosesxdgithubio.vercel.app/api/music-charts"
+        : window.location.hostname.endsWith(".netlify.app")
+          ? "/.netlify/functions/music-charts"
+          : "/api/music-charts";
+      const response = await fetch(endpoint, { headers: { Accept: "application/json" }, cache: "no-store" });
+      const result = await response.json().catch(() => null);
+      if (!response.ok || !result || !Array.isArray(result.recentTracks)) {
+        throw new Error(result && result.error ? result.error : "Listening history is temporarily unavailable.");
+      }
+      recentList.replaceChildren();
+      if (!result.recentTracks.length) {
+        recentStatus.textContent = "No previous songs were found in your Last.fm history yet.";
+        recentLoaded = true;
+        return;
+      }
+      result.recentTracks.forEach((track, index) => {
+        const item = document.createElement("li");
+        item.className = "recent-listening-row";
+        const rank = document.createElement("span");
+        rank.className = "recent-listening-rank";
+        rank.textContent = String(index + 1).padStart(2, "0");
+        const cover = document.createElement("img");
+        cover.className = "recent-listening-art";
+        cover.alt = "";
+        cover.loading = "lazy";
+        if (track.artwork) cover.src = track.artwork;
+        else cover.classList.add("is-empty");
+        cover.addEventListener("error", () => { cover.removeAttribute("src"); cover.classList.add("is-empty"); });
+        const copy = document.createElement("span");
+        copy.className = "recent-listening-copy";
+        const title = document.createElement("strong");
+        title.textContent = track.name || "Unknown track";
+        const artist = document.createElement("small");
+        artist.textContent = track.artist || "Unknown artist";
+        copy.append(title, artist);
+        const time = document.createElement("time");
+        time.className = "recent-listening-time";
+        if (track.playedAt) {
+          const date = new Date(track.playedAt * 1000);
+          time.dateTime = date.toISOString();
+          time.textContent = date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+        } else {
+          time.textContent = "";
+        }
+        item.append(rank, cover, copy, time);
+        if (track.url) {
+          const link = document.createElement("a");
+          link.className = "recent-listening-link";
+          link.href = track.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.setAttribute("aria-label", "Open " + (track.name || "track") + " on Last.fm");
+          link.appendChild(item);
+          recentList.appendChild(link);
+        } else {
+          recentList.appendChild(item);
+        }
+      });
+      recentStatus.textContent = "Your 12 most recently played songs."; 
+      recentLoaded = true;
+    } catch (error) {
+      recentStatus.textContent = error.message || "Could not load your listening history. Try opening it again later.";
+    }
+  }
+
+  if (recentDetails) recentDetails.addEventListener("toggle", () => {
+    if (recentDetails.open) loadRecentListening();
+  });
+
   const status = dialog.querySelector(".music-charts-status");
   const list = dialog.querySelector(".music-charts-list");
   const periodLabel = dialog.querySelector(".music-charts-period");
