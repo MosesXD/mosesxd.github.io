@@ -27,7 +27,7 @@
     </div>`;
   document.body.appendChild(dialog);
 
-  const recentDetails = document.getElementById("recentListening");
+  const recentDetails = document.getElementById("nowPlayingShell");
   const recentStatus = document.getElementById("recentListeningStatus");
   const recentList = document.getElementById("recentListeningList");
   let recentLoaded = false;
@@ -105,7 +105,15 @@
   }
 
   if (recentDetails) recentDetails.addEventListener("toggle", () => {
-    if (recentDetails.open) loadRecentListening();
+    const expanded = recentDetails.open;
+    const toggle = document.getElementById("nowPlayingCard");
+    const panel = document.getElementById("recentListeningPanel");
+    if (toggle) toggle.setAttribute("aria-expanded", String(expanded));
+    if (panel) {
+      panel.setAttribute("aria-hidden", String(!expanded));
+      panel.inert = !expanded;
+    }
+    if (expanded) loadRecentListening();
   });
 
   const status = dialog.querySelector(".music-charts-status");
