@@ -48,3 +48,44 @@
  .mal-search,.mal-select { width:100%; }
 }
 @media(prefers-reduced-motion:reduce) { .mal-link { transition:none; } }
+
+
+/* Anime preview: keep the About page compact while allowing the top 12 to scroll. */
+.mal-preview-list {
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  max-height:430px;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+  padding:.15rem .35rem .15rem 0;
+}
+.mal-mini { min-height:76px; }
+.mal-mini-copy { min-width:0; }
+.mal-mini-art { width:54px; height:72px; flex:0 0 54px; border-radius:9px; background:var(--surface-2); }
+.mal-mini strong { white-space:normal; overflow-wrap:anywhere; }
+.mal-preview-list:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
+
+@media(max-width:760px) {
+  .mal-dashboard { padding:2.5rem 1rem; }
+  .mal-preview { padding:1rem; border-radius:20px; }
+  .mal-preview-head { align-items:flex-start; flex-direction:column; }
+  .mal-preview-list { max-height:390px; }
+  .mal-actions { align-items:stretch; flex-direction:column; }
+  .mal-actions a { width:100%; text-align:center; }
+  .mal-tabs {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    width:100%;
+    overflow:visible;
+    border-radius:16px;
+  }
+  .mal-tabs button { white-space:normal; min-height:42px; padding:.55rem .35rem; font-size:.82rem; }
+  .mal-entry { grid-template-columns:68px minmax(0,1fr); gap:.75rem; padding:.7rem; }
+  .mal-entry > img { width:68px; height:100px; }
+  .mal-entry-top { align-items:flex-start; flex-wrap:wrap; }
+  .mal-entry h2,.mal-entry p { overflow-wrap:anywhere; }
+}
+@media(max-width:380px) {
+  .mal-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
