@@ -97,6 +97,34 @@ async function fetchWindow(apiKey, user, from, to) {
   };
 }
 
+async function fetchRecentTracks(apiKey, user) {
+  const params = new URLSearchParams({
+    method: "user.getrecenttracks", user, api_key: apiKey,
+    format: "json", limit: "25"
+  });
+  const response = await fetch("https://ws.audioscrobbler.com/2.0/?" + params.toString(), {
+    headers: { "User-Agent": "MosesHub/1.0" },
+    signal: AbortSignal.timeout(6500)
+  });
+  const data = await response.json().catch(() => null);
+  if (!response.ok || !data || data.error || !data.recenttracks) {
+    const message = data && typeof data.message === "string" ? data.message.slice(0, 160) : "Last.fm returned an unexpected response";
+    throw new Error(message);
+  }
+  const raw = data.recenttracks.track;
+  const tracks = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  return tracks.filter(track => track && !(track["@attr"] && track["@attr"].nowplaying === "true"))
+    .filter(track => track.name && trackArtist(track))
+    .slice(0, 12)
+    .map(track => ({
+      name: track.name,
+      artist: trackArtist(track),
+      artwork: artwork(track.image),
+      url: typeof track.url === "string" ? track.url : "",
+      playedAt: track.date && track.date.uts ? Number(track.date.uts) : null
+    }));
+}
+
 module.exports = async function musicCharts(req, res) {
   const origin = req.headers.origin || "";
   res.setHeader("Vary", "Origin");
@@ -135,13 +163,15 @@ module.exports = async function musicCharts(req, res) {
   };
 
   try {
-    const [weekly, monthly] = await Promise.all([
+    const [weekly, monthly, recentTracks] = await Promise.all([
       fetchWindow(apiKey, user, windows.weekly.from, windows.weekly.to),
-      fetchWindow(apiKey, user, windows.monthly.from, windows.monthly.to)
+      fetchWindow(apiKey, user, windows.monthly.from, windows.monthly.to),
+      fetchRecentTracks(apiKey, user)
     ]);
 
     cached = {
       generatedAt: new Date().toISOString(),
+      recentTracks,
       periods: {
         weekly: { label: "Last 7 days", ...weekly },
         monthly: { label: "Last month", ...monthly }

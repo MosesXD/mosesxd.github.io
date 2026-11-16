@@ -57,3 +57,85 @@
   .music-charts-trigger { transition:none; }
   .music-charts-trigger:hover { transform:none; }
 }
+
+
+/* Keep the original Currently Playing row; the Last Played card expands in place. */
+.currently-music-card {
+  min-width:0;
+  display:block;
+  padding:0;
+  overflow:hidden;
+}
+.currently-music-card > summary {
+  list-style:none;
+  min-height:72px;
+}
+.currently-music-card > summary::-webkit-details-marker { display:none; }
+.currently-music-card .now-playing-open { transition:transform .2s ease; }
+.currently-music-card[open] .now-playing-open { transform:rotate(180deg); }
+.recent-listening-panel {
+  display:grid;
+  grid-template-rows:0fr;
+  gap:0;
+  opacity:0;
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .32s ease, opacity .2s ease, padding .32s ease;
+}
+.currently-music-card[open] .recent-listening-panel {
+  max-height:620px;
+  opacity:1;
+  padding:0 .15rem .15rem;
+  gap:.7rem;
+}
+.recent-listening-status { margin:.2rem 0; color:var(--muted); font-size:.8rem; }
+.recent-listening-list {
+  display:grid;
+  gap:.5rem;
+  max-height:280px;
+  overflow-y:auto;
+  margin:0;
+  padding:.1rem .15rem .2rem 0;
+  list-style:none;
+}
+.recent-listening-row {
+  display:grid;
+  grid-template-columns:24px 42px minmax(0,1fr) auto;
+  align-items:center;
+  gap:.7rem;
+  min-width:0;
+  padding:.55rem .65rem;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--glass-2);
+}
+.recent-listening-link { color:inherit; text-decoration:none; border-radius:14px; }
+.recent-listening-link:hover .recent-listening-row { border-color:var(--cyan); }
+.recent-listening-rank,.recent-listening-time { color:var(--muted); font-size:.75rem; font-variant-numeric:tabular-nums; }
+.recent-listening-art { width:42px; height:42px; border-radius:8px; object-fit:cover; background:var(--surface-2); }
+.recent-listening-art.is-empty { visibility:hidden; }
+.recent-listening-copy { display:grid; min-width:0; gap:.2rem; }
+.recent-listening-copy strong,.recent-listening-copy small { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.recent-listening-copy strong { font-size:.85rem; }
+.recent-listening-copy small { color:var(--muted); font-size:.76rem; }
+.spotify-profile-trigger {
+  justify-self:start;
+  border:0;
+  padding:.35rem 0;
+  background:transparent;
+  color:var(--muted);
+  font:inherit;
+  font-size:.82rem;
+  cursor:pointer;
+}
+.spotify-profile-trigger:hover { color:var(--cyan); }
+.currently-music-card .music-charts-trigger { width:100%; min-height:44px; }
+@media(max-width:540px) {
+  .currently-music-card .now-playing-card { padding:.85rem; }
+  .recent-listening-row { grid-template-columns:20px 38px minmax(0,1fr) auto; gap:.5rem; padding:.45rem; }
+  .recent-listening-art { width:38px; height:38px; }
+  .recent-listening-time { font-size:.68rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .recent-listening-panel,.currently-music-card .now-playing-open { transition:none; }
+}

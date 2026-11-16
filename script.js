@@ -28,8 +28,9 @@ const spotifyDialog = document.getElementById("spotifyConfirm");
 const spotifyOpenButton = document.getElementById("spotifyConfirmOpen");
 const spotifyProfile = "https://open.spotify.com/user/fj0z9hiarbcs5539xym3l35f5";
 
-if (nowPlayingCard && spotifyDialog && spotifyOpenButton) {
-  nowPlayingCard.addEventListener("click", () => spotifyDialog.showModal());
+const spotifyProfileButton = document.getElementById("spotifyProfileButton");
+if (spotifyProfileButton && spotifyDialog && spotifyOpenButton) {
+  spotifyProfileButton.addEventListener("click", () => spotifyDialog.showModal());
   spotifyOpenButton.addEventListener("click", event => {
     event.preventDefault();
     spotifyDialog.close();
