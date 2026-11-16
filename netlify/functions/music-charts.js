@@ -75,6 +75,28 @@ async function fetchWindow(apiKey, user, from, to) {
   };
 }
 
+async function fetchRecentTracks(apiKey, user) {
+  const params = new URLSearchParams({ method: "user.getrecenttracks", user, api_key: apiKey, format: "json", limit: "25" });
+  const result = await fetch("https://ws.audioscrobbler.com/2.0/?" + params.toString(), {
+    headers: { "User-Agent": "MosesHub/1.0" },
+    signal: AbortSignal.timeout(6500)
+  });
+  const data = await result.json().catch(() => null);
+  if (!result.ok || !data || data.error || !data.recenttracks) {
+    throw new Error(data && data.message ? String(data.message).slice(0, 160) : "Last.fm returned an unexpected response");
+  }
+  const raw = data.recenttracks.track;
+  const tracks = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  return tracks.filter(track => track && !(track["@attr"] && track["@attr"].nowplaying === "true"))
+    .filter(track => track.name && getArtist(track))
+    .slice(0, 12)
+    .map(track => ({
+      name: track.name, artist: getArtist(track), artwork: getArtwork(track.image),
+      url: typeof track.url === "string" ? track.url : "",
+      playedAt: track.date && track.date.uts ? Number(track.date.uts) : null
+    }));
+}
+
 exports.handler = async event => {
   if (event.httpMethod === "OPTIONS") {
     if (event.headers.origin && event.headers.origin !== ALLOWED_ORIGIN) return response(403, { error: "Origin not allowed" });
@@ -90,12 +112,14 @@ exports.handler = async event => {
   const monthAgo = new Date();
   monthAgo.setMonth(monthAgo.getMonth() - 1);
   try {
-    const [weekly, monthly] = await Promise.all([
+    const [weekly, monthly, recentTracks] = await Promise.all([
       fetchWindow(apiKey, user, now - 7 * 86400, now),
-      fetchWindow(apiKey, user, Math.floor(monthAgo.getTime() / 1000), now)
+      fetchWindow(apiKey, user, Math.floor(monthAgo.getTime() / 1000), now),
+      fetchRecentTracks(apiKey, user)
     ]);
     cached = {
       generatedAt: new Date().toISOString(),
+      recentTracks,
       periods: {
         weekly: { label: "Last 7 days", ...weekly },
         monthly: { label: "Last month", ...monthly }
