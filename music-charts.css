@@ -116,3 +116,21 @@
   .music-preview-actions a,.music-preview-actions button { width:100%; text-align:center; justify-content:center; }
 }
 @media(prefers-reduced-motion:reduce) { .recent-listening-chevron { transition:none; } }
+
+.music-preview-chart { display:grid; gap:.55rem; }
+.music-preview-chart .mal-preview-head { margin-bottom:.1rem; }
+.music-preview-chart .music-preview-list {
+  display:grid; grid-template-columns:minmax(0,1fr); gap:.5rem;
+  max-height:250px; overflow-y:auto; overscroll-behavior:contain;
+  scrollbar-gutter:stable; margin:.15rem 0 .3rem; padding:.15rem .3rem .15rem 0;
+}
+.music-preview-chart .music-chart-row { grid-template-columns:24px 42px minmax(0,1fr) auto; gap:.65rem; padding:.55rem .65rem; }
+.music-preview-chart .music-chart-art { width:42px; height:42px; }
+.music-preview-chart .music-chart-copy strong { font-size:.85rem; }
+.music-preview-chart .music-chart-copy small { font-size:.76rem; }
+.music-preview-chart .music-chart-plays { font-size:.72rem; }
+@media(max-width:540px) {
+  .music-preview-chart .music-chart-row { grid-template-columns:20px 38px minmax(0,1fr) auto; gap:.5rem; padding:.45rem; }
+  .music-preview-chart .music-chart-art { width:38px; height:38px; }
+  .music-preview-chart .music-chart-plays { grid-column:auto; margin:0; }
+}
