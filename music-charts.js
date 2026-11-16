@@ -3,15 +3,8 @@
   const card = document.getElementById("nowPlayingCard");
   if (!card) return;
 
-  const trigger = document.createElement("button");
-  trigger.type = "button";
-  trigger.className = "music-charts-trigger";
-  trigger.textContent = "♫ My music charts";
-  trigger.setAttribute("aria-haspopup", "dialog");
-  trigger.setAttribute("aria-controls", "musicChartsDialog");
-  const musicCard = document.querySelector(".music-preview");
-  if (!musicCard) return;
-  musicCard.appendChild(trigger);
+  const trigger = document.getElementById("musicChartsTrigger");
+  if (!trigger) return;
 
   const dialog = document.createElement("dialog");
   dialog.className = "music-charts-dialog";
