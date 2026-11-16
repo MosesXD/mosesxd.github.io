@@ -9,7 +9,7 @@
   trigger.textContent = "♫ My music charts";
   trigger.setAttribute("aria-haspopup", "dialog");
   trigger.setAttribute("aria-controls", "musicChartsDialog");
-  card.insertAdjacentElement("afterend", trigger);
+  card.appendChild(trigger);
 
   const dialog = document.createElement("dialog");
   dialog.className = "music-charts-dialog";
