@@ -7,7 +7,7 @@
   }[ch]));
   const labels = { watching:"Watching", completed:"Completed", on_hold:"On hold", dropped:"Dropped", plan_to_watch:"Plan to watch" };
 
-  fetch("https://mosesxdgithubio.vercel.app/api/mal/animelist?limit=12&sort=list_score", {
+  fetch("https://mosesxdgithubio.vercel.app/api/mal/animelist?limit=12&sort=list_score&status=watching", {
     headers: { Accept:"application/json" }
   })
     .then(response => response.ok ? response.json() : Promise.reject(new Error("MAL unavailable")))
@@ -24,7 +24,7 @@
           '<div class="mal-mini-copy"><strong>' + esc(anime.title || "Untitled") + '</strong>' +
           '<small>' + esc(score) + ' · ' + esc(status) + '</small></div></article>';
       }).join("");
-      target.setAttribute("aria-label", "Up to 12 highest-rated anime, sorted by score");
+      target.setAttribute("aria-label", "Up to 12 currently watching anime, sorted by personal score");
     })
     .catch(() => {
       target.innerHTML = '<p class="mal-muted">Anime activity is temporarily unavailable. Visit my <a href="https://myanimelist.net/profile/Mosess">MyAnimeList profile</a>.</p>';
