@@ -26,6 +26,18 @@ window.MH_ADS_SETTINGS = { home: "all", partners: "all", services: "one" };
 
 window.MH_ADS = [
   {
+    id: "nini-graphic-design",
+    slot: "partners",
+    label: "Featured",
+    title: "Nini — Graphic Design",
+    text: "Graphic design, logos, flyers, business branding, social media designs, and UI/UX. Explore Nini's work and get in touch on Instagram.",
+    url: "https://www.instagram.com/meaw2384/",
+    cta: "View Instagram",
+    image: "images/ads/meaw2384.jpg",
+    alt: "Graphic design work by Nini",
+    active: true
+  },
+  {
     id: "my-services",            // short name, used to count clicks in Umami
     slot: "home",                 // where it appears: home, partners or services
     label: "Services",            // Partner, Featured, Services or Ad
