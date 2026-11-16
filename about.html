@@ -60,18 +60,20 @@
         </article>
       </div>
       <section class="mal-preview" aria-labelledby="malPreviewTitle">
-        <div class="mal-preview-head"><div><p class="eyebrow">MY ANIME JOURNEY</p><h3 id="malPreviewTitle">My highest-rated anime.</h3><p class="mal-muted">The top 12 from my full list, ranked by score.</p></div><span class="mal-muted">MAL · Mosess</span></div>
+        <div class="mal-preview-head"><div><p class="eyebrow">MY ANIME JOURNEY</p><h3 id="malPreviewTitle">My highest-rated anime.</h3></div><span class="mal-muted">MAL · Mosess</span></div>
         <div class="mal-preview-list" id="malPreviewList"><p class="mal-muted">Loading highest-rated anime…</p></div>
         <div class="mal-actions"><a class="mal-link" href="anime.html">Explore my anime dashboard ↗</a><a class="mal-profile-link" href="https://myanimelist.net/profile/Mosess" target="_blank" rel="noopener noreferrer">MyAnimeList profile ↗</a></div>
       </section>
       <div class="currently about-currently">
         <div class="currently-game"><strong aria-hidden="true">🎮</strong><span><small>Currently playing</small> Roblox</span></div>
-        <button class="now-playing-card" id="nowPlayingCard" type="button" aria-haspopup="dialog" aria-controls="spotifyConfirm">
-          <img id="nowPlayingArtwork" class="now-playing-artwork" src="" alt="" hidden>
-          <strong aria-hidden="true">🎧</strong>
-          <span class="now-playing-copy"><small id="nowPlayingLabel">Loading recent track…</small><span id="nowPlaying">Loading…</span><small id="nowPlayingAlbum" class="now-playing-album"></small></span>
-          <span class="now-playing-open" aria-hidden="true">↗</span>
-        </button>
+        <div class="now-playing-card" id="nowPlayingCard" role="group" aria-label="Now playing and music charts">
+          <button class="now-playing-main" id="nowPlayingSpotify" type="button" aria-haspopup="dialog" aria-controls="spotifyConfirm">
+            <img id="nowPlayingArtwork" class="now-playing-artwork" src="" alt="" hidden>
+            <strong aria-hidden="true">🎧</strong>
+            <span class="now-playing-copy"><small id="nowPlayingLabel">Loading recent track…</small><span id="nowPlaying">Loading…</span><small id="nowPlayingAlbum" class="now-playing-album"></small></span>
+            <span class="now-playing-open" aria-hidden="true">↗</span>
+          </button>
+        </div>
       </div>
     </section>
 
