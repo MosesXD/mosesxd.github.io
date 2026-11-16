@@ -64,23 +64,26 @@
         <div class="mal-preview-list" id="malPreviewList"><p class="mal-muted">Loading highest-rated anime…</p></div>
         <div class="mal-actions"><a class="mal-link" href="anime.html">Explore my anime dashboard ↗</a><a class="mal-profile-link" href="https://myanimelist.net/profile/Mosess" target="_blank" rel="noopener noreferrer">MyAnimeList profile ↗</a></div>
       </section>
-      <div class="currently about-currently">
-        <div class="currently-game"><strong aria-hidden="true">🎮</strong><span><small>Currently playing</small> Roblox</span></div>
-        <div class="now-playing-card" id="nowPlayingCard" role="group" aria-label="Now playing and music charts">
-          <button class="now-playing-main" id="nowPlayingSpotify" type="button" aria-haspopup="dialog" aria-controls="spotifyConfirm">
-            <img id="nowPlayingArtwork" class="now-playing-artwork" src="" alt="" hidden>
-            <strong aria-hidden="true">🎧</strong>
-            <span class="now-playing-copy"><small id="nowPlayingLabel">Loading recent track…</small><span id="nowPlaying">Loading…</span><small id="nowPlayingAlbum" class="now-playing-album"></small></span>
-            <span class="now-playing-open" aria-hidden="true">↗</span>
-          </button>
+      <div class="currently-game about-currently-game"><strong aria-hidden="true">🎮</strong><span><small>Currently playing</small> Roblox</span></div>
+      <section class="mal-preview music-preview" aria-labelledby="musicPreviewTitle">
+        <div class="mal-preview-head">
+          <div><p class="eyebrow">MY MUSIC JOURNEY</p><h3 id="musicPreviewTitle">My listening.</h3></div>
+          <span class="mal-muted">Last.fm · Mosess</span>
         </div>
-      </div>
-      <section class="recent-listening" aria-labelledby="recentListeningTitle">
-        <details id="recentListening">
-          <summary><span><strong id="recentListeningTitle">Recent listening</strong><small>Up to 12 previous songs</small></span><span class="recent-listening-chevron" aria-hidden="true">⌄</span></summary>
-          <p class="recent-listening-status" id="recentListeningStatus" role="status" aria-live="polite">Open to load your latest listening history.</p>
+        <button class="now-playing-card music-last-played" id="nowPlayingCard" type="button" aria-haspopup="dialog" aria-controls="spotifyConfirm">
+          <img id="nowPlayingArtwork" class="now-playing-artwork" src="" alt="" hidden>
+          <strong aria-hidden="true">🎧</strong>
+          <span class="now-playing-copy"><small id="nowPlayingLabel">Loading recent track…</small><span id="nowPlaying">Loading…</span><small id="nowPlayingAlbum" class="now-playing-album"></small></span>
+          <span class="now-playing-open" aria-hidden="true">↗</span>
+        </button>
+        <details class="recent-listening" id="recentListening">
+          <summary><span><strong id="recentListeningTitle">Recent listening</strong><small>Show up to 12 previous songs</small></span><span class="recent-listening-chevron" aria-hidden="true">⌄</span></summary>
+          <p class="recent-listening-status" id="recentListeningStatus" role="status" aria-live="polite">Expand to load your listening history.</p>
           <ol class="recent-listening-list" id="recentListeningList"></ol>
         </details>
+        <div class="mal-actions music-preview-actions">
+          <a class="mal-profile-link" href="https://open.spotify.com/user/fj0z9hiarbcs5539xym3l35f5" target="_blank" rel="noopener noreferrer">Spotify profile ↗</a>
+        </div>
       </section>
     </section>
 
