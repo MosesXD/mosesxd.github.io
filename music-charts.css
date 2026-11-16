@@ -57,3 +57,11 @@
   .music-charts-trigger { transition:none; }
   .music-charts-trigger:hover { transform:none; }
 }
+
+/* The listening charts action lives inside the Now Playing card. */
+.now-playing-card { display:grid; gap:.45rem; padding:.65rem; }
+.now-playing-main { display:flex; align-items:center; gap:.7rem; min-width:0; width:100%; padding:.35rem; text-align:left; color:var(--text); font:inherit; border:0; border-radius:12px; background:transparent; cursor:pointer; }
+.now-playing-main:hover { background:var(--glass); }
+.now-playing-main:focus-visible,.music-charts-trigger:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
+.now-playing-card .music-charts-trigger { width:100%; min-height:34px; justify-content:flex-start; padding:.45rem .7rem; border-radius:11px; font-size:.82rem; background:var(--glass); }
+@media(max-width:760px) { .now-playing-card .music-charts-trigger { width:100%; } }
