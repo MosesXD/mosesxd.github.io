@@ -9,9 +9,9 @@
   trigger.textContent = "♫ My music charts";
   trigger.setAttribute("aria-haspopup", "dialog");
   trigger.setAttribute("aria-controls", "musicChartsDialog");
-  const actions = document.querySelector(".music-preview-actions");
-  if (!actions) return;
-  actions.appendChild(trigger);
+  const musicCard = document.querySelector(".music-preview");
+  if (!musicCard) return;
+  musicCard.appendChild(trigger);
 
   const dialog = document.createElement("dialog");
   dialog.className = "music-charts-dialog";
@@ -33,59 +33,6 @@
       <p class="music-charts-footnote">Based on your Last.fm listening history. Updated when opened, with a short cache.</p>
     </div>`;
   document.body.appendChild(dialog);
-
-  const previewStatus = document.getElementById("musicPreviewStatus");
-  const previewList = document.getElementById("musicPreviewList");
-
-  async function loadMusicPreview() {
-    if (!previewStatus || !previewList) return;
-    try {
-      const endpoint = window.location.hostname === "mosesxd.github.io"
-        ? "https://mosesxdgithubio.vercel.app/api/music-charts"
-        : window.location.hostname.endsWith(".netlify.app")
-          ? "/.netlify/functions/music-charts"
-          : "/api/music-charts";
-      const response = await fetch(endpoint, { headers: { Accept: "application/json" }, cache: "no-store" });
-      const result = await response.json().catch(() => null);
-      const tracks = result && result.periods && result.periods.weekly && result.periods.weekly.tracks;
-      if (!response.ok || !Array.isArray(tracks)) throw new Error(result && result.error ? result.error : "Your music charts are temporarily unavailable.");
-      previewList.replaceChildren();
-      if (!tracks.length) {
-        previewStatus.textContent = "No tracks were found for this week's chart yet.";
-        return;
-      }
-      tracks.slice(0, 10).forEach((track, index) => {
-        const item = document.createElement("li");
-        item.className = "music-chart-row";
-        const rank = document.createElement("span");
-        rank.className = "music-chart-rank";
-        rank.textContent = String(index + 1).padStart(2, "0");
-        const cover = document.createElement("img");
-        cover.className = "music-chart-art";
-        cover.alt = "";
-        cover.loading = "lazy";
-        if (track.artwork) cover.src = track.artwork;
-        else cover.classList.add("is-empty");
-        cover.addEventListener("error", () => { cover.removeAttribute("src"); cover.classList.add("is-empty"); });
-        const copy = document.createElement("span");
-        copy.className = "music-chart-copy";
-        const title = document.createElement("strong");
-        title.textContent = track.name || "Unknown track";
-        const artist = document.createElement("small");
-        artist.textContent = track.artist || "Unknown artist";
-        copy.append(title, artist);
-        const plays = document.createElement("span");
-        plays.className = "music-chart-plays";
-        plays.textContent = track.plays + (track.plays === 1 ? " play" : " plays");
-        item.append(rank, cover, copy, plays);
-        previewList.appendChild(item);
-      });
-      previewStatus.textContent = "Your most-played tracks from the last 7 days.";
-    } catch (error) {
-      previewStatus.textContent = error.message || "Could not load your music chart.";
-    }
-  }
-  loadMusicPreview();
 
   const recentDetails = document.getElementById("recentListening");
   const recentStatus = document.getElementById("recentListeningStatus");
