@@ -23,13 +23,13 @@ const nowPlayingEl = document.getElementById("nowPlaying");
 const nowPlayingLabel = document.getElementById("nowPlayingLabel");
 const nowPlayingAlbum = document.getElementById("nowPlayingAlbum");
 const nowPlayingArtwork = document.getElementById("nowPlayingArtwork");
-const nowPlayingCard = document.getElementById("nowPlayingCard");
+const nowPlayingSpotify = document.getElementById("nowPlayingSpotify");
 const spotifyDialog = document.getElementById("spotifyConfirm");
 const spotifyOpenButton = document.getElementById("spotifyConfirmOpen");
 const spotifyProfile = "https://open.spotify.com/user/fj0z9hiarbcs5539xym3l35f5";
 
-if (nowPlayingCard && spotifyDialog && spotifyOpenButton) {
-  nowPlayingCard.addEventListener("click", () => spotifyDialog.showModal());
+if (nowPlayingSpotify && spotifyDialog && spotifyOpenButton) {
+  nowPlayingSpotify.addEventListener("click", () => spotifyDialog.showModal());
   spotifyOpenButton.addEventListener("click", event => {
     event.preventDefault();
     spotifyDialog.close();
