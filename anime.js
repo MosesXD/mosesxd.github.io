@@ -5,7 +5,7 @@
   const listEl = document.getElementById("malList");
   if (!listEl) return;
 
-  const state = { status: "", sort: "list_updated_at", search: "", offset: 0, items: [], hasNext: false, loading: false };
+  const state = { status: "watching", sort: "list_score", search: "", offset: 0, items: [], hasNext: false, loading: false };
   const $ = id => document.getElementById(id);
   const esc = value => String(value == null ? "" : value).replace(/[&<>"']/g, ch => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[ch]));
   const statusNames = { watching:"Watching", completed:"Completed", on_hold:"On Hold", dropped:"Dropped", plan_to_watch:"Plan to Watch" };
@@ -77,7 +77,7 @@
       state.hasNext = Boolean(payload.paging && payload.paging.hasNext);
       updateStats();
       render();
-      $("malStatus").textContent = state.items.length ? "Showing " + state.items.length + " anime entries." : "No public anime entries were returned.";
+      $("malStatus").textContent = state.items.length ? "Showing " + state.items.length + " anime entries, sorted by your score." : "No public anime entries were returned.";
       $("malLoadMore").hidden = !state.hasNext;
     } catch (error) {
       $("malStatus").textContent = error.message + " Check that the Vercel MAL_CLIENT_ID environment variable is set and the profile list is public.";
@@ -86,12 +86,12 @@
     }
   }
 
-  document.querySelectorAll("[data-status]").forEach(button => button.addEventListener("click", () => {
+  document.querySelectorAll("[data-status]").forEach(button => {\n    button.setAttribute("aria-pressed", button.dataset.status === state.status ? "true" : "false");\n    button.addEventListener("click", () => {
     state.status = button.dataset.status;
     document.querySelectorAll("[data-status]").forEach(tab => tab.setAttribute("aria-pressed", tab === button ? "true" : "false"));
     load(true);
   }));
-  $("malSort").addEventListener("change", event => { state.sort = event.target.value; load(true); });
+  $("malSort").value = state.sort;\n  $("malSort").addEventListener("change", event => { state.sort = event.target.value; load(true); });
   $("malSearch").addEventListener("input", event => { state.search = event.target.value; render(); });
   $("malLoadMore").addEventListener("click", () => load(false));
   load(true);
