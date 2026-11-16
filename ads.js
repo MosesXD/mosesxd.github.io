@@ -30,7 +30,7 @@ window.MH_ADS = [
     slot: "partners",
     label: "Featured",
     title: "Nini — Graphic Design",
-    text: "Discover Nini's graphic design work and get in touch through Instagram.",
+    text: "Graphic design, logos, flyers, business branding, social media designs, and UI/UX. Explore Nini's work and get in touch on Instagram.",
     url: "https://www.instagram.com/meaw2384/",
     cta: "View Instagram",
     image: "images/ads/meaw2384.jpg", // Add the supplied feature image at this path.
