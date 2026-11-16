@@ -59,7 +59,8 @@
       }
       result.recentTracks.forEach((track, index) => {
         const item = document.createElement("li");
-        item.className = "recent-listening-row";
+        const row = document.createElement("div");
+        row.className = "recent-listening-row";
         const rank = document.createElement("span");
         rank.className = "recent-listening-rank";
         rank.textContent = String(index + 1).padStart(2, "0");
@@ -86,7 +87,7 @@
         } else {
           time.textContent = "";
         }
-        item.append(rank, cover, copy, time);
+        row.append(rank, cover, copy, time);
         if (track.url) {
           const link = document.createElement("a");
           link.className = "recent-listening-link";
@@ -94,13 +95,14 @@
           link.target = "_blank";
           link.rel = "noopener noreferrer";
           link.setAttribute("aria-label", "Open " + (track.name || "track") + " on Last.fm");
-          link.appendChild(item);
-          recentList.appendChild(link);
+          link.appendChild(row);
+          item.appendChild(link);
         } else {
-          recentList.appendChild(item);
+          item.appendChild(row);
         }
+        recentList.appendChild(item);
       });
-      recentStatus.textContent = "Your 12 most recently played songs."; 
+      recentStatus.textContent = "Showing the latest " + result.recentTracks.length + " songs."; 
       recentLoaded = true;
     } catch (error) {
       recentStatus.textContent = error.message || "Could not load your listening history. Try opening it again later.";
