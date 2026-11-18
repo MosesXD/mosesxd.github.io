@@ -25,14 +25,18 @@ module.exports = async function malAnimelist(req, res) {
   res.setHeader("Vary", "Origin");
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "public, max-age=0, s-maxage=300, stale-while-revalidate=60");
-  if (ALLOWED_ORIGINS.has(origin)) {
+  // Allow only this site's Vercel preview hosts as well as its known public domains.
+  // Preview builds call the production MAL proxy, so their origin must be explicitly allowed.
+  const isSitePreviewOrigin = /^https:\/\/mosesxdgithubio(?:-[a-z0-9-]+)*\.vercel\.app$/.test(origin);
+  const originAllowed = ALLOWED_ORIGINS.has(origin) || isSitePreviewOrigin;
+  if (originAllowed) {
     res.setHeader("Access-Control-Allow-Origin", origin);
     res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Accept");
     res.setHeader("Access-Control-Max-Age", "86400");
   }
   if (req.method === "OPTIONS") {
-    if (!ALLOWED_ORIGINS.has(origin)) return res.status(403).end();
+    if (!originAllowed) return res.status(403).end();
     return res.status(204).end();
   }
   if (req.method !== "GET") {
