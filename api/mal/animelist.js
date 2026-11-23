@@ -45,7 +45,7 @@ module.exports = async function malAnimelist(req, res) {
   const allowedStatuses = new Set(["watching", "completed", "on_hold", "dropped", "plan_to_watch"]);
   const allowedSorts = new Set(["list_updated_at", "list_score", "anime_title", "anime_start_date"]);
   const status = String(req.query.status || "");
-  const sort = String(req.query.sort || "list_updated_at");
+  const sort = String(req.query.sort || "list_score");
   const limit = Math.min(100, Math.max(1, Number.parseInt(req.query.limit, 10) || 50));
   const offset = Math.min(10000, Math.max(0, Number.parseInt(req.query.offset, 10) || 0));
 
