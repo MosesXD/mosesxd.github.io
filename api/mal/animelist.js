@@ -25,14 +25,17 @@ module.exports = async function malAnimelist(req, res) {
   res.setHeader("Vary", "Origin");
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "public, max-age=0, s-maxage=300, stale-while-revalidate=60");
-  if (ALLOWED_ORIGINS.has(origin)) {
+  // Permit only the exact preview deployment that consumes this production proxy.
+  const isAboutAnimePreviewOrigin = origin === "https://mosesxdgithubio-git-feature-about-watching-anime-6322a2-mosesxd.vercel.app";
+  const originAllowed = ALLOWED_ORIGINS.has(origin) || isAboutAnimePreviewOrigin;
+  if (originAllowed) {
     res.setHeader("Access-Control-Allow-Origin", origin);
     res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Accept");
     res.setHeader("Access-Control-Max-Age", "86400");
   }
   if (req.method === "OPTIONS") {
-    if (!ALLOWED_ORIGINS.has(origin)) return res.status(403).end();
+    if (!originAllowed) return res.status(403).end();
     return res.status(204).end();
   }
   if (req.method !== "GET") {
