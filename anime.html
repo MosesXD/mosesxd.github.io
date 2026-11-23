@@ -45,8 +45,8 @@
     </section>
     <div class="mal-toolbar">
       <div class="mal-tabs" role="group" aria-label="Filter anime list">
-        <button type="button" data-status="" aria-pressed="true">All</button>
-        <button type="button" data-status="watching" aria-pressed="false">Watching</button>
+        <button type="button" data-status="" aria-pressed="false">All</button>
+        <button type="button" data-status="watching" aria-pressed="true">Watching</button>
         <button type="button" data-status="completed" aria-pressed="false">Completed</button>
         <button type="button" data-status="on_hold" aria-pressed="false">On Hold</button>
         <button type="button" data-status="dropped" aria-pressed="false">Dropped</button>
@@ -55,7 +55,7 @@
       <input class="mal-search" id="malSearch" type="search" placeholder="Search your anime…" aria-label="Search anime">
       <select class="mal-select" id="malSort" aria-label="Sort anime">
         <option value="list_updated_at">Recently updated</option>
-        <option value="list_score">Highest score</option>
+        <option value="list_score" selected>Highest score</option>
         <option value="anime_title">Title</option>
         <option value="anime_start_date">Release date</option>
       </select>
