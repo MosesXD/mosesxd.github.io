@@ -5,6 +5,7 @@ Version numbers follow Semantic Versioning: MAJOR for major redesigns or breakin
 Release entries are added after changes are merged and published. Work that is not ready or still needs verification stays under Unreleased.
 
 ## Unreleased
+- Improved MyAnimeList dashboard request handling, pagination recovery, search feedback, and loaded-entry genre breakdown.
 - Updated the About-page anime preview to show up to 12 currently watching titles, ranked by personal MyAnimeList score.
 - Improved shared keyboard navigation, skip-to-content access, focus visibility, and mobile theme-panel usability.
 - Complete remaining accessibility improvements and repeat keyboard, phone, and desktop testing.
