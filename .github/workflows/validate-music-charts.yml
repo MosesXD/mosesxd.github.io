@@ -1,4 +1,4 @@
-name: Validate Last.fm charts
+name: Validate media dashboard features
 
 on:
   pull_request:
@@ -8,6 +8,11 @@ on:
       - "netlify/functions/music-charts.js"
       - "music-charts.js"
       - "music-charts.css"
+      - "anime.html"
+      - "anime.js"
+      - "anime.css"
+      - "anime-preview.js"
+      - "api/mal/animelist.js"
       - ".github/workflows/validate-music-charts.yml"
   push:
     branches:
@@ -36,6 +41,16 @@ jobs:
           node --check netlify/functions/music-charts.js
       - name: Check browser script syntax
         run: node --check music-charts.js
+      - name: Check MAL dashboard script syntax
+        run: |
+          node --check anime.js
+          node --check anime-preview.js
+          node --check api/mal/animelist.js
+      - name: Check MAL dashboard wiring and preview allowlist
+        run: |
+          grep -q 'anime.js' anime.html
+          grep -q 'malGenreBreakdown' anime.html
+          grep -q 'isMalDashboardPreviewOrigin' api/mal/animelist.js
       - name: Check feature files are connected
         run: |
           grep -q 'music-charts.css' about.html
