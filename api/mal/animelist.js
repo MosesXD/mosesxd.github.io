@@ -27,7 +27,8 @@ module.exports = async function malAnimelist(req, res) {
   res.setHeader("Cache-Control", "public, max-age=0, s-maxage=300, stale-while-revalidate=60");
   // Permit only the exact preview deployment that consumes this production proxy.
   const isAboutAnimePreviewOrigin = origin === "https://mosesxdgithubio-git-feature-about-watching-anime-6322a2-mosesxd.vercel.app";
-  const originAllowed = ALLOWED_ORIGINS.has(origin) || isAboutAnimePreviewOrigin;
+  const isMalDashboardPreviewOrigin = origin === "https://mosesxdgithubio-git-fix-mal-dashboard-reliability-mosesxd.vercel.app";
+  const originAllowed = ALLOWED_ORIGINS.has(origin) || isAboutAnimePreviewOrigin || isMalDashboardPreviewOrigin;
   if (originAllowed) {
     res.setHeader("Access-Control-Allow-Origin", origin);
     res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
