@@ -1,4 +1,4 @@
-name: Validate Last.fm charts
+name: Validate media dashboard features
 
 on:
   pull_request:
@@ -8,6 +8,12 @@ on:
       - "netlify/functions/music-charts.js"
       - "music-charts.js"
       - "music-charts.css"
+      - "anime.html"
+      - "anime.js"
+      - "anime.css"
+      - "anime-preview.js"
+      - "api/mal/**"
+      - "tests/mal-origin-policy.test.mjs"
       - ".github/workflows/validate-music-charts.yml"
   push:
     branches:
@@ -18,6 +24,12 @@ on:
       - "netlify/functions/music-charts.js"
       - "music-charts.js"
       - "music-charts.css"
+      - "anime.html"
+      - "anime.js"
+      - "anime.css"
+      - "anime-preview.js"
+      - "api/mal/**"
+      - "tests/mal-origin-policy.test.mjs"
 
 permissions:
   contents: read
@@ -34,11 +46,22 @@ jobs:
         run: |
           node --check api/music-charts.js
           node --check netlify/functions/music-charts.js
+          node --check api/mal/animelist.js
+          node --check api/mal/origin-policy.js
       - name: Check browser script syntax
-        run: node --check music-charts.js
+        run: |
+          node --check music-charts.js
+          node --check anime.js
+          node --check anime-preview.js
+      - name: Test MAL API origin policy
+        run: node --test tests/mal-origin-policy.test.mjs
       - name: Check feature files are connected
         run: |
           grep -q 'music-charts.css' about.html
           grep -q 'music-charts.js' about.html
+          grep -q 'anime.js' anime.html
+          grep -q 'malGenreBreakdown' anime.html
           test -s api/music-charts.js
           test -s netlify/functions/music-charts.js
+          test -s api/mal/origin-policy.js
+          test -s tests/mal-origin-policy.test.mjs
