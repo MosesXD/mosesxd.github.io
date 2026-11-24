@@ -14,13 +14,10 @@
   <meta name="twitter:card" content="summary">
   <title>Updates · Moses' Hub</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Site icon (shows in the browser tab): keep in every page's <head> -->
   <link rel="icon" href="file_00000000a7ec81f5b90d551fe2397252.png">
-  <!-- Visitor analytics (Umami): keep this in the <head> of every page -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="00a338b9-1a16-401f-b276-070eda343e04"></script>
 </head>
 <body>
-  <!-- HEADER: copy this into every page. Keep the ids menuToggle and navLinks! -->
   <header class="nav">
     <a class="logo" href="index.html">MOSES<span>°</span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
@@ -34,7 +31,6 @@
       <a href="links.html">Links</a>
     </nav>
   </header>
-
   <main>
     <section class="section">
       <p class="eyebrow">UPDATES</p>
@@ -47,10 +43,22 @@
         <div><strong>🎮</strong><span><small>Up next</small> A first game</span></div>
       </div>
     </section>
-
-    <!-- LOG: newest first. To add an update, copy one whole <article>, paste it at the TOP, then change the words. -->
     <section class="section section-tight">
       <div class="log">
+        <article class="card log-entry">
+          <span class="tag">Development · 24 November 2026</span>
+          <h3>Portfolio-wide engineering and quality improvements</h3>
+          <p>Development is continuing across the wider project portfolio, with more attention on testing, reliable previews, maintainable code, and honest project documentation.</p>
+          <ul>
+            <li>Daymark Toolkit: merged estimator regression tests and automated validation, plus clearer developer setup and testing guidance.</li>
+            <li>QueueLess TT: consolidated the changelog so upcoming work is easier to follow.</li>
+            <li>IslandLedger: automated CSV export validation is passing; the real downloaded-file and browser acceptance checks remain outstanding.</li>
+            <li>TradeLink and the MyAnimeList dashboard: latest automated checks and deployment status are green, while preview/browser acceptance is still being verified.</li>
+            <li>EventPulse: added past-date validation and clearer feedback when browser storage is unavailable; manual acceptance remains outstanding.</li>
+            <li>Swarm Studio remains a lower-priority experiment while its failing cross-browser checks are investigated.</li>
+          </ul>
+          <p>These are development milestones, not a claim that every project is production-ready. Prototypes and local-browser demos remain labelled as such until their integrations, security, and user journeys are properly validated.</p>
+        </article>
         <article class="card log-entry">
           <span class="tag">v2.8.0</span>
           <h3>A clearer portfolio and project roadmap</h3>
@@ -72,8 +80,6 @@
             <li>Redesigned the Services “How it works” section using the existing game-tile style</li>
           </ul>
         </article>
-
-
         <article class="card log-entry">
           <span class="tag">v2.6.0</span>
           <h3>Gaming, Now Playing, and a little polish</h3>
@@ -86,151 +92,28 @@
             <li>Added game descriptions and clarified the currently playing label</li>
           </ul>
         </article>
-
-        <article class="card log-entry">
-          <span class="tag">v2.5.4</span>
-          <h3>Documentation tidy-up</h3>
-          <ul>
-            <li>Corrected the historical v2.5.2 update entry</li>
-            <li>Updated the README roadmap and release information</li>
-            <li>Clarified versioning and what is still in progress</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.5.3</span>
-          <h3>Ads, links, and fixes</h3>
-          <ul>
-            <li>Added a labelled ad on Home</li>
-            <li>Linked the Island Ledger concept from the Projects page</li>
-            <li>Turned on the email contact on the Services page</li>
-            <li>Added a sitemap and a license</li>
-            <li>Restored the page fade and fixed share previews</li>
-            <li>Made the tab icon smaller so pages load faster</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.5.2</span>
-          <h3>Project page and content polish</h3>
-          <ul>
-            <li>Updated the Projects page with four project cards and honest status labels</li>
-            <li>Added a Contact link on the Links page</li>
-            <li>Fixed the Lab page so Color themes shows as done</li>
-            <li>Added share previews to the Services page</li>
-            <li>Replaced the README with an up-to-date version</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.5.1</span>
-          <h3>Fixes and polish</h3>
-          <ul>
-            <li>Finished the Services and Partners footer links on every page</li>
-            <li>Fixed a broken tag in the footer</li>
-            <li>Pointed share previews and the 404 page at the short address</li>
-            <li>Brought back the smooth page fade</li>
-            <li>Added a hero spotlight and card tilt for mouse users</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.5.0</span>
-          <h3>Partners and Services</h3>
-          <ul>
-            <li>Added a Partners page with a switchable ad system</li>
-            <li>Added a Services page with TTD and USD prices</li>
-            <li>Added a Featured spot on Home</li>
-            <li>Added Services and Partners to the footer links</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.4.0</span>
-          <h3>Motion and themes</h3>
-          <ul>
-            <li>Added scroll reveals, hover effects, and a header shadow</li>
-            <li>Added Dark, Light, Pink, and Auto themes, an accent color picker, and four backgrounds</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.3.0</span>
-          <h3>404 page and share previews</h3>
-          <ul>
-            <li>Added a custom 404 page for broken links</li>
-            <li>Added share previews for links posted on Discord and Instagram</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.2.0</span>
-          <h3>More pages</h3>
-          <ul>
-            <li>Added Games, Updates, Lab, Gallery, and Support pages</li>
-            <li>Reorganized the menu</li>
-            <li>Added a stats dashboard layout (not linked yet)</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.1.2</span>
-          <h3>Analytics and site icon</h3>
-          <ul>
-            <li>Added visitor analytics</li>
-            <li>Added a site icon for the browser tab</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.1.1</span>
-          <h3>Page fade</h3>
-          <ul>
-            <li>Added a smooth fade between pages</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.1.0</span>
-          <h3>Trading preview</h3>
-          <ul>
-            <li>Added a Trading page as a Coming soon preview</li>
-            <li>No forms, payment links, or logins on that page</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v2.0.0</span>
-          <h3>Multi-page hub</h3>
-          <ul>
-            <li>Split the one-page site into pages</li>
-            <li>Home now introduces the hub; About holds the owner info</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v1.0.1</span>
-          <h3>Links and fixes</h3>
-          <ul>
-            <li>Added real Discord, GitHub, and Instagram links</li>
-            <li>Fixed the sticky header and gradient text</li>
-            <li>Added the PayPal Support card</li>
-            <li>Put the site live on GitHub Pages</li>
-          </ul>
-        </article>
-        <article class="card log-entry">
-          <span class="tag">v1.0.0</span>
-          <h3>First version</h3>
-          <ul>
-            <li>One-page site with Home, About, Projects, Gaming, Gallery, and Links</li>
-          </ul>
-        </article>
+        <article class="card log-entry"><span class="tag">v2.5.4</span><h3>Documentation tidy-up</h3><ul><li>Corrected the historical v2.5.2 update entry</li><li>Updated the README roadmap and release information</li><li>Clarified versioning and what is still in progress</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.5.3</span><h3>Ads, links, and fixes</h3><ul><li>Added a labelled ad on Home</li><li>Linked the Island Ledger concept from the Projects page</li><li>Turned on the email contact on the Services page</li><li>Added a sitemap and a license</li><li>Restored the page fade and fixed share previews</li><li>Made the tab icon smaller so pages load faster</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.5.2</span><h3>Project page and content polish</h3><ul><li>Updated the Projects page with four project cards and honest status labels</li><li>Added a Contact link on the Links page</li><li>Fixed the Lab page so Color themes shows as done</li><li>Added share previews to the Services page</li><li>Replaced the README with an up-to-date version</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.5.1</span><h3>Fixes and polish</h3><ul><li>Finished the Services and Partners footer links on every page</li><li>Fixed a broken tag in the footer</li><li>Pointed share previews and the 404 page at the short address</li><li>Brought back the smooth page fade</li><li>Added a hero spotlight and card tilt for mouse users</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.5.0</span><h3>Partners and Services</h3><ul><li>Added a Partners page with a switchable ad system</li><li>Added a Services page with TTD and USD prices</li><li>Added a Featured spot on Home</li><li>Added Services and Partners to the footer links</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.4.0</span><h3>Motion and themes</h3><ul><li>Added scroll reveals, hover effects, and a header shadow</li><li>Added Dark, Light, Pink, and Auto themes, an accent color picker, and four backgrounds</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.3.0</span><h3>404 page and share previews</h3><ul><li>Added a custom 404 page for broken links</li><li>Added share previews for links posted on Discord and Instagram</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.2.0</span><h3>More pages</h3><ul><li>Added Games, Updates, Lab, Gallery, and Support pages</li><li>Reorganized the menu</li><li>Added a stats dashboard layout (not linked yet)</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.1.2</span><h3>Analytics and site icon</h3><ul><li>Added visitor analytics</li><li>Added a site icon for the browser tab</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.1.1</span><h3>Page fade</h3><ul><li>Added a smooth fade between pages</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.1.0</span><h3>Trading preview</h3><ul><li>Added a Trading page as a Coming soon preview</li><li>No forms, payment links, or logins on that page</li></ul></article>
+        <article class="card log-entry"><span class="tag">v2.0.0</span><h3>Multi-page hub</h3><ul><li>Split the one-page site into pages</li><li>Home now introduces the hub; About holds the owner info</li></ul></article>
+        <article class="card log-entry"><span class="tag">v1.0.1</span><h3>Links and fixes</h3><ul><li>Added real Discord, GitHub, and Instagram links</li><li>Fixed the sticky header and gradient text</li><li>Added the PayPal Support card</li><li>Put the site live on GitHub Pages</li></ul></article>
+        <article class="card log-entry"><span class="tag">v1.0.0</span><h3>First version</h3><ul><li>One-page site with Home, About, Projects, Gaming, Gallery, and Links</li></ul></article>
       </div>
     </section>
   </main>
-
-  <!-- FOOTER: copy this into every page. Keep the id year! -->
   <footer>
     <p>Built by Moses · <span id="year"></span></p>
-    <div class="footer-links">
-      <a href="services.html">Services</a>
-      <a href="partners.html">Partners</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="support.html">Support</a>
-      <a href="trading.html">Trading</a>
-      <a href="roadmap.html">Roadmap</a>
-    </div>
+    <div class="footer-links"><a href="services.html">Services</a><a href="partners.html">Partners</a><a href="gallery.html">Gallery</a><a href="support.html">Support</a><a href="trading.html">Trading</a><a href="roadmap.html">Roadmap</a></div>
     <p>Always building. · More pages.</p>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
