@@ -1,9 +1,6 @@
 // Public MyAnimeList v2 list proxy for Moses' Hub.
 // Set MAL_CLIENT_ID in the Vercel project environment; never commit credentials.
-const ALLOWED_ORIGINS = new Set([
-  "https://mosesxd.github.io",
-  "https://mosesxdgithubio.vercel.app"
-]);
+const { isAllowedOrigin } = require("./origin-policy");
 const CACHE_TTL = 5 * 60 * 1000;
 const cache = new Map();
 const FIELDS = [
@@ -25,9 +22,7 @@ module.exports = async function malAnimelist(req, res) {
   res.setHeader("Vary", "Origin");
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "public, max-age=0, s-maxage=300, stale-while-revalidate=60");
-  // Permit only the exact preview deployment that consumes this production proxy.
-  const isAboutAnimePreviewOrigin = origin === "https://mosesxdgithubio-git-feature-about-watching-anime-6322a2-mosesxd.vercel.app";
-  const originAllowed = ALLOWED_ORIGINS.has(origin) || isAboutAnimePreviewOrigin;
+  const originAllowed = isAllowedOrigin(origin);
   if (originAllowed) {
     res.setHeader("Access-Control-Allow-Origin", origin);
     res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
@@ -50,7 +45,7 @@ module.exports = async function malAnimelist(req, res) {
   const allowedStatuses = new Set(["watching", "completed", "on_hold", "dropped", "plan_to_watch"]);
   const allowedSorts = new Set(["list_updated_at", "list_score", "anime_title", "anime_start_date"]);
   const status = String(req.query.status || "");
-  const sort = String(req.query.sort || "list_updated_at");
+  const sort = String(req.query.sort || "list_score");
   const limit = Math.min(100, Math.max(1, Number.parseInt(req.query.limit, 10) || 50));
   const offset = Math.min(10000, Math.max(0, Number.parseInt(req.query.offset, 10) || 0));
 
