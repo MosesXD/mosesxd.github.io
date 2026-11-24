@@ -5,6 +5,7 @@ Version numbers follow Semantic Versioning: MAJOR for major redesigns or breakin
 Release entries are added after changes are merged and published. Work that is not ready or still needs verification stays under Unreleased.
 
 ## Unreleased
+- Refreshed the public roadmap to reflect current project stages, open engineering gates, visual-design sequencing, and portfolio simplification reviews.
 - Continued coordinated development across the 20-project portfolio, with explicit functional, testing, accessibility, preview, and documentation completion gates.
 - Added automated estimator regression coverage and developer setup guidance to Daymark Toolkit (merged PRs #12 and #13).
 - Consolidated QueueLess TT's changelog headings (merged PR #4).
