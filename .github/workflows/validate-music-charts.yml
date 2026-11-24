@@ -29,7 +29,7 @@ on:
       - "anime.css"
       - "anime-preview.js"
       - "api/mal/**"
-      - "tests/mal-origin-policy.test.mjs"
+      - "tests/mal-*.test.mjs"
 
 permissions:
   contents: read
@@ -67,3 +67,4 @@ jobs:
           test -s netlify/functions/music-charts.js
           test -s api/mal/origin-policy.js
           test -s tests/mal-origin-policy.test.mjs
+          test -s tests/mal-client-url.test.mjs
