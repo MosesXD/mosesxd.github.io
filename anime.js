@@ -1,7 +1,7 @@
 /* MyAnimeList public list UI. Data is requested from the Vercel server function. */
 (function () {
   "use strict";
-  const API = "/api/mal/animelist";
+  const API = window.getMalApiUrl(window.location.hostname);
   const listEl = document.getElementById("malList");
   if (!listEl) return;
 
