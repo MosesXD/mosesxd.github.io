@@ -5,8 +5,12 @@ Version numbers follow Semantic Versioning: MAJOR for major redesigns or breakin
 Release entries are added after changes are merged and published. Work that is not ready or still needs verification stays under Unreleased.
 
 ## Unreleased
-- Updated the About-page anime preview to show up to 12 currently watching titles, ranked by personal MyAnimeList score.
-- Improved shared keyboard navigation, skip-to-content access, focus visibility, and mobile theme-panel usability.
+- Continued coordinated development across the 20-project portfolio, with explicit functional, testing, accessibility, preview, and documentation completion gates.
+- Added automated estimator regression coverage and developer setup guidance to Daymark Toolkit (merged PRs #12 and #13).
+- Consolidated QueueLess TT's changelog headings (merged PR #4).
+- Reconciled the Master Project Execution Hub with current merge records, outstanding dependencies, and project-wide documentation standards.
+- Continue validating the Moses' Hub MAL dashboard, TradeLink preview foundation, IslandLedger CSV export, and EventPulse date/storage feedback before treating them as release-ready.
+- Keep Swarm Studio lower priority; resolve its failing cross-browser validation before merging its stacked PRs.
 - Complete remaining accessibility improvements and repeat keyboard, phone, and desktop testing.
 - Verify Last.fm provider settings and a successful live Now Playing response.
 - Decide whether and when to capture real project screenshots or record a demo video.
@@ -47,7 +51,7 @@ Release entries are added after changes are merged and published. Work that is n
 - Replaced the README.
 
 ## v2.5.1
-- Finished Services and Partners footer links and fixed a broken footer tag.
+- Finished the Services and Partners footer links and fixed a broken footer tag.
 - Restored the page fade and added a hero spotlight and card tilt.
 
 ## v2.5.0
