@@ -89,7 +89,7 @@
       const image = anime.main_picture && (anime.main_picture.large || anime.main_picture.medium) || "";
       const watched = number(entry.num_episodes_watched);
       const total = number(anime.num_episodes);
-      const progress = total > 0 ? Math.min(100, watched / total * 100) : 0;
+      const progress = total > 0 ? Math.max(0, Math.min(100, watched / total * 100)) : 0;
       const genre = (Array.isArray(anime.genres) ? anime.genres : [])
         .slice(0, 3).map(g => g && g.name).filter(Boolean).join(" · ");
       const episodeText = total ? watched + " / " + total + " episodes" : watched + " episodes watched";
